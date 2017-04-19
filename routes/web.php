@@ -11,6 +11,12 @@
 |
 */
 
+Route::get('/material/create','MaterialController@index');
+Route::POST('/material/create','MaterialController@create');
+Route::get('/material/change','MaterialController@indexChange');
+Route::get('/material/change/{id}','MaterialController@showChange');
+Route::POST('/material/change','MaterialController@change');
+
 Route::get('/', function () {
     return view('default.layout');
 });

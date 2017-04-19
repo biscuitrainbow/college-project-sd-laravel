@@ -2,7 +2,8 @@
 
 @section('title',"Create Customer")
 @section('content')
-    <form action="">
+    <form method="POST">
+
         <div class="row">
             <div class="input-field col s4">
                 <input id="product_id" type="text" class="validate">
@@ -36,7 +37,8 @@
 
         <!-- Submit Button -->
         <div class="row">
-            <div class="col s12" style="text-align: right;"><a class="waves-effect waves-light btn">Create Customer</a>
+            <div class="col s12" style="text-align: right;">
+                <button class="waves-effect waves-light btn" type="submit">Create Customer</button>
             </div>
         </div>
     </form>
