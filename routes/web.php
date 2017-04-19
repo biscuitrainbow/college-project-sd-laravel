@@ -26,3 +26,7 @@ Route::get('/customer/display-result', function () {
     return view('customer.customer-display-result');
 });
 
+
+Route::get('/chart', function () {
+    return view('material.material-display-result');
+});
