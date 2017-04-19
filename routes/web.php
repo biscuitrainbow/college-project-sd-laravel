@@ -10,6 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/customer/create','CustomerController@index');
+Route::post('/customer/create','CustomerController@create');
+
+Route::get('/customer/change','CustomerController@indexChange');
+Route::get('/customer/change/{id}','CustomerController@showChange');
+Route::post('/customer/change','CustomerController@change');
 
 Route::get('/', function () {
     return view('default.layout');
@@ -98,3 +104,4 @@ Route::get('/receipt/display', function (){
 Route::get('/receipt/display-result', function (){
     return view('payment.receipt.receipt-display-result');
 });
+
