@@ -31,14 +31,15 @@
 <!-- Content -->
 <div class="container">
     <div class="row">
-
         <!-- Side Bar -->
-        <?php include('sidebar.php'); ?>
+        @include('include.sidebar')
 
         <div class="col s9 m9 l9 xl9" style="margin-top: 15px;">
             <div class="card">
                 <div class="card-content">
-                    <h4 style="margin-bottom: 50px">Delete Condition</h4>
+                    <h4 style="margin-bottom: 50px">@yield('title')</h4>
+                    @section('content')
+                    @show
                 </div>
             </div>
         </div>
@@ -47,11 +48,12 @@
 </div>
 
 <!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="{{asset('https://code.jquery.com/jquery-2.1.1.min.js')}}"></script>
+<script src="{{asset('js/materialize.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
 </body>
 
 <!-- Footer -->
-<?php include('footer.php'); ?>
+@include('include.footer')
 
 </html>

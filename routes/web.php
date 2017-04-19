@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('default.layout');
+});
+
+Route::get('/customer/create', function () {
+    return view('customer.customer-create');
 });
