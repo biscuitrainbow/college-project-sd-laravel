@@ -28,5 +28,5 @@ Route::get('/customer/display-result', function () {
 
 
 Route::get('/chart', function () {
-    return view('material.material-display-result');
+    return view('sale.sale_order.saleorder-display-result');
 });

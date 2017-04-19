@@ -1,48 +1,7 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+@extends('default.layout')
+@section('title',"Create Sale Order")
+@section('content')
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-
-    <body style="background-color: #fcfbfc">
-    
-    <!-- Nav Bar -->
-    <nav>
-      <div class="container">
-        <div class="nav-wrapper">
-          <a href="dashboard-overall.php" class="breadcrumb">Sale and Distribution</a>
-          <a href="#!" class="breadcrumb">Sale</a>
-          <a href="#!" class="breadcrumb">Customer PO</a>
-          <a href="#!" class="breadcrumb">Create Customer PO</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="collapsible.html">Logout</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-
-    <!-- Content -->
-    <div class="container">
-      <div class="row">
-
-
-
-        <!-- Side Bar -->
-        <?php include('sidebar.php'); ?>
-
-        <!-- Content -->
-        <div class="col s9 m9 l9 xl9" style="margin-top: 15px; margin-bottom: 75px;">
-          <div class="card">
-            <div class="card-content">
-              <h4>Create Customer Purchase Order</h4>
-            </div>
             <div class="card-tabs">
               <ul class="tabs tabs-fixed-width">
                 <li class="tab"><a href="#withref">Create with Reference</a></li>
@@ -121,7 +80,6 @@
                         <li class="waves-effect"><a href="#!">5</a></li>
                         <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
                       </ul>
-                      
                     </div>
                   </div>
                 </form>
@@ -239,7 +197,7 @@
 
                       <!-- Submit Button -->
                       <div class="row">
-                        <div class="col s12" style="text-align: right;"><a class="waves-effect waves-light btn">Create Customer PO Document</a></div>
+                        <div class="col s12" style="text-align: right;"><a class="waves-effect waves-light btn">Create Sale Order Document</a></div>
                       </div>
                     </div>
                   </div>
@@ -247,34 +205,5 @@
                 </form>
               </div>
             </div>
-          </div>
 
-
-
-
-
-      </div>
-    </div>
-
-
-      <script>
-            $( document ).ready(function() {
-             $('.datepicker').pickadate({
-                format: 'mm/dd/yyyy',
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15 // Creates a dropdown of 15 years to control year
-              });
-          });
-
-
-      </script>
-
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.js"></script>
-    </body>
-
-    <!-- Footer -->
-    <?php include('footer.php'); ?>
-
-  </html>
+@endsection
