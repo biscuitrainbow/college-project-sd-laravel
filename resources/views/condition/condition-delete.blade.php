@@ -1,47 +1,8 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+@extends('default.layout')
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    
-    <body style="background-color: #fcfbfc">
-    
-    <!-- Nav Bar -->
-    <nav>
-      <div class="container">
-        <div class="nav-wrapper">
-          <a href="mdashboard-overall.php" class="breadcrumb">Sale and Distribution</a>
-          <a href="#!" class="breadcrumb">Presale Process</a>
-          <a href="#!" class="breadcrumb">Condition</a>
-          <a href="#!" class="breadcrumb">Delete Condition</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="collapsible.html">Logout</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+@section('title',"Delete Condition")
+@section('content')
 
-
-    <!-- Content -->
-    <div class="container">
-      <div class="row">
-
-
-        <!-- Side Bar -->
-        <?php include('sidebar.php'); ?>
-
-
-        <!-- Content -->
-        <div class="col s9 m9 l9 xl9" style="margin-top: 15px;">
-          <div class="card">
-            <div class="card-content">
-              <h4 style="margin-bottom: 50px">Delete Condition</h4>
               <form action="">
                 <div class="row">
                   <div class="input-field col s12">
@@ -51,8 +12,6 @@
                   </div>
                 </div>
               </form>
-            </div>
-          </div>
 
           <div class="card" style="margin-bottom:75px">
             <div class="card-content">
@@ -158,7 +117,7 @@
               </div>
             </div>
           </div>
-        </div>
+
 
         
 
@@ -174,22 +133,4 @@
         </div>
 
 
-      </div>
-    </div>
-
-
-      <script>
-        $(document).ready(function() {
-        $('select').material_select();
-        });
-      </script>
-
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-    </body>
-
-    <!-- Footer -->
-    <?php include('footer.php'); ?>
-
-  </html>
+      @endsection
