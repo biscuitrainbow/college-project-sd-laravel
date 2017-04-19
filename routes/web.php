@@ -18,3 +18,11 @@ Route::get('/', function () {
 Route::get('/customer/create', function () {
     return view('customer.customer-create');
 });
+Route::get('/customer/display', function () {
+    return view('customer.customer-display');
+});
+
+Route::get('/customer/display-result', function () {
+    return view('customer.customer-display-result');
+});
+

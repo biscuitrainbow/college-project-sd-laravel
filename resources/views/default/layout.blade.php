@@ -51,6 +51,13 @@
 <script type="text/javascript" src="{{asset('https://code.jquery.com/jquery-2.1.1.min.js')}}"></script>
 <script src="{{asset('js/materialize.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
+
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
+
 </body>
 
 <!-- Footer -->
