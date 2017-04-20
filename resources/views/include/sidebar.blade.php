@@ -10,10 +10,10 @@
         <li>
             <div class="collapsible-header waves-effect"><i class="material-icons">view_agenda</i>Material</div>
             <div class="collapsible-body">
-                <span class=""><a href="material-create.php">Create Material</a></span><br><br>
-                <span class=""><a href="material-display.php">Display Material</a></span><br><br>
-                <span class=""><a href="material-change.php">Change Material</a></span><br><br>
-                <span class=""><a href="material-delete.php">Delete Material</a></span>
+                <span class=""><a href="{{ url('/material/create') }}">Create Material</a></span><br><br>
+                <span class=""><a href="{{ url('/material/display') }}">Display Material</a></span><br><br>
+                <span class=""><a href="{{ url('/material/change') }}">Change Material</a></span><br><br>
+                <span class=""><a href="{{ url('/material/delete') }}">Delete Material</a></span>
             </div>
         </li>
         <li>

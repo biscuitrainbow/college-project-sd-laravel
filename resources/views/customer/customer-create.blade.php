@@ -37,7 +37,8 @@
 
         <!-- Submit Button -->
         <div class="row">
-            <div class="col s12" style="text-align: right;"><button type="submit" class="waves-effect waves-light btn">Create Customer</button>
+            <div class="col s12" style="text-align: right;">
+                <button type="submit" class="waves-effect waves-light btn">Create Customer</button>
             </div>
         </div>
     </form>

@@ -21,83 +21,30 @@
                   <table class="highlight">
                     <thead>
                       <tr>
-                        <th>ID</th>
-                        <th>Name</th>
+                        <th>Product id</th>
+                        <th>Product name</th>
                         <th>Price</th>
                         <th>Quantity</th>
+                        <th>Product type</th>
+                        <th>Product Categories</th>
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach($data as $datas)
                       <tr>
-                        <td>572110164</td>
-                        <td>Thichanont Payachom</td>
-                        <td>123456789</td>
-                        <td>1</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
+                        <td>{{$datas['product_id']}}</td>
+                        <td>{{$datas['product_name']}}</td>
+                        <td>{{$datas['product_price']}}</td>
+                        <td>{{$datas['product_qty']}}</td>
+                        <td>{{$datas['product_type']}}</td>
+                        <td>{{$datas['product_categories']}}</td>
+                        <form method="POST" action="/material/delete">
+                          <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                          <input type="hidden" name="id" value="{{$datas['id']}}">
+                          <td><button class="waves-effect waves-light btn" type="submit">Delete</button>
+                        </form>
                       </tr>
-                      <tr>
-                        <td>572110164</td>
-                        <td>Thichanont Payachom</td>
-                        <td>123456789</td>
-                        <td>1</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>572110164</td>
-                        <td>Thichanont Payachom</td>
-                        <td>123456789</td>
-                        <td>1</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>572110164</td>
-                        <td>Thichanont Payachom</td>
-                        <td>123456789</td>
-                        <td>1</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>572110164</td>
-                        <td>Thichanont Payachom</td>
-                        <td>123456789</td>
-                        <td>1</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>572110164</td>
-                        <td>Thichanont Payachom</td>
-                        <td>123456789</td>
-                        <td>1</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>572110164</td>
-                        <td>Thichanont Payachom</td>
-                        <td>123456789</td>
-                        <td>1</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>572110164</td>
-                        <td>Thichanont Payachom</td>
-                        <td>123456789</td>
-                        <td>1</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>572110164</td>
-                        <td>Thichanont Payachom</td>
-                        <td>123456789</td>
-                        <td>1</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>572110164</td>
-                        <td>Thichanont Payachom</td>
-                        <td>123456789</td>
-                        <td>1</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
+                    @endforeach
                     </tbody>
                   </table>
 
