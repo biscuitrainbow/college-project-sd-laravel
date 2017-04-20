@@ -13,7 +13,6 @@ class CustomerController extends Controller
     }
 
     public function create(Request $request){
-        $data = $request->all();
         $customer = new Customer();
         $customer->title = $request['title'];
         $customer->name = $request['name'];
@@ -23,7 +22,8 @@ class CustomerController extends Controller
         $customer->region = $request['region'];
         $customer->save();
 
-        return 'create complete';
+        $status = "Create Successfully";
+        return view('material.material-status',compact('status'));
 
     }
 
@@ -48,6 +48,30 @@ class CustomerController extends Controller
         $update->region = $data['region'];
         $update->save();
 
-        return 'update complete';
+        $status = "Update Successfully";
+        return view('material.material-status',compact('status'));
+    }
+
+    public function indexDisplay(){
+       $data = Customer::all();
+       return view('customer.customer-display',compact('data'));
+    }
+
+    public function display($id){
+        $data = Customer::where('id',$id)->first();
+        return view('customer.customer-display-result',compact('data'));
+    }
+
+    public function showDelete(){
+        $data = Customer::all();
+        return view('customer.customer-delete',compact('data'));
+    }
+
+    public function delete(Request $request){
+        $data = $request->all();
+        $customer = Customer::find($data['id']);
+        $customer->delete();
+        $status = "Delete Successfully";
+        return view('material.material-status',compact('status'));
     }
 }
