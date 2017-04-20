@@ -11,11 +11,22 @@
 |
 */
 
+// Material-create
 Route::get('/material/create','MaterialController@index');
 Route::POST('/material/create','MaterialController@create');
+// Material-change
 Route::get('/material/change','MaterialController@indexChange');
 Route::get('/material/change/{id}','MaterialController@showChange');
 Route::POST('/material/change','MaterialController@change');
+// Material-display
+Route::get('/material','MaterialController@indexDisplay');
+Route::get('/material/display','MaterialController@indexDisplay');
+Route::get('/material/display/{id}','MaterialController@display');
+// Material-delete
+Route::get('/material/delete','MaterialController@showDelete');
+Route::POST('/material/delete','MaterialController@delete');
+
+
 
 Route::get('/', function () {
     return view('default.layout');

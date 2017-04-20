@@ -24,7 +24,8 @@ class MaterialController extends Controller
         $material['product_categories'] = $request['product_categories'];
         $material->save();
 
-        return 'create complete';
+        $status = "Create Successfully";
+        return view('material.material-status',compact('status'));
     }
 
     public function indexChange()
@@ -51,6 +52,31 @@ class MaterialController extends Controller
         $update->product_type = $data['product_type'];
         $update->product_categories = $data['product_categories'];
         $update->save();
-        return "update successfully";
+        $status = "Update Successfully";
+        return view('material.material-status',compact('status'));
+    }
+
+    public function indexDisplay(){
+        $data = Material::all();
+        return view('material.material-display',compact('data'));
+    }
+
+    public function display($id){
+        $data = Material::where('id', $id)->first();
+       // return $data;
+        return view('material.material-display-result', compact('data'));
+    }
+
+    public function showDelete(){
+        $data = Material::all();
+        return view('material.material-delete',compact('data'));
+    }
+
+    public function delete(Request $request){
+        $data = $request->all();
+        $material = Material::find($data['id']);
+        $material->delete();
+        $status = "Delete Successfully";
+        return view('material.material-status',compact('status'));
     }
 }
