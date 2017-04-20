@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// ============================================================
 // Customer-create
 Route::get('/customer/create','CustomerController@index');
 Route::post('/customer/create','CustomerController@create');
@@ -21,12 +22,11 @@ Route::post('/customer/change','CustomerController@change');
 Route::get('/customer', 'CustomerController@indexDisplay');
 Route::get('/customer/display', 'CustomerController@indexDisplay');
 Route::get('/customer/display/{id}', 'CustomerController@display');
+
+// ============================================================
 // Material-delete
 Route::get('/customer/delete', 'MaterialController@showDelete');
 Route::POST('/customer/delete', 'MaterialController@delete');
-
-
-
 // Material-create
 Route::get('/material/create', 'MaterialController@index');
 Route::POST('/material/create', 'MaterialController@create');
@@ -42,7 +42,13 @@ Route::get('/material/display/{id}', 'MaterialController@display');
 Route::get('/material/delete', 'MaterialController@showDelete');
 Route::POST('/material/delete', 'MaterialController@delete');
 
-
-
-
+// ============================================================
+// Condition-create
+Route::get('/condition/create', 'ConditionController@showCreate');
+Route::POST('/condition/create/general', 'ConditionController@createGeneral');
+Route::POST('/condition/create/material', 'ConditionController@createMaterial');
+// Condition-display
+Route::get('/condition', 'ConditionController@indexDisplay');
+Route::get('/condition/display', 'ConditionController@indexDisplay');
+Route::get('/condition/display/{id}', 'ConditionController@display');
 

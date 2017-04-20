@@ -28,8 +28,8 @@
         <li>
             <div class="collapsible-header waves-effect"><i class="material-icons">info_outline</i>Condition</div>
             <div class="collapsible-body">
-                <span class=""><a href="condition-create.php">Create Condition</a></span><br><br>
-                <span class=""><a href="condition-display.php">Display Condition</a></span><br><br>
+                <span class=""><a href="{{url('/condition/create')}}">Create Condition</a></span><br><br>
+                <span class=""><a href="{{url('/condition/display')}}>Display Condition</a></span><br><br>
                 <span class=""><a href="condition-change.php">Change Condition</a></span><br><br>
                 <span class=""><a href="condition-delete.php">Delete Condition</a></span>
             </div>

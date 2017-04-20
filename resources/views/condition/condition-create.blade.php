@@ -10,36 +10,41 @@
               </ul>
             </div>
             <div class="card-content grey lighten-4">
+
               <div id="generalcondition">
-                <form action="">
+                <form method="POST" action="/condition/create/general">
                   <div class="card">
                     <div class="card-content">
                       <div class="row">
                         <div class="input-field col s12">
-                          <input id="conditionname" type="text" class="validate">
+                          <input name="conditionname" type="text" class="validate">
                           <label for="conditionname">Condition Name</label>
                         </div>
                       </div>
                       <div class="row">
                         <div class="input-field col s6">
-                          <input id="discountprice" type="text" class="validate">
+                          <input name="discountprice" type="text" class="validate">
                           <label for="discountprice">Discount (%)</label>
                         </div>
                         <div class="input-field col s6">
-                          <input id="minprice" type="text" class="validate">
+                          <input name="minprice" type="text" class="validate">
                           <label for="minprice">Min Price (ex. over 200,000 THB)</label>
                         </div>
                       </div>
                       <!-- Submit Button -->
+                      <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                       <div class="row">
-                        <div class="col s12" style="text-align: right;"><a class="waves-effect waves-light btn">Create Condition</a></div>
+                        <div class="col s12" style="text-align: right;">
+                          <button type="submit" class="waves-effect waves-light btn">Create Condition</button></div>
                       </div>
                     </div>
                   </div>
                 </form>
               </div>
+
+
               <div id="materialdiscount">
-                <form action="">
+                <form method="POST" action="/condition/create/material">
                   <div class="card">
                     <div class="card-content">
                       <div class="row">
@@ -63,43 +68,29 @@
                       <table class="highlight">
                         <thead>
                           <tr>
-                            <th>ID</th>
-                            <th>Name</th>
+                            <th>Product id</th>
+                            <th>Product name</th>
                             <th>Price</th>
-                            <th></th>
+                            <th>Quantity</th>
+                            <th>Product type</th>
+                            <th>Product Categories</th>
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach($data as $datas)
                           <tr>
-                            <td>572110164</td>
-                            <td>Thichanont Payachom</td>
-                            <td>123456789</td>
-                            <td><input name="select" type="radio" class="with-gap" id="check1" /><label for="check1"></label></td>
+                            <td>{{$datas['product_id']}}</td>
+                            <td>{{$datas['product_name']}}</td>
+                            <td>{{$datas['product_price']}}</td>
+                            <td>{{$datas['product_qty']}}</td>
+                            <td>{{$datas['product_type']}}</td>
+                            <td>{{$datas['product_categories']}}</td>
+                            <td><input name="id" value="{{$datas['id']}}" type="radio" class="with-gap" id="check2" />
+                              <label for="check2">
+                              </label></td>
                           </tr>
-                          <tr>
-                            <td>572110164</td>
-                            <td>Thichanont Payachom</td>
-                            <td>123456789</td>
-                            <td><input name="select" type="radio" class="with-gap" id="check2" /><label for="check2"></label></td>
-                          </tr>
-                          <tr>
-                            <td>572110164</td>
-                            <td>Thichanont Payachom</td>
-                            <td>123456789</td>
-                            <td><input name="select" type="radio" class="with-gap" id="check3" /><label for="check3"></label></td>
-                          </tr>
-                          <tr>
-                            <td>572110164</td>
-                            <td>Thichanont Payachom</td>
-                            <td>123456789</td>
-                            <td><input name="select" type="radio" class="with-gap" id="check4" /><label for="check4"></label></td>
-                          </tr>
-                          <tr>
-                            <td>572110164</td>
-                            <td>Thichanont Payachom</td>
-                            <td>123456789</td>
-                            <td><input name="select" type="radio" class="with-gap" id="check5" /><label for="check5"></label></td>
-                          </tr>
+
+                        @endforeach
                         </tbody>
                       </table>
 
@@ -118,19 +109,27 @@
 
                   <div class="card">
                     <div class="card-content">
-                      <div class="row" style="margin-top: 50px">
+                      <div class="row">
+                        <div class="input-field col s12" style="margin-top: 50px">
+                          <input name="conditionname" type="text" class="validate">
+                          <label for="conditionname">Condition Name</label>
+                        </div>
+                      </div>
+                      <div class="row">
                         <div class="input-field col s6">
-                          <input id="discountprice" type="text" class="validate">
-                          <label for="discountprice">Discount Price</label>
+                          <input name="discountprice" type="text" class="validate">
+                          <label for="discountprice">Discount (%)</label>
                         </div>
                         <div class="input-field col s6">
-                          <input id="minquantity" type="text" class="validate">
+                          <input name="minquantity" type="text" class="validate">
                           <label for="minquantity">Min Quantity</label>
                         </div>
                       </div>
                       <!-- Submit Button -->
                       <div class="row">
-                        <div class="col s12" style="text-align: right;"><a class="waves-effect waves-light btn">Create Condition</a></div>
+                        <div class="col s12" style="text-align: right;">
+                          <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                          <button type="submit" class="waves-effect waves-light btn">Create Condition</button></div>
                       </div>
                     </div>
                   </div>

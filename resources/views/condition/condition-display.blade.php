@@ -34,70 +34,18 @@
                                 <th style=" width: 40%">Name</th>
                                 <th style=" width: 20%">Discount (%)</th>
                                 <th style=" width: 20%">Min Price</th>
-                                <th style=" width: 20%"></th>
                               </tr>
                             </thead>
                             <tbody>
+                            @foreach($general as $generals)
                               <tr>
-                                <td>Discount for order more than $100,000</td>
-                                <td>5</td>
-                                <td>100,000</td>
+                                <td>{{$generals['conditionname']}}</td>
+                                <td>{{$generals['discountprice']}}</td>
+                                <td>{{$generals['minprice']}}</td>
                                 <td class="right"><a href="condition-display-general.php" class="waves-effect waves-light btn">Details</a></td>
                               </tr>
-                              <tr>
-                                <td>Discount for order more than $100,000</td>
-                                <td>5</td>
-                                <td>100,000</td>
-                                <td class="right"><a href="condition-display-general.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>Discount for order more than $100,000</td>
-                                <td>5</td>
-                                <td>100,000</td>
-                                <td class="right"><a href="condition-display-general.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>Discount for order more than $100,000</td>
-                                <td>5</td>
-                                <td>100,000</td>
-                                <td class="right"><a href="condition-display-general.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>Discount for order more than $100,000</td>
-                                <td>5</td>
-                                <td>100,000</td>
-                                <td class="right"><a href="condition-display-general.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>Discount for order more than $100,000</td>
-                                <td>5</td>
-                                <td>100,000</td>
-                                <td class="right"><a href="condition-display-general.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>Discount for order more than $100,000</td>
-                                <td>5</td>
-                                <td>100,000</td>
-                                <td class="right"><a href="condition-display-general.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>Discount for order more than $100,000</td>
-                                <td>5</td>
-                                <td>100,000</td>
-                                <td class="right"><a href="condition-display-general.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>Discount for order more than $100,000</td>
-                                <td>5</td>
-                                <td>100,000</td>
-                                <td class="right"><a href="condition-display-general.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>Discount for order more than $100,000</td>
-                                <td>5</td>
-                                <td>100,000</td>
-                                <td class="right"><a href="condition-display-general.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
+                              @endforeach
+
                             </tbody>
                           </table>
 
@@ -139,74 +87,25 @@
                           <!-- Table -->
                           <table class="highlight">
                             <thead>
-                              <tr>
-                                <th style=" width: 40%">Name</th>
-                                <th style=" width: 20%">Discount Price</th>
-                                <th style=" width: 20%">Min Quantity</th>
-                                <th style=" width: 20%"></th>
-                              </tr>
+                            <tr>
+                              <th style=" width: 40%">Name</th>
+                              <th style=" width: 20%">Discount (%)</th>
+                              <th style=" width: 20%">Min Quantity</th>
+                              <th style=" width: 20%">Material</th>
+
+                            </tr>
                             </thead>
                             <tbody>
+                            @foreach($material as $materials)
                               <tr>
-                                <td>WA00010</td>
-                                <td>50,0000</td>
-                                <td>2,000</td>
+                                <td>{{$materials['conditionname']}}</td>
+                                <td>{{$materials['discountprice']}}</td>
+                                <td>{{$materials['minquantity']}}</td>
+                                <td>{{$materials['material_id']}}</td>
+                                <td></td>
                                 <td class="right"><a href="condition-display-material.php" class="waves-effect waves-light btn">Details</a></td>
                               </tr>
-                              <tr>
-                                <td>WA00010</td>
-                                <td>50,0000</td>
-                                <td>2,000</td>
-                                <td class="right"><a href="condition-display-material.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>WA00010</td>
-                                <td>50,0000</td>
-                                <td>2,000</td>
-                                <td class="right"><a href="condition-display-material.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>WA00010</td>
-                                <td>50,0000</td>
-                                <td>2,000</td>
-                                <td class="right"><a href="condition-display-material.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>WA00010</td>
-                                <td>50,0000</td>
-                                <td>2,000</td>
-                                <td class="right"><a href="condition-display-material.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>WA00010</td>
-                                <td>50,0000</td>
-                                <td>2,000</td>
-                                <td class="right"><a href="condition-display-material.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>WA00010</td>
-                                <td>50,0000</td>
-                                <td>2,000</td>
-                                <td class="right"><a href="condition-display-material.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>WA00010</td>
-                                <td>50,0000</td>
-                                <td>2,000</td>
-                                <td class="right"><a href="condition-display-material.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>WA00010</td>
-                                <td>50,0000</td>
-                                <td>2,000</td>
-                                <td class="right"><a href="condition-display-material.php" class="waves-effect waves-light btn">Details</a></td>
-                              </tr>
-                              <tr>
-                                <td>WA00010</td>
-                                <td>50,0000</td>
-                                <td>2,000</td>
-                                <td class="right"><a href="condition-display-material.php" class="waves-effect waves-light btn">Details</a></td> 
-                              </tr>
+                              @endforeach
                             </tbody>
                           </table>
 
