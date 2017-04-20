@@ -23,7 +23,11 @@
                     <label for="product_quantity">Product Quantity</label>
                   </div>
                   <div class="input-field col s4">
-                    <input id="product_type" name="product_type" type="text" class="validate">
+                    <select name="product_type">
+                      <option value="Finish Goods">Finish Goods</option>
+                      <option value="Raw Material">Raw Material</option>
+                      <option value="Service">Service</option>
+                    </select>
                     <label for="product_type">Product Type</label>
                   </div>
                 </div>
@@ -39,5 +43,7 @@
                   <div class="col s12" style="text-align: right;">
                     <button type="submit" class="waves-effect waves-light btn">Create Material Document</button>
                 </div>
+                </div>
+              </form>
 
 @endsection
