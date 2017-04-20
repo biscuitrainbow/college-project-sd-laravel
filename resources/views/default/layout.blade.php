@@ -47,16 +47,31 @@
     </div>
 </div>
 
-<!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="{{asset('https://code.jquery.com/jquery-2.1.1.min.js')}}"></script>
-<script src="{{asset('js/materialize.js')}}"></script>
-<script src="{{asset('js/app.js')}}"></script>
+{{--<!--Import jQuery before materialize.js-->--}}
+{{--<script type="text/javascript" src="{{asset('https://code.jquery.com/jquery-2.1.1.min.js')}}"></script>--}}
+{{--<script src="{{asset('js/materialize.js')}}"></script>--}}
+{{--<script src="{{asset('js/app.js')}}"></script>--}}
+
+<!-- ย้ายอันนี้แล้ว Datepicker ใช้งานไม่ได้ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $('select').material_select();
+    $( document ).ready(function() {
+        $('.datepicker').pickadate({
+            format: 'mm/dd/yyyy',
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
     });
+
+
 </script>
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="{{asset('js/materialize.js')}}"></script>
+
+
 
 </body>
 
