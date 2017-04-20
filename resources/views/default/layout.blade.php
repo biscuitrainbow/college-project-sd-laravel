@@ -47,10 +47,7 @@
     </div>
 </div>
 
-{{--<!--Import jQuery before materialize.js-->--}}
-{{--<script type="text/javascript" src="{{asset('https://code.jquery.com/jquery-2.1.1.min.js')}}"></script>--}}
-{{--<script src="{{asset('js/materialize.js')}}"></script>--}}
-{{--<script src="{{asset('js/app.js')}}"></script>--}}
+
 
 <!-- ย้ายอันนี้แล้ว Datepicker ใช้งานไม่ได้ -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
