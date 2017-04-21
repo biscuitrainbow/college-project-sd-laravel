@@ -50,5 +50,6 @@ Route::POST('/condition/create/material', 'ConditionController@createMaterial');
 // Condition-display
 Route::get('/condition', 'ConditionController@indexDisplay');
 Route::get('/condition/display', 'ConditionController@indexDisplay');
-Route::get('/condition/display/{id}', 'ConditionController@display');
+Route::get('/condition/display/general/{id}', 'ConditionController@displayGeneral');
+Route::get('/condition/display/material/{id}', 'ConditionController@displayMaterial');
 

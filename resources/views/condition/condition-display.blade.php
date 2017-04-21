@@ -42,7 +42,7 @@
                                 <td>{{$generals['conditionname']}}</td>
                                 <td>{{$generals['discountprice']}}</td>
                                 <td>{{$generals['minprice']}}</td>
-                                <td class="right"><a href="condition-display-general.php" class="waves-effect waves-light btn">Details</a></td>
+                                <td class="right"><a href="{{url('/condition/display/general/'.$generals['id'])}}" class="waves-effect waves-light btn">Details</a></td>
                               </tr>
                               @endforeach
 
@@ -103,7 +103,7 @@
                                 <td>{{$materials['minquantity']}}</td>
                                 <td>{{$materials['material_id']}}</td>
                                 <td></td>
-                                <td class="right"><a href="condition-display-material.php" class="waves-effect waves-light btn">Details</a></td>
+                                <td class="right"><a href="{{url('/condition/display/material/'.$materials['id'])}}" class="waves-effect waves-light btn">Details</a></td>
                               </tr>
                               @endforeach
                             </tbody>

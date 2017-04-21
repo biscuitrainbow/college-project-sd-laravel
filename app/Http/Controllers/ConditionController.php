@@ -9,12 +9,12 @@ use app;
 
 class ConditionController extends Controller
 {
-    public static function showCreate(){
+    public  function showCreate(){
         $data = Material::all();
         return view('condition.condition-create',compact('data'));
     }
 
-    public static function createGeneral(Request $request){
+    public  function createGeneral(Request $request){
         $condition = new Condition();
         $condition['conditionname'] = $request['conditionname'];
         $condition['discountprice'] = $request['discountprice'];
@@ -28,7 +28,7 @@ class ConditionController extends Controller
         return view('material.material-status',compact('status'));
     }
 
-    public static function createMaterial(Request $request){
+    public  function createMaterial(Request $request){
         $condition = new Condition();
         $condition['conditionname'] = $request['conditionname'];
         $condition['discountprice'] = $request['discountprice'];
@@ -42,10 +42,20 @@ class ConditionController extends Controller
         return view('material.material-status',compact('status'));
     }
 
-    public static function indexDisplay(){
+    public  function indexDisplay(){
         $general = Condition::where('condition_type','general')->get();
         $material = Condition::where('condition_type','material')->get();
 
         return view('condition.condition-display',compact('general'),compact('material'));
+    }
+
+    public  function displayGeneral($id){
+        $condition = Condition::where('id',$id)->first();
+        return view('condition.condition-display-general',compact('condition'));
+    }
+
+    public function displayMaterial($id){
+        $condition = Condition::where('id',$id)->first();
+        return view('condition.condition-display-material',compact('condition'));
     }
 }
