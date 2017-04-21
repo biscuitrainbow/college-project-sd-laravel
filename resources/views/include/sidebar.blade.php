@@ -19,10 +19,10 @@
         <li>
             <div class="collapsible-header waves-effect"><i class="material-icons">supervisor_account</i>Customer</div>
             <div class="collapsible-body">
-                <span class=""><a href="customer-create.php">Create Customer</a></span><br><br>
-                <span class=""><a href="customer-display.php">Display Customer</a></span><br><br>
-                <span class=""><a href="customer-change.php">Change Customer</a></span><br><br>
-                <span class=""><a href="customer-delete.php">Delete Customer</a></span>
+                <span class=""><a href="{{url('/customer/create')}}">Create Customer</a></span><br><br>
+                <span class=""><a href="{{url('/customer/display')}}">Display Customer</a></span><br><br>
+                <span class=""><a href="{{url('/customer/change')}}">Change Customer</a></span><br><br>
+                <span class=""><a href="{{url('/customer/delete')}}">Delete Customer</a></span>
             </div>
         </li>
         <li>

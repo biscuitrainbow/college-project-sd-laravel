@@ -2,35 +2,39 @@
 
 @section('title',"Create Customer")
 @section('content')
-    <form method="POST">
-
+    <form action="/customer/create" method="post">
+        <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
         <div class="row">
             <div class="input-field col s4">
-                <input id="product_id" type="text" class="validate">
+                <select name="title">
+                    <option value="Company">Company</option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Mrs.">Mrs.</option>
+                </select>
                 <label for="product_id">Title</label>
             </div>
             <div class="input-field col s8">
-                <input id="name" type="text" class="validate">
+                <input name="name" type="text" class="validate">
                 <label for="name">Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="street" type="text" class="validate">
+                <input name="street" type="text" class="validate">
                 <label for="street">Street/House Number</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s4">
-                <input id="postal" type="text" class="validate">
+                <input name="postal" type="text" class="validate">
                 <label for="postal">Postal Code/City</label>
             </div>
             <div class="input-field col s4">
-                <input id="country" type="text" class="validate">
+                <input name="country" type="text" class="validate">
                 <label for="country">Country</label>
             </div>
             <div class="input-field col s4">
-                <input id="region" type="text" class="validate">
+                <input name="region" type="text" class="validate">
                 <label for="region">Region</label>
             </div>
         </div>
@@ -38,7 +42,7 @@
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12" style="text-align: right;">
-                <button class="waves-effect waves-light btn" type="submit">Create Customer</button>
+                <button type="submit" class="waves-effect waves-light btn">Create Customer</button>
             </div>
         </div>
     </form>

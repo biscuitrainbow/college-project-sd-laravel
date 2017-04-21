@@ -24,83 +24,31 @@
                   <table class="highlight">
                     <thead>
                       <tr>
+                        <th>Title</th>
                         <th>Name</th>
+                        <th>Street</th>
                         <th>Postal Code/City</th>
                         <th>Country</th>
                         <th>Region</th>
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach($data as $datas)
                       <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
+                        <td>{{$datas['title']}}</td>
+                        <td>{{$datas['name']}}</td>
+                        <td>{{$datas['street']}}</td>
+                        <td>{{$datas['postal']}}</td>
+                        <td>{{$datas['country']}}</td>
+                        <td>{{$datas['region']}}</td>
+                        <form method="POST" action="/customer/delete">
+                          <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                          <input type="hidden" name="id" value="{{$datas['id']}}">
+                          <td><button class="waves-effect waves-light btn" type="submit">Delete</button>
+                        </form>
+
                       </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="" class="waves-effect deep-orange btn">Delete</a></td>
-                      </tr>
+                    @endforeach
                     </tbody>
                   </table>
 
