@@ -10,23 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// ============================================================
 // Customer-create
-Route::get('/customer/create','CustomerController@index');
-Route::post('/customer/create','CustomerController@create');
+Route::get('/customer/create', 'CustomerController@index');
+Route::post('/customer/create', 'CustomerController@create');
 // Customer-change
-Route::get('/customer/change','CustomerController@indexChange');
-Route::get('/customer/change/{id}','CustomerController@showChange');
-Route::post('/customer/change','CustomerController@change');
+Route::get('/customer/change', 'CustomerController@indexChange');
+Route::get('/customer/change/{id}', 'CustomerController@showChange');
+Route::post('/customer/change', 'CustomerController@change');
 // Customer-display
 Route::get('/customer', 'CustomerController@indexDisplay');
 Route::get('/customer/display', 'CustomerController@indexDisplay');
 Route::get('/customer/display/{id}', 'CustomerController@display');
-
-// ============================================================
 // Material-delete
 Route::get('/customer/delete', 'MaterialController@showDelete');
+
 Route::post('/customer/delete', 'MaterialController@delete');
+Route::POST('/customer/delete', 'MaterialController@delete');
+
+
+
 // Material-create
 Route::get('/material/create', 'MaterialController@index');
 Route::post('/material/create', 'MaterialController@create');
@@ -57,4 +59,5 @@ Route::get('/condition/display/material/{id}', 'ConditionController@displayMater
 // ============================================================
 // Inquiry
 Route::get('/inquiry/create','InquiryController@showCreate');
+Route::post('/inquiry/create','InquiryController@create');
 
