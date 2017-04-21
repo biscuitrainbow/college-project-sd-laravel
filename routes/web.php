@@ -10,12 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/customer/create','CustomerController@index');
-Route::post('/customer/create','CustomerController@create');
+// Customer-create
+Route::get('/customer/create', 'CustomerController@index');
+Route::post('/customer/create', 'CustomerController@create');
+// Customer-change
+Route::get('/customer/change', 'CustomerController@indexChange');
+Route::get('/customer/change/{id}', 'CustomerController@showChange');
+Route::post('/customer/change', 'CustomerController@change');
+// Customer-display
+Route::get('/customer', 'CustomerController@indexDisplay');
+Route::get('/customer/display', 'CustomerController@indexDisplay');
+Route::get('/customer/display/{id}', 'CustomerController@display');
+// Material-delete
+Route::get('/customer/delete', 'MaterialController@showDelete');
+Route::POST('/customer/delete', 'MaterialController@delete');
 
-Route::get('/customer/change','CustomerController@indexChange');
-Route::get('/customer/change/{id}','CustomerController@showChange');
-Route::post('/customer/change','CustomerController@change');
 
 // Material-create
 Route::get('/material/create', 'MaterialController@index');
@@ -146,4 +155,14 @@ Route::get('/presale/inquiry/create', function () {
 });
 
 
+// ============================================================
+// Condition-create
+Route::get('/condition/create', 'ConditionController@showCreate');
+Route::POST('/condition/create/general', 'ConditionController@createGeneral');
+Route::POST('/condition/create/material', 'ConditionController@createMaterial');
+// Condition-display
+Route::get('/condition', 'ConditionController@indexDisplay');
+Route::get('/condition/display', 'ConditionController@indexDisplay');
+Route::get('/condition/display/general/{id}', 'ConditionController@displayGeneral');
+Route::get('/condition/display/material/{id}', 'ConditionController@displayMaterial');
 

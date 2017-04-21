@@ -75,19 +75,115 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="input-field col s4">
-                    <input id="productid" type="text" class="validate">
-                    <label for="productid">Product ID</label>
-                  </div>
-                  <div class="input-field col s8">
-                    <input id="productname" type="text" class="validate">
-                    <label for="productname">Product Name</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s4">
-                    <input id="orderqty" type="text" class="validate">
-                    <label for="orderqty">Order Qty</label>
+                  <div class="col s12">
+                    
+                  <!-- Table -->
+                  <table class="highlight">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Select</th>
+                        <th>Quantity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>WA00010</td>
+                        <td>T-Shirt</td>
+                        <td>1200</td>
+                        <td>1</td>
+                        <td><input type="checkbox" id="material1" /><label for="material1"></label></td>
+                        <td><input type="text" style="width: 50px" class="center"></td>
+                      </tr>
+                      <tr>
+                        <td>WA00010</td>
+                        <td>T-Shirt</td>
+                        <td>1200</td>
+                        <td>1</td>
+                        <td><input type="checkbox" id="material2" /><label for="material2"></label></td>
+                        <td><input type="text" style="width: 50px" class="center"></td>
+                      </tr>
+                      <tr>
+                        <td>WA00010</td>
+                        <td>T-Shirt</td>
+                        <td>1200</td>
+                        <td>1</td>
+                        <td><input type="checkbox" id="material3" /><label for="material3"></label></td>
+                        <td><input type="text" style="width: 50px" class="center"></td>
+                      </tr>
+                      <tr>
+                        <td>WA00010</td>
+                        <td>T-Shirt</td>
+                        <td>1200</td>
+                        <td>1</td>
+                        <td><input type="checkbox" id="material4" /><label for="material4"></label></td>
+                        <td><input type="text" style="width: 50px" class="center"></td>
+                      </tr>
+                      <tr>
+                        <td>WA00010</td>
+                        <td>T-Shirt</td>
+                        <td>1200</td>
+                        <td>1</td>
+                        <td><input type="checkbox" id="material5" /><label for="material5"></label></td>
+                        <td><input type="text" style="width: 50px" class="center"></td>
+                      </tr>
+                      <tr>
+                        <td>WA00010</td>
+                        <td>T-Shirt</td>
+                        <td>1200</td>
+                        <td>1</td>
+                        <td><input type="checkbox" id="material6" /><label for="material6"></label></td>
+                        <td><input type="text" style="width: 50px" class="center"></td>
+                      </tr>
+                      <tr>
+                        <td>WA00010</td>
+                        <td>T-Shirt</td>
+                        <td>1200</td>
+                        <td>1</td>
+                        <td><input type="checkbox" id="material7" /><label for="material7"></label></td>
+                        <td><input type="text" style="width: 50px" class="center"></td>
+                      </tr>
+                      <tr>
+                        <td>WA00010</td>
+                        <td>T-Shirt</td>
+                        <td>1200</td>
+                        <td>1</td>
+                        <td><input type="checkbox" id="material8" /><label for="material8"></label></td>
+                        <td><input type="text" style="width: 50px" class="center"></td>
+                      </tr>
+                      <tr>
+                        <td>WA00010</td>
+                        <td>T-Shirt</td>
+                        <td>1200</td>
+                        <td>1</td>
+                        <td><input type="checkbox" id="material9" /><label for="material9"></label></td>
+                        <td><input type="text" style="width: 50px" class="center"></td>
+                      </tr>
+                      <tr>
+                        <td>WA00010</td>
+                        <td>T-Shirt</td>
+                        <td>1200</td>
+                        <td>1</td>
+                        <td><input type="checkbox" id="material10" /><label for="material10"></label></td>
+                        <td><input type="text" style="width: 50px" class="center"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <!-- Pagination -->
+                  <ul class="pagination">
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="active"><a href="#!">1</a></li>
+                    <li class="waves-effect"><a href="#!">2</a></li>
+                    <li class="waves-effect"><a href="#!">3</a></li>
+                    <li class="waves-effect"><a href="#!">4</a></li>
+                    <li class="waves-effect"><a href="#!">5</a></li>
+                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                  </ul>
+
                   </div>
                 </div>
 
@@ -99,8 +195,13 @@
                 </div>
                 <div class="row">
                   <div class="input-field col s6">
-                    <input id="productid" type="text" class="validate">
-                    <label for="productid">Billing Method</label>
+                    <select>
+                      <option value="" disabled selected> </option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                    <label>Billing Method</label>
                   </div>
                   <div class="input-field col s6">
                     <input type="date" class="datepicker">
@@ -125,20 +226,9 @@
     </div>
 
 
-      <script>
-        $(document).ready(function() {
-        $('select').material_select();
-        });
-
-        $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15 // Creates a dropdown of 15 years to control year
-        });
-      </script>
-
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!-- For Script -->
+    <?php include('script.php'); ?>
+    
     </body>
 
     <!-- Footer -->

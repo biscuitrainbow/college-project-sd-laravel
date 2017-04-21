@@ -6,7 +6,11 @@
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
         <div class="row">
             <div class="input-field col s4">
-                <input name="title" type="text" class="validate">
+                <select name="title">
+                    <option value="Company">Company</option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Mrs.">Mrs.</option>
+                </select>
                 <label for="product_id">Title</label>
             </div>
             <div class="input-field col s8">
