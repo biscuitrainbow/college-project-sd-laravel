@@ -3,6 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-content">
+            <h4 style="margin-bottom: 50px">Change Material</h4>
             <form action="">
                 <div class="row">
                     <div class="input-field col s12">

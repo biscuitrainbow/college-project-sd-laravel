@@ -3,6 +3,7 @@
 @section('content')
     <div class="card" style="margin-bottom:75px">
         <div class="card-content">
+            <h4 style="margin-bottom: 50px">Create Material</h4>
             <form method="POST" action="/material/create">
                 <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                 <div class="row">

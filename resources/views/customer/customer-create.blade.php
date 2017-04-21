@@ -4,18 +4,12 @@
 @section('content')
     <div class="card" style="margin-bottom:75px">
         <div class="card-content">
+            <h4 class="main-title">Create Customer</h4>
             <form action="/customer/create" method="post">
+                <h5 class="sub-title">Company Data</h5>
                 <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                 <div class="row">
-                    <div class="input-field col s4">
-                        <select name="title">
-                            <option value="Company">Company</option>
-                            <option value="Mr.">Mr.</option>
-                            <option value="Mrs.">Mrs.</option>
-                        </select>
-                        <label for="product_id">Title</label>
-                    </div>
-                    <div class="input-field col s8">
+                    <div class="input-field col s12">
                         <input name="name" type="text" class="validate">
                         <label for="name">Name</label>
                     </div>
@@ -40,6 +34,46 @@
                         <label for="region">Region</label>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input name="tel" type="text" class="validate">
+                        <label for="tel">Tel.</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input name="website" type="text" class="validate">
+                        <label for="website">Website</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input name="email" type="text" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+
+                <h5 class="sub-title">Contact Person</h5>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <select name="title">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                        </select>
+                        <label for="product_id">Title</label>
+                    </div>
+                    <div class="input-field col s8">
+                        <input name="name" type="text" class="validate">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="position" type="text" class="validate">
+                        <label for="position">Position</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input name="department" type="text" class="validate">
+                        <label for="department">Department</label>
+                    </div>
+                </div>
+
 
                 <!-- Submit Button -->
                 <div class="row">
