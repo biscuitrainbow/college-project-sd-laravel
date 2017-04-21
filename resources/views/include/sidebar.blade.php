@@ -41,7 +41,7 @@
                     <li>
                         <div class="collapsible-header waves-effect">Inquiry</div>
                         <div class="collapsible-body">
-                            <span class=""><a href="inquiry-create.php">Create Inquiry</a></span><br><br>
+                            <span class=""><a href="{{url('/inquiry/create')}}">Create Inquiry</a></span><br><br>
                             <span class=""><a href="inquiry-display.php">Display Inquiry</a></span><br><br>
                             <span class=""><a href="inquiry-Change.php">Change Inquiry</a></span><br><br>
                             <span class=""><a href="inquiry-delete.php">Delete Inquiry</a></span>
