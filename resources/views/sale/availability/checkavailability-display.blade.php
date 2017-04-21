@@ -1,5 +1,5 @@
 @extends('default.layout')
-@section('title',"Check Availability")
+@section('title',"AvailabilityController")
 @section('content')
               <form action="">
                 <div class="row">

@@ -32,6 +32,26 @@ Route::get('/material/display/{id}', 'MaterialController@display');
 Route::get('/material/delete', 'MaterialController@showDelete');
 Route::POST('/material/delete', 'MaterialController@delete');
 
+// Quotation-create
+Route::get('/quotation/create','QuotationController@indexQuotation');
+// Quotation-display
+Route::get('/quotation/display','QuotationController@displayQuotation');
+
+// Availability-display
+Route::get('/availability/display','AvailabilityController@display');
+
+//GoodsIssue-create
+Route::get('/goodsissue/create','GoodsIssueController@create');
+//GoodsIssue-display
+Route::get('/goodsissue/display','GoodsIssueController@display');
+
+//PurchaseOrder-create
+Route::get('/po/create','PurchaseOrderController@create');
+
+//SaleOrder-create
+Route::get('/so/create','SaleOrderController@create');
+//SaleOrder-display
+Route::get('/so/display','SaleOrderController@display');
 
 Route::get('/', function () {
     return view('default.layout');
