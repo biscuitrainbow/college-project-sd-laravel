@@ -23,23 +23,26 @@ Route::get('/customer/display', 'CustomerController@indexDisplay');
 Route::get('/customer/display/{id}', 'CustomerController@display');
 // Material-delete
 Route::get('/customer/delete', 'MaterialController@showDelete');
+
+Route::post('/customer/delete', 'MaterialController@delete');
 Route::POST('/customer/delete', 'MaterialController@delete');
+
 
 
 // Material-create
 Route::get('/material/create', 'MaterialController@index');
-Route::POST('/material/create', 'MaterialController@create');
+Route::post('/material/create', 'MaterialController@create');
 // Material-change
 Route::get('/material/change', 'MaterialController@indexChange');
 Route::get('/material/change/{id}', 'MaterialController@showChange');
-Route::POST('/material/change', 'MaterialController@change');
+Route::post('/material/change', 'MaterialController@change');
 // Material-display
 Route::get('/material', 'MaterialController@indexDisplay');
 Route::get('/material/display', 'MaterialController@indexDisplay');
 Route::get('/material/display/{id}', 'MaterialController@display');
 // Material-delete
 Route::get('/material/delete', 'MaterialController@showDelete');
-Route::POST('/material/delete', 'MaterialController@delete');
+Route::post('/material/delete', 'MaterialController@delete');
 
 // Quotation-create
 Route::get('/quotation/create','QuotationController@indexQuotation');
@@ -61,6 +64,16 @@ Route::get('/po/create','PurchaseOrderController@create');
 Route::get('/so/create','SaleOrderController@create');
 //SaleOrder-display
 Route::get('/so/display','SaleOrderController@display');
+
+//invoice-create
+Route::get('/invoice/create','InvoiceController@create');
+//invoice-display
+Route::get('/invoice/display','InvoiceController@display');
+
+//receipt-create
+Route::get('/receipt/create','ReceiptController@create');
+//receipt-display
+Route::get('/receipt/display','ReceiptController@display');
 
 Route::get('/', function () {
     return view('default.layout');
@@ -158,11 +171,17 @@ Route::get('/presale/inquiry/create', function () {
 // ============================================================
 // Condition-create
 Route::get('/condition/create', 'ConditionController@showCreate');
-Route::POST('/condition/create/general', 'ConditionController@createGeneral');
-Route::POST('/condition/create/material', 'ConditionController@createMaterial');
+Route::post('/condition/create/general', 'ConditionController@createGeneral');
+Route::post('/condition/create/material', 'ConditionController@createMaterial');
 // Condition-display
 Route::get('/condition', 'ConditionController@indexDisplay');
 Route::get('/condition/display', 'ConditionController@indexDisplay');
 Route::get('/condition/display/general/{id}', 'ConditionController@displayGeneral');
 Route::get('/condition/display/material/{id}', 'ConditionController@displayMaterial');
+
+
+// ============================================================
+// Inquiry
+Route::get('/inquiry/create','InquiryController@showCreate');
+Route::post('/inquiry/create','InquiryController@create');
 
