@@ -62,6 +62,16 @@ Route::get('/so/create','SaleOrderController@create');
 //SaleOrder-display
 Route::get('/so/display','SaleOrderController@display');
 
+//invoice-create
+Route::get('/invoice/create','InvoiceController@create');
+//invoice-display
+Route::get('/invoice/display','InvoiceController@display');
+
+//receipt-create
+Route::get('/receipt/create','ReceiptController@create');
+//receipt-display
+Route::get('/receipt/display','ReceiptController@display');
+
 Route::get('/', function () {
     return view('default.layout');
 });
