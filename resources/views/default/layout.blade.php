@@ -35,19 +35,13 @@
         @include('include.sidebar')
 
         <div class="col s9 m9 l9 xl9" style="margin-top: 15px;">
-            <div class="card">
-                <div class="card-content">
-                    <h4 style="margin-bottom: 50px">@yield('title')</h4>
-                    @section('content')
-                    @show
-                </div>
-            </div>
-            <div class="card" style="margin-bottom:75px">
-                <div class="card-content">
-                    @section('list')
-                    @show
-                </div>
-            </div>
+
+            @section('content')
+                <h4 style="margin-bottom: 50px">@yield('title')</h4>
+            @show
+
+            @section('list')
+            @show
         </div>
 
 
