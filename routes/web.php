@@ -11,12 +11,12 @@
 |
 */
 // Customer-create
-Route::get('/customer/create','CustomerController@index');
-Route::post('/customer/create','CustomerController@create');
+Route::get('/customer/create', 'CustomerController@index');
+Route::post('/customer/create', 'CustomerController@create');
 // Customer-change
-Route::get('/customer/change','CustomerController@indexChange');
-Route::get('/customer/change/{id}','CustomerController@showChange');
-Route::post('/customer/change','CustomerController@change');
+Route::get('/customer/change', 'CustomerController@indexChange');
+Route::get('/customer/change/{id}', 'CustomerController@showChange');
+Route::post('/customer/change', 'CustomerController@change');
 // Customer-display
 Route::get('/customer', 'CustomerController@indexDisplay');
 Route::get('/customer/display', 'CustomerController@indexDisplay');
@@ -24,7 +24,6 @@ Route::get('/customer/display/{id}', 'CustomerController@display');
 // Material-delete
 Route::get('/customer/delete', 'MaterialController@showDelete');
 Route::POST('/customer/delete', 'MaterialController@delete');
-
 
 
 // Material-create
