@@ -41,6 +41,120 @@ Route::get('/material/display/{id}', 'MaterialController@display');
 Route::get('/material/delete', 'MaterialController@showDelete');
 Route::POST('/material/delete', 'MaterialController@delete');
 
+// Quotation-create
+Route::get('/quotation/create','QuotationController@indexQuotation');
+// Quotation-display
+Route::get('/quotation/display','QuotationController@displayQuotation');
+
+// Availability-display
+Route::get('/availability/display','AvailabilityController@display');
+
+//GoodsIssue-create
+Route::get('/goodsissue/create','GoodsIssueController@create');
+//GoodsIssue-display
+Route::get('/goodsissue/display','GoodsIssueController@display');
+
+//PurchaseOrder-create
+Route::get('/po/create','PurchaseOrderController@create');
+
+//SaleOrder-create
+Route::get('/so/create','SaleOrderController@create');
+//SaleOrder-display
+Route::get('/so/display','SaleOrderController@display');
+
+Route::get('/', function () {
+    return view('default.layout');
+});
+
+Route::get('/customer/create', function () {
+    return view('customer.customer-create');
+});
+Route::get('/customer/display', function () {
+    return view('customer.customer-display');
+});
+
+Route::get('/customer/display-result', function () {
+    return view('customer.customer-display-result');
+});
+
+
+Route::get('/inquiry/change', function () {
+    return view('presale.inquiry.inquiry-change');
+});
+
+Route::get('/inquiry/change-result', function () {
+    return view('presale.inquiry.inquiry-change-result');
+});
+
+Route::get('/inquiry/create', function () {
+    return view('presale.inquiry.inquiry-create');
+});
+
+Route::get('/inquiry/delete', function () {
+    return view('presale.inquiry.inquiry-delete');
+});
+
+Route::get('/inquiry/display', function () {
+    return view('presale.inquiry.inquiry-display');
+});
+
+Route::get('/inquiry/display-result', function () {
+    return view('presale.inquiry.inquiry-display-result');
+});
+
+Route::get('/quotation/change', function () {
+    return view('presale.quotation.quotation-change');
+});
+
+Route::get('/quotation/change-result', function () {
+    return view('presale.quotation.quotation-change-result');
+});
+
+Route::get('/quotation/create', function () {
+    return view('presale.quotation.quotation-create');
+});
+
+Route::get('/quotation/delete', function () {
+    return view('presale.quotation.quotation-delete');
+});
+
+Route::get('/quotation/display', function () {
+    return view('presale.quotation.quotation-display');
+});
+
+Route::get('/quotation/display-result', function () {
+    return view('presale.quotation.quotation-display-result');
+});
+
+Route::get('/invoice/create', function () {
+    return view('payment.invoice.invoice-create');
+});
+
+Route::get('/invoice/display', function () {
+    return view('payment.invoice.invoice-display');
+});
+
+Route::get('/invoice/display-result', function () {
+    return view('payment.invoice.invoice-display-result');
+});
+
+Route::get('/receipt/create', function () {
+    return view('payment.receipt.receipt-create');
+});
+
+Route::get('/receipt/display', function () {
+    return view('payment.receipt.receipt-display');
+});
+
+Route::get('/receipt/display-result', function () {
+    return view('payment.receipt.receipt-display-result');
+});
+
+Route::get('/presale/inquiry/create', function () {
+    return view('presale.inquiry.inquiry-create');
+});
+
+
 // ============================================================
 // Condition-create
 Route::get('/condition/create', 'ConditionController@showCreate');
