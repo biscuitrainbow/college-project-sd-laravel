@@ -9,7 +9,8 @@
                 <label for="saleorderno">Sale Order Number</label>
             </div>
             <div class="input-field col s6">
-                <input value="value" id="saleorderno" type="text" class="validate" placeholder="ex. cash, credit card, check note">
+                <input value="value" id="saleorderno" type="text" class="validate"
+                       placeholder="ex. cash, credit card, check note">
                 <label for="saleorderno">Term</label>
             </div>
         </div>
