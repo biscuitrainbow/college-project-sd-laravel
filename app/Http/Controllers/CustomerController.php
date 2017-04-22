@@ -6,13 +6,12 @@ use App\Customer;
 use Illuminate\Http\Request;
 use app;
 
-class CustomerController extends Controller
-{
-    public function index(){
+class CustomerController extends Controller {
+    public function index() {
         return view('customer.customer-create');
     }
 
-    public function create(Request $request){
+    public function postCustomer(Request $request) {
         $customer = new Customer();
         $customer->title = $request['title'];
         $customer->name = $request['name'];
@@ -23,23 +22,22 @@ class CustomerController extends Controller
         $customer->save();
 
         $status = "Create Successfully";
-        return view('material.material-status',compact('status'));
-
+        return view('material.material-status', compact('status'));
     }
 
-    public function indexChange(){
+    public function indexChange() {
         $data = Customer::all();
-        return view('customer.customer-change',compact('data'));
+        return view('customer.customer-change', compact('data'));
     }
 
-    public function showChange($id){
-        $data = Customer::where('id',$id)->first();
-        return view('customer.customer-change-result',compact('data'));
+    public function showChange($id) {
+        $data = Customer::where('id', $id)->first();
+        return view('customer.customer-change-result', compact('data'));
     }
 
-    public function change(Request $request){
+    public function change(Request $request) {
         $data = $request->all();
-        $update = Customer::where('id',$data['id'])->first();
+        $update = Customer::where('id', $data['id'])->first();
         $update->title = $data['title'];
         $update->name = $data['name'];
         $update->street = $data['street'];
@@ -49,29 +47,29 @@ class CustomerController extends Controller
         $update->save();
 
         $status = "Update Successfully";
-        return view('material.material-status',compact('status'));
+        return view('material.material-status', compact('status'));
     }
 
-    public function indexDisplay(){
-       $data = Customer::all();
-       return view('customer.customer-display',compact('data'));
-    }
-
-    public function display($id){
-        $data = Customer::where('id',$id)->first();
-        return view('customer.customer-display-result',compact('data'));
-    }
-
-    public function showDelete(){
+    public function displayCustomers() {
         $data = Customer::all();
-        return view('customer.customer-delete',compact('data'));
+        return view('customer.customer-display', compact('data'));
     }
 
-    public function delete(Request $request){
+    public function displayCustomer($id) {
+        $data = Customer::where('id', $id)->first();
+        return view('customer.customer-display-result', compact('data'));
+    }
+
+    public function showDelete() {
+        $data = Customer::all();
+        return view('customer.customer-delete', compact('data'));
+    }
+
+    public function delete(Request $request) {
         $data = $request->all();
         $customer = Customer::find($data['id']);
         $customer->delete();
         $status = "Delete Successfully";
-        return view('material.material-status',compact('status'));
+        return view('material.material-status', compact('status'));
     }
 }

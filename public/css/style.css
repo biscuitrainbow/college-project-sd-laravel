@@ -1,9 +1,12 @@
 .main-title {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+}
+
+.search-box {
 }
 
 .sub-title {
-    margin-bottom: 20px;
+    font-size: 1.2em;
 }
 
 header, main, footer {

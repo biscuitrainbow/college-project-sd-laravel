@@ -44,9 +44,7 @@
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="{{route('createMaterial')}}">Create Material</a></li>
-                            <li><a href="{{route('displayMaterial')}}">Display Material</a></li>
-                            <li><a href="">Change Material</a></li>
-                            <li><a href="">Delete Material</a></li>
+                            <li><a href="{{route('displayMaterials')}}">Display Material</a></li>
                         </ul>
                     </div>
                 </li>
@@ -54,21 +52,17 @@
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="{{route('createCustomer')}}">Create Customer</a></li>
-                            <li><a href="{{route('displayCustomer')}}">Display Customer</a></li>
-                            <li><a href="">Change Customer</a></li>
-                            <li><a href="">Delete Customer</a></li>
+                            <li><a href="{{route('displayCustomers')}}">Display Customer</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i class="material-icons">info_outline</i>Condition</a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="{{route('displayCustomer')}}">Create Material Condition</a></li>
-                            <li><a href="{{route('displayCustomer')}}">Create General Condition</a></li>
+                            <li><a href="{{route('showCreateMaterial')}}">Create Material Condition</a></li>
+                            <li><a href="{{route('showCreateGeneral')}}">Create General Condition</a></li>
                             <li><a href="{{route('displayConditionGeneral')}}">Display Material Condition</a></li>
                             <li><a href="{{route('displayConditionMaterial')}}">Display General Condition</a></li>
-                            <li><a href="">Change Condition</a></li>
-                            <li><a href="">Delete Condition</a></li>
                         </ul>
                     </div>
                 </li>
@@ -83,9 +77,7 @@
                                         <div class="collapsible-body">
                                             <ul>
                                                 <li><a href="{{route('createInquiry')}}">Create Inquiry</a></li>
-                                                <li><a href="">Display Inquiry</a></li>
-                                                <li><a href="">Change Inquiry</a></li>
-                                                <li><a href="">Delete Inquiry</a></li>
+                                                <li><a href="{{route('displayInquiries')}}">Display Inquiry</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -95,8 +87,6 @@
                                             <ul>
                                                 <li><a href="{{route('createQuotation')}}">Create Quotation</a></li>
                                                 <li><a href="{{route('displayQuotation')}}">Display Quotation</a></li>
-                                                <li><a href="">Change Quotation</a></li>
-                                                <li><a href="">Delete Quotation</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -114,7 +104,8 @@
                                             PO</a>
                                         <div class="collapsible-body">
                                             <ul>
-                                                <li><a href="{{route('createPurchaseOrder')}}">Create Customer PO</a></li>
+                                                <li><a href="{{route('createPurchaseOrder')}}">Create Customer PO</a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </li>
@@ -203,6 +194,7 @@
 
 
 <!-- ย้ายอันนี้แล้ว Datepicker ใช้งานไม่ได้ -->
+<script src="{{asset('js/vue.js')}}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 <script>

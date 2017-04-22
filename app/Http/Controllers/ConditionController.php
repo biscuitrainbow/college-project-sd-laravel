@@ -7,22 +7,18 @@ use App\Material;
 use Illuminate\Http\Request;
 use app;
 
-class ConditionController extends Controller
-{
-    public function showCreateGeneral()
-    {
+class ConditionController extends Controller {
+    public function showCreateGeneral() {
         return view('condition.condition-create-general', compact('data'));
     }
 
 
-    public function showCreateMaterial()
-    {
+    public function showCreateMaterial() {
         $data = Material::all();
         return view('condition.condition-create-material', compact('data'));
     }
 
-    public function createGeneral(Request $request)
-    {
+    public function createGeneral(Request $request) {
         $condition = new Condition();
         $condition['conditionname'] = $request['conditionname'];
         $condition['discountprice'] = $request['discountprice'];
@@ -36,8 +32,7 @@ class ConditionController extends Controller
         return view('material.material-status', compact('status'));
     }
 
-    public function createMaterial(Request $request)
-    {
+    public function createMaterial(Request $request) {
         $condition = new Condition();
         $condition['conditionname'] = $request['conditionname'];
         $condition['discountprice'] = $request['discountprice'];
@@ -51,22 +46,19 @@ class ConditionController extends Controller
         return view('material.material-status', compact('status'));
     }
 
-    public function indexDisplay()
-    {
+    public function indexDisplay() {
         $general = Condition::where('condition_type', 'general')->get();
         $material = Condition::where('condition_type', 'material')->get();
 
         return view('condition.condition-display', compact('general'), compact('material'));
     }
 
-    public function displayGeneral($id)
-    {
+    public function displayGeneral($id) {
         $condition = Condition::where('id', $id)->first();
         return view('condition.condition-display-general', compact('condition'));
     }
 
-    public function displayMaterial($id)
-    {
+    public function displayMaterial($id) {
         $condition = Condition::where('id', $id)->first();
         return view('condition.condition-display-material', compact('condition'));
     }
