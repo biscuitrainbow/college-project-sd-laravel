@@ -28,7 +28,6 @@ Route::post('/customer/delete', 'MaterialController@delete');
 Route::POST('/customer/delete', 'MaterialController@delete');
 
 
-
 // Material-create
 Route::get('/material/create', 'MaterialController@index');
 Route::post('/material/create', 'MaterialController@create');
@@ -45,35 +44,35 @@ Route::get('/material/delete', 'MaterialController@showDelete');
 Route::post('/material/delete', 'MaterialController@delete');
 
 // Quotation-create
-Route::get('/quotation/create','QuotationController@indexQuotation');
+Route::get('/quotation/create', 'QuotationController@indexQuotation');
 // Quotation-display
-Route::get('/quotation/display','QuotationController@displayQuotation');
+Route::get('/quotation/display', 'QuotationController@displayQuotation');
 
 // Availability-display
-Route::get('/availability/display','AvailabilityController@display');
+Route::get('/availability/display', 'AvailabilityController@display');
 
 //GoodsIssue-create
-Route::get('/goodsissue/create','GoodsIssueController@create');
+Route::get('/goodsissue/create', 'GoodsIssueController@create');
 //GoodsIssue-display
-Route::get('/goodsissue/display','GoodsIssueController@display');
+Route::get('/goodsissue/display', 'GoodsIssueController@display');
 
 //PurchaseOrder-create
-Route::get('/po/create','PurchaseOrderController@create');
+Route::get('/po/create', 'PurchaseOrderController@create');
 
 //SaleOrder-create
-Route::get('/so/create','SaleOrderController@create');
+Route::get('/so/create', 'SaleOrderController@create');
 //SaleOrder-display
-Route::get('/so/display','SaleOrderController@display');
+Route::get('/so/display', 'SaleOrderController@display');
 
 //invoice-create
-Route::get('/invoice/create','InvoiceController@create');
+Route::get('/invoice/create', 'InvoiceController@create');
 //invoice-display
-Route::get('/invoice/display','InvoiceController@display');
+Route::get('/invoice/display', 'InvoiceController@display');
 
 //receipt-create
-Route::get('/receipt/create','ReceiptController@create');
+Route::get('/receipt/create', 'ReceiptController@create');
 //receipt-display
-Route::get('/receipt/display','ReceiptController@display');
+Route::get('/receipt/display', 'ReceiptController@display');
 
 Route::get('/', function () {
     return view('default.layout');
@@ -170,7 +169,9 @@ Route::get('/presale/inquiry/create', function () {
 
 // ============================================================
 // Condition-create
-Route::get('/condition/create', 'ConditionController@showCreate');
+Route::get('/condition/create/material', 'ConditionController@showCreateMaterial');
+Route::get('/condition/create/general', 'ConditionController@showCreateGeneral');
+
 Route::post('/condition/create/general', 'ConditionController@createGeneral');
 Route::post('/condition/create/material', 'ConditionController@createMaterial');
 // Condition-display
@@ -182,6 +183,6 @@ Route::get('/condition/display/material/{id}', 'ConditionController@displayMater
 
 // ============================================================
 // Inquiry
-Route::get('/inquiry/create','InquiryController@showCreate');
-Route::post('/inquiry/create','InquiryController@create');
+Route::get('/inquiry/create', 'InquiryController@showCreate');
+Route::post('/inquiry/create', 'InquiryController@create');
 

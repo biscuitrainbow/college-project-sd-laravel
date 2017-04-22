@@ -12,8 +12,8 @@
             <div class="collapsible-body">
                 <span class=""><a href="{{ url('/material/create') }}">Create Material</a></span><br><br>
                 <span class=""><a href="{{ url('/material/display') }}">Display Material</a></span><br><br>
-                <span class=""><a href="{{ url('/material/change') }}">Change Material</a></span><br><br>
-                <span class=""><a href="{{ url('/material/delete') }}">Delete Material</a></span>
+                {{--<span class=""><a href="{{ url('/material/change') }}">Change Material</a></span><br><br>--}}
+                {{--<span class=""><a href="{{ url('/material/delete') }}">Delete Material</a></span>--}}
             </div>
         </li>
         <li>
@@ -21,17 +21,26 @@
             <div class="collapsible-body">
                 <span class=""><a href="{{url('/customer/create')}}">Create Customer</a></span><br><br>
                 <span class=""><a href="{{url('/customer/display')}}">Display Customer</a></span><br><br>
-                <span class=""><a href="{{url('/customer/change')}}">Change Customer</a></span><br><br>
-                <span class=""><a href="{{url('/customer/delete')}}">Delete Customer</a></span>
+                {{--<span class=""><a href="{{url('/customer/change')}}">Change Customer</a></span><br><br>--}}
+                {{--<span class=""><a href="{{url('/customer/delete')}}">Delete Customer</a></span>--}}
             </div>
         </li>
-        <li>
-            <div class="collapsible-header waves-effect"><i class="material-icons">info_outline</i>Condition</div>
+        <li class="">
+            <div class="collapsible-header waves-effect "><i class="material-icons">info_outline</i>Condition
+            </div>
             <div class="collapsible-body">
-                <span class=""><a href="{{url('/condition/create')}}">Create Condition</a></span><br><br>
+                {{--<div class="collapsible-header waves-effect">Create Condition</div>--}}
+                {{--<div class="collapsible-body">--}}
+                {{--<span class=""><a href="{{url('/condition/create/general')}}">General</a></span><br><br>--}}
+                {{--<span class=""><a href="{{url('/condition/create/material')}}">Material</a></span><br><br>--}}
+                {{--</div>--}}
+                <span class=""><a
+                            href="{{url('/condition/create/general')}}">Create General Condition</a></span><br><br>
+                <span class=""><a
+                            href="{{url('/condition/create/material')}}">Create Material Condition</a></span><br><br>
                 <span class=""><a href="{{url('/condition/display')}}">Display Condition</a></span><br><br>
-                <span class=""><a href="condition-change.php">Change Condition</a></span><br><br>
-                <span class=""><a href="condition-delete.php">Delete Condition</a></span>
+                {{--<span class=""><a href="condition-change.php">Change Condition</a></span><br><br>--}}
+                {{--<span class=""><a href="condition-delete.php">Delete Condition</a></span>--}}
             </div>
         </li>
         <li>
@@ -43,8 +52,8 @@
                         <div class="collapsible-body">
                             <span class=""><a href="{{url('/inquiry/create')}}">Create Inquiry</a></span><br><br>
                             <span class=""><a href="{{url('/inquiry/display')}}">Display Inquiry</a></span><br><br>
-                            <span class=""><a href="{{url('/inquiry/change')}}">Change Inquiry</a></span><br><br>
-                            <span class=""><a href="{{url('/inquiry/delete')}}">Delete Inquiry</a></span>
+                            {{--<span class=""><a href="{{url('/inquiry/change')}}">Change Inquiry</a></span><br><br>--}}
+                            {{--<span class=""><a href="{{url('/inquiry/delete')}}">Delete Inquiry</a></span>--}}
                         </div>
                     </li>
                     <li>
@@ -52,8 +61,8 @@
                         <div class="collapsible-body">
                             <span class=""><a href="{{url('/quotation/create')}}">Create Quotation</a></span><br><br>
                             <span class=""><a href="{{url('/quotation/display')}}">Display Quotation</a></span><br><br>
-                            <span class=""><a href="quotation-Change.php">Change Quotation</a></span><br><br>
-                            <span class=""><a href="quotation-delete.php">Delete Quotation</a></span>
+                            {{--<span class=""><a href="quotation-Change.php">Change Quotation</a></span><br><br>--}}
+                            {{--<span class=""><a href="quotation-delete.php">Delete Quotation</a></span>--}}
                         </div>
                     </li>
                 </ul>

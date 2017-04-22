@@ -5,12 +5,10 @@
         <div class="card-content">
             <h4 style="margin-bottom: 50px">Display Material</h4>
             <form action="">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">search</i>
-                        <input id="icon_prefix" type="text" class="validate">
-                        <label for="icon_prefix">Search by product name or id</label>
-                    </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">search</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Search by product name or id</label>
                 </div>
             </form>
             @endsection
@@ -18,7 +16,7 @@
             @section('list')
                 <div class="row">
                     <div class="col s12">
-                        <h4 style="margin-bottom: 50px">All Product</h4>
+                        <h5. class="sub-title">All Product</h5.>
 
                         <!-- Table -->
                         <table class="highlight">
