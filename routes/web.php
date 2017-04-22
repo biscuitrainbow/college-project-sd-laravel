@@ -13,68 +13,67 @@
 // Login
 
 // Customer-create
-Route::get('/customer/create', 'CustomerController@index')->name('createCustomer');
-Route::post('/customer/create', 'CustomerController@create');
+Route::get('/customer/create', 'CustomerController@index')->name('createCustomer')->middleware('auth');
+Route::post('/customer/create', 'CustomerController@create')->name('postCustomer')->middleware('auth');
 // Customer-change
 Route::get('/customer/change', 'CustomerController@indexChange');
 Route::get('/customer/change/{id}', 'CustomerController@showChange');
 Route::post('/customer/change', 'CustomerController@change');
 // Customer-display
-Route::get('/customer', 'CustomerController@indexDisplay');
-Route::get('/customer/display', 'CustomerController@indexDisplay');
-Route::get('/customer/display/{id}', 'CustomerController@display');
+//Route::get('/customer', 'CustomerController@indexDisplay')->name('displayCustomer')->middleware('auth');
+Route::get('/customer/display', 'CustomerController@indexDisplay')->name('displayCustomer')->middleware('auth');
+Route::get('/customer/display/{id}', 'CustomerController@display')->name('displayCustomerId')->middleware('auth');
+
 // Material-delete
 Route::get('/customer/delete', 'MaterialController@showDelete');
-
 Route::post('/customer/delete', 'MaterialController@delete');
 Route::POST('/customer/delete', 'MaterialController@delete');
-
-
 // Material-create
 Route::get('/material/create', 'MaterialController@index')->name('createMaterial')->middleware('auth');
-Route::post('/material/create', 'MaterialController@create')->name('postMaterial');
+Route::post('/material/create', 'MaterialController@create')->name('postMaterial')->middleware('auth');
 // Material-change
 Route::get('/material/change', 'MaterialController@indexChange');
 Route::get('/material/change/{id}', 'MaterialController@showChange');
 Route::post('/material/change', 'MaterialController@change');
 // Material-display
-Route::get('/material', 'MaterialController@indexDisplay');
+//Route::get('/material', 'MaterialController@indexDisplay')->name('Material')->middleware('auth');
 Route::get('/material/display', 'MaterialController@indexDisplay')->name('displayMaterial')->middleware('auth');
-Route::get('/material/display/{id}', 'MaterialController@display');
+Route::get('/material/display/{id}', 'MaterialController@display')->name('displayMaterialId')->middleware('auth');
 // Material-delete
 Route::get('/material/delete', 'MaterialController@showDelete');
 Route::post('/material/delete', 'MaterialController@delete');
 
 // Quotation-create
-Route::get('/quotation/create', 'QuotationController@indexQuotation');
+Route::get('/quotation/create', 'QuotationController@indexQuotation')->name('createQuotation')->middleware('auth');
 // Quotation-display
-Route::get('/quotation/display', 'QuotationController@displayQuotation');
+Route::get('/quotation/display', 'QuotationController@displayQuotation')->name('displayQuotation')->middleware('auth');
 
 // Availability-display
-Route::get('/availability/display', 'AvailabilityController@display');
+Route::get('/availability/display', 'AvailabilityController@display')->name('displayAvailability')->middleware('auth');
 
 //GoodsIssue-create
-Route::get('/goodsissue/create', 'GoodsIssueController@create');
+Route::get('/goodsissue/create', 'GoodsIssueController@create')->name('createGoodsIssue')->middleware('auth');
 //GoodsIssue-display
-Route::get('/goodsissue/display', 'GoodsIssueController@display');
+Route::get('/goodsissue/display', 'GoodsIssueController@display')->name('displayGoodsIssue')->middleware('auth');
 
 //PurchaseOrder-create
-Route::get('/po/create', 'PurchaseOrderController@create');
+Route::get('/po/create', 'PurchaseOrderController@create')->name('createPurchaseOrder')->middleware('auth');
 
 //SaleOrder-create
-Route::get('/so/create', 'SaleOrderController@create');
+Route::get('/so/create', 'SaleOrderController@create')->name('createSaleOrder')->middleware('auth');
 //SaleOrder-display
-Route::get('/so/display', 'SaleOrderController@display');
+Route::get('/so/display', 'SaleOrderController@display')->name('displaySaleOrder')->middleware('auth');
 
 //invoice-create
-Route::get('/invoice/create', 'InvoiceController@create');
+Route::get('/invoice/create', 'InvoiceController@create')->name('createInvoice')->middleware('auth');
 //invoice-display
-Route::get('/invoice/display', 'InvoiceController@display');
+Route::get('/invoice/display', 'InvoiceController@display')->name('displayInvoice')->middleware('auth');
 
 //receipt-create
-Route::get('/receipt/create', 'ReceiptController@create');
+Route::get('/receipt/create', 'ReceiptController@create')->name('createReceipt')->middleware('auth');
 //receipt-display
-Route::get('/receipt/display', 'ReceiptController@display');
+Route::get('/receipt/display', 'ReceiptController@display')->name('displayReceipt')->middleware('auth');
+
 
 Route::get('/', function () {
     return view('default.layout');
@@ -171,22 +170,22 @@ Route::get('/presale/inquiry/create', function () {
 
 // ============================================================
 // Condition-create
-Route::get('/condition/create/material', 'ConditionController@showCreateMaterial');
-Route::get('/condition/create/general', 'ConditionController@showCreateGeneral');
+Route::get('/condition/create/material', 'ConditionController@showCreateMaterial')->name('createConditionMaterial')->middleware('auth');
+Route::get('/condition/create/general', 'ConditionController@showCreateGeneral')->name('createConditionGeneral')->middleware('auth');
 
-Route::post('/condition/create/general', 'ConditionController@createGeneral');
-Route::post('/condition/create/material', 'ConditionController@createMaterial');
+Route::post('/condition/create/general', 'ConditionController@createGeneral')->name('postConditionGeneral')->middleware('auth');
+Route::post('/condition/create/material', 'ConditionController@createMaterial')->name('postConditionMaterial')->middleware('auth');
 // Condition-display
-Route::get('/condition', 'ConditionController@indexDisplay');
-Route::get('/condition/display', 'ConditionController@indexDisplay');
-Route::get('/condition/display/general/{id}', 'ConditionController@displayGeneral');
-Route::get('/condition/display/material/{id}', 'ConditionController@displayMaterial');
+//Route::get('/condition', 'ConditionController@indexDisplay')->name('Condition')->middleware('auth');
+Route::get('/condition/display', 'ConditionController@indexDisplay')->name('displayCondition')->middleware('auth');
+Route::get('/condition/display/general/{id}', 'ConditionController@displayGeneral')->name('displayConditionGeneral')->middleware('auth');
+Route::get('/condition/display/material/{id}', 'ConditionController@displayMaterial')->name('displayConditionMaterial')->middleware('auth');
 
 
 // ============================================================
 // Inquiry
-Route::get('/inquiry/create', 'InquiryController@showCreate');
-Route::post('/inquiry/create', 'InquiryController@create');
+Route::get('/inquiry/create', 'InquiryController@showCreate')->name('createInquiry')->middleware('auth');
+Route::post('/inquiry/create', 'InquiryController@create')->name('postInquiry')->middleware('auth');
 
 
 Route::get('/login', 'LoginController@index');
