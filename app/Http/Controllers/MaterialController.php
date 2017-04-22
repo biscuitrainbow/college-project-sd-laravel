@@ -57,7 +57,7 @@ class MaterialController extends Controller
     }
 
     public function indexDisplay(){
-        $data = Material::all();
+        $data = Material::Paginate(10);;
         return view('material.material-display',compact('data'));
     }
 

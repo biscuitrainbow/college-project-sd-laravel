@@ -1,3 +1,11 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="{{url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')}}" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="{{url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css')}}" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="{{url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')}}" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 @extends('default.layout')
 @section('title',"Display Material")
 @section('content')
@@ -48,16 +56,18 @@
                             @endforeach
                         </table>
 
-                        <!-- Pagination -->
-                        <ul class="pagination">
-                            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                            <li class="active"><a href="#!">1</a></li>
-                            <li class="waves-effect"><a href="#!">2</a></li>
-                            <li class="waves-effect"><a href="#!">3</a></li>
-                            <li class="waves-effect"><a href="#!">4</a></li>
-                            <li class="waves-effect"><a href="#!">5</a></li>
-                            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-                        </ul>
+                    {{ $data->links() }}
+
+                        {{--<!-- Pagination -->--}}
+                        {{--<ul class="pagination">--}}
+                            {{--<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>--}}
+                            {{--<li class="active"><a href="#!">1</a></li>--}}
+                            {{--<li class="waves-effect"><a href="#!">2</a></li>--}}
+                            {{--<li class="waves-effect"><a href="#!">3</a></li>--}}
+                            {{--<li class="waves-effect"><a href="#!">4</a></li>--}}
+                            {{--<li class="waves-effect"><a href="#!">5</a></li>--}}
+                            {{--<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>--}}
+                        {{--</ul>--}}
                     </div>
                 </div>
         </div>
