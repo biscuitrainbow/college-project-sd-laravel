@@ -11,10 +11,9 @@
 |
 */
 // Login
-Route::get('/login','LoginController@index');
 
 // Customer-create
-Route::get('/customer/create', 'CustomerController@index');
+Route::get('/customer/create', 'CustomerController@index')->name('createCustomer');
 Route::post('/customer/create', 'CustomerController@create');
 // Customer-change
 Route::get('/customer/change', 'CustomerController@indexChange');
@@ -32,15 +31,15 @@ Route::POST('/customer/delete', 'MaterialController@delete');
 
 
 // Material-create
-Route::get('/material/create', 'MaterialController@index');
-Route::post('/material/create', 'MaterialController@create');
+Route::get('/material/create', 'MaterialController@index')->name('createMaterial')->middleware('auth');
+Route::post('/material/create', 'MaterialController@create')->name('postMaterial');
 // Material-change
 Route::get('/material/change', 'MaterialController@indexChange');
 Route::get('/material/change/{id}', 'MaterialController@showChange');
 Route::post('/material/change', 'MaterialController@change');
 // Material-display
 Route::get('/material', 'MaterialController@indexDisplay');
-Route::get('/material/display', 'MaterialController@indexDisplay');
+Route::get('/material/display', 'MaterialController@indexDisplay')->name('displayMaterial')->middleware('auth');
 Route::get('/material/display/{id}', 'MaterialController@display');
 // Material-delete
 Route::get('/material/delete', 'MaterialController@showDelete');
@@ -189,3 +188,11 @@ Route::get('/condition/display/material/{id}', 'ConditionController@displayMater
 Route::get('/inquiry/create', 'InquiryController@showCreate');
 Route::post('/inquiry/create', 'InquiryController@create');
 
+
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@login')->name('login');
+Route::get('/logout', 'LoginController@logout');
+
+Route::get('/default', function () {
+    return view('default.layout');
+});
