@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Login
+Route::get('/login','LoginController@index');
+
 // Customer-create
 Route::get('/customer/create', 'CustomerController@index');
 Route::post('/customer/create', 'CustomerController@create');

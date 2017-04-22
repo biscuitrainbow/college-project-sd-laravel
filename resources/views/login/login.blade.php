@@ -48,27 +48,29 @@
 
 
 
-      <!-- ย้ายอันนี้แล้ว Datepicker ใช้งานไม่ได้ -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<!-- ย้ายอันนี้แล้ว Datepicker ใช้งานไม่ได้ -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
-      <script>
-            $( document ).ready(function() {
-             $('.datepicker').pickadate({
-                format: 'mm/dd/yyyy',
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15 // Creates a dropdown of 15 years to control year
-              });
-          });
+		<script>
+            $(document).ready(function () {
+                $('.datepicker').pickadate({
+                    format: 'mm/dd/yyyy',
+                    selectMonths: true, // Creates a dropdown to control month
+                    selectYears: 15 // Creates a dropdown of 15 years to control year
+                });
+            });
 
 
-      </script>
+		</script>
 
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.js"></script>
-    </body>
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="{{asset('js/materialize.js')}}"></script>
+
+	</body>
 
     <!-- Footer -->
-    <?php include('footer.php'); ?>
+	@include('include.footer')
 
-  </html>
+
+ </html>
