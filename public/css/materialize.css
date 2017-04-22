@@ -980,11 +980,11 @@
 }
 
 .teal {
-  background-color: #009688 !important;
+  background-color: #377ab7 !important;
 }
 
 .teal-text {
-  color: #009688 !important;
+  color: #377ab7 !important;
 }
 
 .teal.lighten-5 {
@@ -2867,7 +2867,7 @@ ul.staggered-list li {
 
 .page-footer {
   padding-top: 20px;
-  background-color: #009688;
+  background-color: #337ab7;
 }
 
 .page-footer .footer-copyright {
@@ -4115,7 +4115,7 @@ nav ul a span.badge {
 
 nav {
   color: #fff;
-  background-color: #009688;
+  background-color: #337ab7;
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -5097,7 +5097,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #26a69a;
+  background-color: #337ab7;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
@@ -5105,7 +5105,7 @@ small {
 }
 
 .btn:hover, .btn-large:hover {
-  background-color: #2bbbad;
+  background-color: #2a6698;
 }
 
 .btn-floating {
@@ -5450,7 +5450,7 @@ button.btn-floating {
 }
 
 .waves-effect.waves-teal .waves-ripple {
-  background-color: rgba(0, 150, 136, 0.7);
+  background-color: rgba(20, 48, 72, 0.7);
 }
 
 .waves-effect input[type="button"], .waves-effect input[type="reset"], .waves-effect input[type="submit"] {
