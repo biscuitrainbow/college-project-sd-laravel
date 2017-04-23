@@ -67,6 +67,8 @@ Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LoginController@logout');
 
-Route::get('/default', function () {
-    return view('default.layout');
-});
+Route::get('/register', 'RegisterController@index');
+Route::post('/register', 'RegisterController@create');
+
+
+
