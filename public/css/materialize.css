@@ -8904,3 +8904,15 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .bgblue{
   background-color: #337ab7;
 }
+
+.bold{
+  font-weight: bold;
+}
+
+.font18{
+  font-size: 18px;
+}
+
+.margintop50{
+  margin-top: 50px;
+}
