@@ -65,7 +65,7 @@ Route::post('/inquiry/create', 'InquiryController@create')->name('postInquiry')-
 /* Login */
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login')->name('login');
-Route::get('/logout', 'LoginController@logout');
+Route::get('/logout', 'LoginController@logout')->name('logout');
 
 Route::get('/register', 'RegisterController@index');
 Route::post('/register', 'RegisterController@create');

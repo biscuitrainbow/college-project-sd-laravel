@@ -174,6 +174,8 @@
                         </ul>
                     </div>
                 </li>
+                <li class="bold"><a href="{{route('logout')}}" class="">Logout</a>
+                </li>
             </ul>
         </li>
     </ul>
