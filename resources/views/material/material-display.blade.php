@@ -9,7 +9,6 @@
                 <label for="icon_prefix">Search by product name or id</label>
             </div>
         </form>
-
         <div class="row">
             <div class="col s12">
                 <div class="card">

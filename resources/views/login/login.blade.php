@@ -11,7 +11,7 @@
 
 </head>
 
-<body style="background-color: #009688">
+<body class="bgblue">
 <div class="container">
     <div class="row">
         <div class="col s4 offset-s4">
