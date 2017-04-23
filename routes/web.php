@@ -21,7 +21,7 @@ Route::get('/customer/display/{id}', 'CustomerController@displayCustomer')->midd
 Route::get('/material/create', 'MaterialController@index')->name('createMaterial')->middleware('auth');
 Route::post('/material/create', 'MaterialController@create')->name('postMaterial')->middleware('auth');
 Route::get('/material/display', 'MaterialController@displayMaterials')->name('displayMaterials')->middleware('auth');
-Route::get('/material/display/{id}', 'MaterialController@displayMaterial')->name('displayMaterial')->middleware('auth');
+Route::get('/material/display/{id}', 'MaterialController@displayMaterial')->middleware('auth');
 
 /* Quotation */
 Route::get('/quotation/create', 'QuotationController@indexQuotation')->name('createQuotation')->middleware('auth');
@@ -55,8 +55,8 @@ Route::get('/condition/create/general', 'ConditionController@showCreateGeneral')
 Route::post('/condition/create/general', 'ConditionController@createGeneral')->name('postConditionGeneral')->middleware('auth');
 Route::post('/condition/create/material', 'ConditionController@createMaterial')->name('postConditionMaterial')->middleware('auth');
 
-Route::get('/condition/display/general/', 'ConditionController@displayGeneral')->name('displayConditionGeneral')->middleware('auth');
-Route::get('/condition/display/material/', 'ConditionController@displayMaterial')->name('displayConditionMaterial')->middleware('auth');
+Route::get('/condition/display/general/', 'ConditionController@displayGenerals')->name('displayConditionGeneral')->middleware('auth');
+Route::get('/condition/display/material/', 'ConditionController@displayMaterials')->name('displayConditionMaterial')->middleware('auth');
 
 /* Inquiry */
 Route::get('/inquiry/create', 'InquiryController@showCreate')->name('createInquiry')->middleware('auth');

@@ -62,19 +62,25 @@
                         <ul>
                             <li>
                                 <ul class="collapsible collapsible-accordion">
-                                    <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Material Condition</a>
+                                    <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Material
+                                            Condition</a>
                                         <div class="collapsible-body">
                                             <ul>
-                                                <li><a href="{{route('createInvoice')}}">Create Material Condition</a></li>
-                                                <li><a href="{{route('displayInvoice')}}">Display Material Condition</a></li>
+                                                <li><a href="{{route('showCreateMaterial')}}">Create Material Condition</a>
+                                                </li>
+                                                <li><a href="{{route('displayConditionMaterial')}}">Display Material Condition</a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="bold"><a class="collapsible-header  waves-effect waves-teal">General Condition</a>
+                                    <li class="bold"><a class="collapsible-header  waves-effect waves-teal">General
+                                            Condition</a>
                                         <div class="collapsible-body">
                                             <ul>
-                                                <li><a href="{{route('createReceipt')}}">Create General Condition</a></li>
-                                                <li><a href="{{route('displayReceipt')}}">Display General Condition</a></li>
+                                                <li><a href="{{route('showCreateGeneral')}}">Create General Condition</a>
+                                                </li>
+                                                <li><a href="{{route('displayConditionGeneral')}}">Display General Condition</a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </li>

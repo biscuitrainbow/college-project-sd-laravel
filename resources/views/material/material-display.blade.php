@@ -41,6 +41,9 @@
                         <td>@{{material.product_qty}}</td>
                         <td>@{{material.product_type}}</td>
                         <td>@{{material.product_categories}}</td>
+                        <td><a :href="'{{url('/material/display')}}/' + material.product_id"
+                               class="waves-effect waves-light btn">View</a>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
