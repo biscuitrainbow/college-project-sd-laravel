@@ -32,7 +32,7 @@ class MaterialController extends Controller {
         return view('material.material-display', compact('data'));
     }
 
-    public function display($id) {
+    public function displayMaterial($id) {
         $data = Material::where('id', $id)->first();
         // return $data;
         return view('material.material-display-result', compact('data'));

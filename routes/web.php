@@ -21,6 +21,7 @@ Route::get('/customer/display/{id}', 'CustomerController@displayCustomer')->midd
 Route::get('/material/create', 'MaterialController@index')->name('createMaterial')->middleware('auth');
 Route::post('/material/create', 'MaterialController@create')->name('postMaterial')->middleware('auth');
 Route::get('/material/display', 'MaterialController@displayMaterials')->name('displayMaterials')->middleware('auth');
+Route::get('/material/display/{id}', 'MaterialController@displayMaterial')->name('displayMaterial')->middleware('auth');
 
 /* Quotation */
 Route::get('/quotation/create', 'QuotationController@indexQuotation')->name('createQuotation')->middleware('auth');
@@ -71,8 +72,5 @@ Route::get('/register', 'RegisterController@index');
 Route::post('/register', 'RegisterController@create');
 
 
-
-
 Auth::routes();
-
 Route::get('/home', 'MaterialController@displayMaterials');

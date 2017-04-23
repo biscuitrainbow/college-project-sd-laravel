@@ -18,7 +18,8 @@
         <div class="row">
             <div class="col s10 offset-s1">
                 <div class="nav-wrapper">
-                    <a class="page-title">Sale and Distribution</a>
+                    @section('breadcrumb')
+                    @show
                 </div>
             </div>
         </div>
@@ -173,8 +174,6 @@
                             <li><a href="">Edit</a></li>
                         </ul>
                     </div>
-                </li>
-                <li class="bold"><a href="{{route('logout')}}" class="">Logout</a>
                 </li>
             </ul>
         </li>

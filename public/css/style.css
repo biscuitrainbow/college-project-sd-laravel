@@ -19,16 +19,6 @@ header, main, footer {
     }
 }
 
-.top-nav {
-    height: 120px;
-    box-shadow: none;
-}
-
-.page-title {
-    line-height: 120px;
-    font-size: 48px;
-}
-
 .side-nav .collapsible-body > ul:not(.collapsible) > li.active,
 .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
     background-color: #009688;
