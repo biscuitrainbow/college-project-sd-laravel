@@ -202,7 +202,7 @@ jQuery.extend( jQuery.easing,
  * Redistributions of source code must retain the above copyright notice, this list of
  * conditions and the following disclaimer.
  * Redistributions in binary form must reproduce the above copyright notice, this list
- * of conditions and the following disclaimer in the documentation and/or other materials
+ * of conditions and the following disclaimer in the documentation and/or other customers
  * provided with the distribution.
  *
  * Neither the name of the author nor the names of contributors may be used to endorse

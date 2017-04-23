@@ -33,8 +33,8 @@ class MaterialController extends Controller {
     }
 
     public function displayMaterial($id) {
-        $data = Material::where('id', $id)->first();
-        return view('material.material-display-result', compact('data'));
+        $material = Material::where('id', $id)->first();
+        return view('material.material-display-result', compact('material'));
     }
 
     public function showDelete() {

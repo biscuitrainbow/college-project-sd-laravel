@@ -27,7 +27,7 @@ class CreateConditionsTable extends Migration {
                 ->onDelete('cascade');
 
             $table->foreign('material_id')
-                ->references('id')->on('materials')
+                ->references('id')->on('customers')
                 ->onDelete('cascade');
         });
     }

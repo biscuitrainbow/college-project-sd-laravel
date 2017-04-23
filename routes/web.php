@@ -71,9 +71,10 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::get('/register', 'RegisterController@index');
 Route::post('/register', 'RegisterController@create');
 
+/* DashBoard */
+Route::get('/dashboard/overall', 'DashBoardController@overall')->name('overallDashboard');
 
+/* Other */
 Auth::routes();
 Route::get('/home', 'MaterialController@displayMaterials');
-
-/* DashBoard */
-Route::get('/dashboard/overall','DashBoardController@overall')->name('overallDashboard');
+Route::get('/', 'MaterialController@displayMaterials');

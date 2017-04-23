@@ -22,7 +22,7 @@ class CreateItemListsTable extends Migration
 
         Schema::table('item_lists', function (Blueprint $table) {
             $table->foreign('material_id')
-                ->references('id')->on('materials')
+                ->references('id')->on('customers')
                 ->onDelete('cascade');
         });
     }

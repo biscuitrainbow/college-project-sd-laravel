@@ -41,8 +41,8 @@
                         <td>@{{material.price}}</td>
                         <td>@{{material.qunatity}}</td>
                         <td>@{{material.type}}</td>
-                        <td>@{{material.categories}}</td>
-                        <td><a :href="'{{url('/material/display')}}/' + material.code"
+                        <td>@{{material.category}}</td>
+                        <td><a :href="'{{url('/material/display')}}/' + material.id"
                                class="waves-effect waves-light btn">View</a>
                         </td>
                     </tr>
@@ -57,18 +57,18 @@
             el: '#mainApp',
             data: {
                 query: '',
-                materials: {!! $materials->toJson() !!}
+                customers: {!! $materials->toJson() !!}
             },
             computed: {
                 search: function () {
                     var self = this;
                     if (this.query === '') {
-                        return this.materials;
+                        return this.customers;
                     }
-                    return this.materials.filter(function (material) {
-                        return material.name.indexOf(self.query) >= 0
-                            || material.code.indexOf(self.query) >= 0
-                            || material.type.indexOf(self.query) >= 0;
+                    return this.customers.filter(function (material) {
+                        return material.name.toUpperCase().indexOf(self.query.toUpperCase()) >= 0
+                            || material.code.toUpperCase().indexOf(self.query.toUpperCase()) >= 0
+                            || material.type.toUpperCase().indexOf(self.query.toUpperCase()) >= 0;
                     });
                 }
             }

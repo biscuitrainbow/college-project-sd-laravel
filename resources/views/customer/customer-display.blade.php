@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="input-field col s12 search-box">
                     <i class="material-icons prefix">search</i>
-                    <input id="icon_prefix" type="text" class="validate autocomplete">
+                    <input v-model="query" id="icon_prefix" type="text" class="validate autocomplete">
                     <label for="icon_prefix">Search by product name or id</label>
                 </div>
             </div>
@@ -26,29 +26,24 @@
                 <table class="highlight">
                     <thead>
                     <tr>
-                        <th>Title</th>
                         <th>Name</th>
-                        <th>Street</th>
-                        <th>Postal Code/City</th>
+                        <th>Address</th>
+                        <th>Postal Code</th>
                         <th>Country</th>
                         <th>Region</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($customers as $customer)
-                        <tr>
-                            <td>{{$customer['title']}}</td>
-                            <td>{{$customer['name']}}</td>
-                            <td>{{$customer['street']}}</td>
-                            <td>{{$customer['postal']}}</td>
-                            <td>{{$customer['country']}}</td>
-                            <td>{{$customer['region']}}</td>
-
-                            <td><a href="{{url('/customer/display/'.$customer['id'])}}')}}"
-                                   class="waves-effect waves-light btn">Details</a>
-                            </td>
-                        </tr>
-                    @endforeach
+                    <tr v-for="customer in search">
+                        <td>@{{customer.company_name}}</td>
+                        <td>@{{customer.address}}</td>
+                        <td>@{{customer.postal_code}}</td>
+                        <td>@{{customer.country}}</td>
+                        <td>@{{customer.region}}</td>
+                        <td><a :href="'{{url('/customer/display')}}/' + customer.id"
+                               class="waves-effect waves-light btn">View</a>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -60,18 +55,19 @@
             el: '#mainApp',
             data: {
                 query: '',
-                materials: {!! $customers->toJson() !!}
+                customers: {!! $customers->toJson() !!}
             },
             computed: {
                 search: function () {
                     var self = this;
                     if (this.query === '') {
-                        return this.materials;
+                        return this.customers;
                     }
-                    return this.materials.filter(function (customer) {
-                        return customer.product_name.indexOf(self.query) >= 0
-                            || customer.product_id.indexOf(self.query) >= 0
-                            || customer.product_type.indexOf(self.query) >= 0;
+                    return this.customers.filter(function (customer) {
+                        return customer.company_name.indexOf(self.query) >= 0
+                            || customer.region.indexOf(self.query) >= 0
+                            || customer.name.indexOf(self.query) >= 0
+                            || customer.postal_code.indexOf(self.query) >= 0;
                     });
                 }
             }

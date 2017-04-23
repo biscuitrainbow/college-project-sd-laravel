@@ -14,7 +14,7 @@ class InquiryController extends Controller {
 
     public function create(Request $request) {
 
-          print_r($request->input('materials'));
+          print_r($request->input('customers'));
 
 //        $data = $request->all();
 //        $inquiry = new Inquiry();

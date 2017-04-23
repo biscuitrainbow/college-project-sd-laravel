@@ -34,7 +34,7 @@
 
                     <tbody>
 
-                    @foreach($customer as $datas)
+                    @foreach($material as $datas)
                       <tr>
                         <td>{{$datas['title']}}</td>
                         <td>{{$datas['name']}}</td>

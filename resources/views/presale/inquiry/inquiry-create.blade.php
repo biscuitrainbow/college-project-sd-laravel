@@ -129,16 +129,16 @@
             el: '#mainApp',
             data: {
                 query: '',
-                materials: {!! $materials->toJson() !!},
+                customers: {!! $materials->toJson() !!},
                 inqMaterial: []
             },
             computed: {
                 search: function () {
                     var self = this;
                     if (this.query === '') {
-                        return this.materials;
+                        return this.customers;
                     }
-                    return this.materials.filter(function (material) {
+                    return this.customers.filter(function (material) {
                         return material.name.indexOf(self.query) >= 0
                             || material.code.indexOf(self.query) >= 0
                             || material.type.indexOf(self.query) >= 0;

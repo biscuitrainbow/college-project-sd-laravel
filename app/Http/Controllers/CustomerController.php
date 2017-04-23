@@ -12,13 +12,21 @@ class CustomerController extends Controller {
     }
 
     public function postCustomer(Request $request) {
+
         $customer = new Customer();
-        $customer->title = $request['title'];
-        $customer->name = $request['name'];
-        $customer->street = $request['street'];
-        $customer->postal = $request['postal'];
-        $customer->country = $request['country'];
-        $customer->region = $request['region'];
+        $customer->company_name = $request->input('company_name');
+        $customer->address = $request->input('address');
+        $customer->postal_code = $request->input('postal_code');
+        $customer->country = $request->input('country');
+        $customer->region = $request->input('region');
+        $customer->tel = $request->input('tel');
+        $customer->postal_code = $request->input('postal');
+        $customer->website = $request->input('website');
+        $customer->email = $request->input('email');
+        $customer->title = $request->input('title');
+        $customer->name = $request->input('name');
+        $customer->position = $request->input('position');
+        $customer->department = $request->input('department');
         $customer->save();
 
         $status = "Create Successfully";
@@ -56,8 +64,8 @@ class CustomerController extends Controller {
     }
 
     public function displayCustomer($id) {
-        $data = Customer::where('id', $id)->first();
-        return view('customer.customer-display-result', compact('data'));
+        $customer = Customer::where('id', $id)->first();
+        return view('customer.customer-display-result', compact('customer'));
     }
 
     public function showDelete() {
