@@ -1,5 +1,15 @@
 @extends('default.layout')
-@section('title',"Create Material")
+
+@section('breadcrumb')
+    <a href="dashboard-overall.phpp" class="breadcrumb">Sale and Distribution</a>
+    <a href="#!" class="breadcrumb">Condition</a>
+    <a href="{{route('displayMaterials')}}" class=" breadcrumb">Material</a>
+    <a href="{{route('displayMaterials')}}" class=" breadcrumb">Create</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{{route('logout')}}">Logout</a></li>
+    </ul>
+@endsection
+
 @section('content')
     <h4 style="margin-bottom: 50px">Create Material Condition</h4>
     <h5 class="sub-title">Step 1 : Search and choose material </h5>

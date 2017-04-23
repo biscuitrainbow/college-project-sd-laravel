@@ -1,93 +1,171 @@
 @extends('default.layout')
+@section('breadcrumb')
+    <a href="dashboard-overall.phpp" class="breadcrumb">Sale and Distribution</a>
+    <a href="#!" class="breadcrumb">Presale Process</a>
+    <a href="{{route('displayMaterials')}}" class=" breadcrumb">Inquiry</a>
+    <a href="{{route('displayMaterials')}}" class=" breadcrumb">Create</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{{route('logout')}}">Logout</a></li>
+    </ul>
+@endsection
 @section('content')
-    <h4 class="main-title">Create Inquiry</h4>
-    <form action="/inquiry/create" method="POST">
-        <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-        <div class="row">
-            <div class="col s12 ">
-                <span class="form-title">General Infomation</span>
+    <div id="mainApp">
+        <h4 class="main-title">Create Inquiry</h4>
+        <form action="#" method="POST">
+            <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+            <div class="row">
+                <div class="col s12 ">
+                    <span class="form-title">General Infomation</span>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s4">
-                <input name="create_date" type="date" class="datepicker">
-                <label for="date">Create Date</label>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input name="create_date" type="date" class="datepicker">
+                    <label for="date">Create Date</label>
+                </div>
+                <div class="input-field col s8">
+                    <input name="customer_name" id="customer" type="text" class="validate">
+                    <label for="customer">Customer</label>
+                </div>
             </div>
-            <div class="input-field col s8">
-                <input name="customer_name" id="customer" type="text" class="validate">
-                <label for="customer">Customer</label>
+            <div class="row">
+                <div class="input-field col s8">
+                    <input name="address" id="soldparty" type="text" class="validate">
+                    <label for="soldparty">Sold to party/Ship to party</label>
+                </div>
+                <div class="input-field col s4">
+                    <input name="request_date" type="date" class="datepicker">
+                    <label for="requestdelivery">request delivery date</label>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s8">
-                <input name="address" id="soldparty" type="text" class="validate">
-                <label for="soldparty">Sold to party/Ship to party</label>
-            </div>
-            <div class="input-field col s4">
-                <input name="request_date" type="date" class="datepicker">
-                <label for="requestdelivery">request delivery date</label>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col s12 margin-top-50">
-                <span class="form-title">Material Detail</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12">
-
-                <!-- Table -->
-                <table class="highlight">
-                    <thead>
-                    <tr>
-                        <th>Product ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Stock</th>
-                        <th>Select</th>
-                        <th>Quantity</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {{$i = 0}}
-                    @foreach($material as $materials)
-                        {{$i++}}
+            <div class="row">
+                <div class="col s12">
+                    <!-- Table -->
+                    <table class="highlight">
+                        <thead>
                         <tr>
-                            <td>{{$materials['product_id']}}</td>
-                            <td>{{$materials['product_name']}}</td>
-                            <td>{{$materials['product_price']}}</td>
-                            <td>{{$materials['product_qty']}}</td>
-                            <td><input type="checkbox" id="{{$i}}" name="{{'material'.$materials['id']}}"
-                                       value="{{$materials['id']}}"/>
-                                <label for="{{$i}}"></label></td>
-                            <td><input type="text" name="{{'quantity'.$materials['id']}}" style="width: 50px"
-                                       class="center"></td>
+                            <th>Product id</th>
+                            <th>Product name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Product type</th>
+                            <th>Product Categories</th>
+                            <th>Action</th>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-
-                <!-- Pagination -->
-                <ul class="pagination">
-                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                    <li class="active"><a href="#!">1</a></li>
-                    <li class="waves-effect"><a href="#!">2</a></li>
-                    <li class="waves-effect"><a href="#!">3</a></li>
-                    <li class="waves-effect"><a href="#!">4</a></li>
-                    <li class="waves-effect"><a href="#!">5</a></li>
-                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-                </ul>
-
+                        </thead>
+                        <tbody>
+                        <tr v-for="material in inqMaterial">
+                            <td>@{{material.product_id}}</td>
+                            <td>@{{material.product_name}}</td>
+                            <td>@{{material.product_price}}</td>
+                            <td>@{{material.product_qty}}</td>
+                            <td>@{{material.product_type}}</td>
+                            <td>@{{material.product_categories}}</td>
+                            <td>
+                                <button @click.stop.prevent="remove(material)" class="waves-effect waves-light btn">
+                                    Remove
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
 
 
-        <!-- Submit Button -->
-        <div class="row">
-            <div class="col s12" style="text-align: right;">
-                <button type="submit" class="waves-effect waves-light btn">Create Inquiry Document</button>
+            <div class="row">
+                <div class="col s12 margin-top-50">
+                    <span class="form-title">Materials</span>
+                </div>
             </div>
-        </div>
-    </form>
+            <form action="">
+                <div class="input-field col s12 search-box">
+                    <i class="material-icons prefix">search</i>
+                    <input v-model="query" id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Search by product name or id</label>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col s12">
+                    <!-- Table -->
+                    <table class="highlight">
+                        <thead>
+                        <tr>
+                            <th>Product id</th>
+                            <th>Product name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Product type</th>
+                            <th>Product Categories</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="material in search">
+                            <td>@{{material.product_id}}</td>
+                            <td>@{{material.product_name}}</td>
+                            <td>@{{material.product_price}}</td>
+                            <td>@{{material.product_qty}}</td>
+                            <td>@{{material.product_type}}</td>
+                            <td>@{{material.product_categories}}</td>
+                            <td>
+                                <button @click.stop.prevent="add(material)" class="waves-effect waves-light btn">Add
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <!-- Submit Button -->
+            <div class="row">
+                <div class="col s12" style="text-align: right;">
+                    <button type="submit" class="waves-effect waves-light btn">Create Inquiry Document</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="{{asset('js/vue.js')}}"></script>
+    <script>
+        var mainApp = new Vue({
+            el: '#mainApp',
+            data: {
+                query: '',
+                materials: {!! $materials->toJson() !!},
+                inqMaterial: []
+            },
+            computed: {
+                search: function () {
+                    var self = this;
+                    if (this.query === '') {
+                        return this.materials;
+                    }
+                    return this.materials.filter(function (material) {
+                        return material.product_name.indexOf(self.query) >= 0
+                            || material.product_id.indexOf(self.query) >= 0
+                            || material.product_type.indexOf(self.query) >= 0;
+                    });
+                }
+            },
+            methods: {
+                add: function (material) {
+                    if ((this.inqMaterial.indexOf(material) < 0)) {
+                        this.inqMaterial.push(material);
+                    }
+                },
+                remove: function (material) {
+                    if ((this.inqMaterial.indexOf(material) >= 0)) {
+                        var index = this.inqMaterial.indexOf(material);
+                        console.log(index);
+                        this.inqMaterial.splice(index,1);
+                    }
+                }
+            }
+        });
+
+    </script>
 @endsection()
+

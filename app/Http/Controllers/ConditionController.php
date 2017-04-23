@@ -53,9 +53,18 @@ class ConditionController extends Controller {
         return view('condition.condition-display', compact('general'), compact('material'));
     }
 
+    public function displayGenerals() {
+        return view('condition.condition-display-general', compact('condition'));
+    }
+
     public function displayGeneral($id) {
         $condition = Condition::where('id', $id)->first();
-        return view('condition.condition-display-general', compact('condition'));
+    }
+
+
+    public function displayMaterials() {
+        $data = Material::all();
+        return view('condition.condition-display-material', compact('condition'));
     }
 
     public function displayMaterial($id) {

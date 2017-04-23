@@ -62,8 +62,6 @@
             selectYears: 15 // Creates a dropdown of 15 years to control year
         });
     });
-
-
 </script>
 
 <!--Import jQuery before materialize.js-->

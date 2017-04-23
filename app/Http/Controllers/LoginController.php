@@ -21,7 +21,11 @@ class LoginController extends Controller {
     }
 
     public function index() {
-        return view('login.login');
+        if (!Auth::check()) {
+            return view('login.login');
+        } else {
+            return redirect(route('displayMaterials'));
+        }
     }
 
 
