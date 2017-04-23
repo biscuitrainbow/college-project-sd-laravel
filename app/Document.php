@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Inquiry extends Model
+class Document extends Model
 {
-    public $timestamps = false;
+    //
 }
