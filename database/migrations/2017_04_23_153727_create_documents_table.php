@@ -25,7 +25,7 @@ class CreateDocumentsTable extends Migration
 
             Schema::table('documents', function (Blueprint $table) {
                 $table->foreign('customer_id')
-                    ->references('id')->on('customers')
+                    ->references('id')->on('materials')
                     ->onDelete('cascade');
 
                 $table->foreign('document_id')

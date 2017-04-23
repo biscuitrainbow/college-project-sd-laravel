@@ -60,15 +60,15 @@
             el: '#mainApp',
             data: {
                 query: '',
-                customers: {!! $customers->toJson() !!}
+                materials: {!! $customers->toJson() !!}
             },
             computed: {
                 search: function () {
                     var self = this;
                     if (this.query === '') {
-                        return this.customers;
+                        return this.materials;
                     }
-                    return this.customers.filter(function (customer) {
+                    return this.materials.filter(function (customer) {
                         return customer.product_name.indexOf(self.query) >= 0
                             || customer.product_id.indexOf(self.query) >= 0
                             || customer.product_type.indexOf(self.query) >= 0;

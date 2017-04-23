@@ -56,13 +56,13 @@
                         </thead>
                         <tbody>
                         <tr v-for="material in inqMaterial">
-                            <td>@{{material.product_id}}</td>
-                            <td>@{{material.product_name}}</td>
-                            <td>@{{material.product_price}}</td>
-                            <td>@{{material.product_qty}}</td>
-                            <td>@{{material.product_type}}</td>
-                            <td>@{{material.product_categories}}</td>
-                            <input type="hidden" name="materials[]" :value="material.product_id ">
+                            <td>@{{material.code}}</td>
+                            <td>@{{material.name}}</td>
+                            <td>@{{material.price}}</td>
+                            <td>@{{material.qunatity}}</td>
+                            <td>@{{material.type}}</td>
+                            <td>@{{material.categories}}</td>
+                            <input type="hidden" name="materials[]" :value="material.code ">
                             <td>
                                 <button @click.stop.prevent="remove(material)" class="waves-effect waves-light btn">
                                     Remove
@@ -100,12 +100,12 @@
                         </thead>
                         <tbody>
                         <tr v-for="material in search">
-                            <td>@{{material.product_id}}</td>
-                            <td>@{{material.product_name}}</td>
-                            <td>@{{material.product_price}}</td>
-                            <td>@{{material.product_qty}}</td>
-                            <td>@{{material.product_type}}</td>
-                            <td>@{{material.product_categories}}</td>
+                            <td>@{{material.code}}</td>
+                            <td>@{{material.name}}</td>
+                            <td>@{{material.price}}</td>
+                            <td>@{{material.qunatity}}</td>
+                            <td>@{{material.type}}</td>
+                            <td>@{{material.categories}}</td>
                             <td>
                                 <button @click.stop.prevent="add(material)" class="waves-effect waves-light btn">Add
                                 </button>
@@ -129,19 +129,19 @@
             el: '#mainApp',
             data: {
                 query: '',
-                customers: {!! $materials->toJson() !!},
+                materials: {!! $materials->toJson() !!},
                 inqMaterial: []
             },
             computed: {
                 search: function () {
                     var self = this;
                     if (this.query === '') {
-                        return this.customers;
+                        return this.materials;
                     }
-                    return this.customers.filter(function (material) {
-                        return material.product_name.indexOf(self.query) >= 0
-                            || material.product_id.indexOf(self.query) >= 0
-                            || material.product_type.indexOf(self.query) >= 0;
+                    return this.materials.filter(function (material) {
+                        return material.name.indexOf(self.query) >= 0
+                            || material.code.indexOf(self.query) >= 0
+                            || material.type.indexOf(self.query) >= 0;
                     });
                 }
             },
