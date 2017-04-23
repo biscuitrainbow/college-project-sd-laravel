@@ -56,15 +56,15 @@
             el: '#mainApp',
             data: {
                 query: '',
-                materials: {!! $data->toJson() !!}
+                customers: {!! $customer->toJson() !!}
             },
             computed: {
                 search: function () {
                     var self = this;
                     if (this.query === '') {
-                        return this.materials;
+                        return this.customers;
                     }
-                    return this.materials.filter(function (material) {
+                    return this.customers.filter(function (material) {
                         return material.product_name.indexOf(self.query) >= 0
                             || material.product_id.indexOf(self.query) >= 0
                             || material.product_type.indexOf(self.query) >= 0;

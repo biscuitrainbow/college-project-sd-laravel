@@ -24,7 +24,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($data as $datas)
+        @foreach($customer as $datas)
             <tr>
                 <td>{{$datas['product_id']}}</td>
                 <td>{{$datas['product_name']}}</td>

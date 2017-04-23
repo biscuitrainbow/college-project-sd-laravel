@@ -10,7 +10,7 @@
 @section('content')
     <div id="mainApp">
         <h4 class="main-title">Create Inquiry</h4>
-        <form action="#" method="POST">
+        <form action="{{route('postInquiry')}}" method="post">
             <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
             <div class="row">
                 <div class="col s12 ">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="input-field col s4">
                     <input name="request_date" type="date" class="datepicker">
-                    <label for="requestdelivery">request delivery date</label>
+                    <label for="requestdelivery">Request delivery date</label>
                 </div>
             </div>
 
@@ -61,6 +61,7 @@
                             <td>@{{material.product_qty}}</td>
                             <td>@{{material.product_type}}</td>
                             <td>@{{material.product_categories}}</td>
+                            <input type="hidden" name="materials[]" :value="material.product_id ">
                             <td>
                                 <button @click.stop.prevent="remove(material)" class="waves-effect waves-light btn">
                                     Remove
@@ -71,22 +72,18 @@
                     </table>
                 </div>
             </div>
-
-
             <div class="row">
                 <div class="col s12 margin-top-50">
                     <span class="form-title">Materials</span>
                 </div>
             </div>
-            <form action="">
-                <div class="input-field col s12 search-box">
-                    <i class="material-icons prefix">search</i>
-                    <input v-model="query" id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">Search by product name or id</label>
-                </div>
-            </form>
+            <div class="input-field col s12 search-box">
+                <i class="material-icons prefix">search</i>
+                <input v-model="query" id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">Search by product name or id</label>
+            </div>
             <div class="row">
-                <div class="col s12">
+                <div class="col s12 my-table">
                     <!-- Table -->
                     <table class="highlight">
                         <thead>
@@ -117,8 +114,6 @@
                     </table>
                 </div>
             </div>
-
-
             <!-- Submit Button -->
             <div class="row">
                 <div class="col s12" style="text-align: right;">
@@ -133,16 +128,16 @@
             el: '#mainApp',
             data: {
                 query: '',
-                materials: {!! $materials->toJson() !!},
+                customers: {!! $materials->toJson() !!},
                 inqMaterial: []
             },
             computed: {
                 search: function () {
                     var self = this;
                     if (this.query === '') {
-                        return this.materials;
+                        return this.customers;
                     }
-                    return this.materials.filter(function (material) {
+                    return this.customers.filter(function (material) {
                         return material.product_name.indexOf(self.query) >= 0
                             || material.product_id.indexOf(self.query) >= 0
                             || material.product_type.indexOf(self.query) >= 0;
@@ -159,7 +154,7 @@
                     if ((this.inqMaterial.indexOf(material) >= 0)) {
                         var index = this.inqMaterial.indexOf(material);
                         console.log(index);
-                        this.inqMaterial.splice(index,1);
+                        this.inqMaterial.splice(index, 1);
                     }
                 }
             }

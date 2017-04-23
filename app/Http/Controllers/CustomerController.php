@@ -51,8 +51,8 @@ class CustomerController extends Controller {
     }
 
     public function displayCustomers() {
-        $data = Customer::all();
-        return view('customer.customer-display', compact('data'));
+        $customers = Customer::all();
+        return view('customer.customer-display', compact('customers'));
     }
 
     public function displayCustomer($id) {

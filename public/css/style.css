@@ -9,6 +9,10 @@
     font-size: 1.2em;
 }
 
+.my-table{
+    margin-bottom: 80px;
+}
+
 header, main, footer {
     padding-left: 300px;
 }
