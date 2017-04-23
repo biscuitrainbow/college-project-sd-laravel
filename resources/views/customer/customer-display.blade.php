@@ -13,7 +13,6 @@
 
     <div class="row">
         <div class="col s12">
-
             <!-- Table -->
             <table class="highlight">
                 <thead>
