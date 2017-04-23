@@ -5450,7 +5450,7 @@ button.btn-floating {
 }
 
 .waves-effect.waves-teal .waves-ripple {
-  background-color: rgba(20, 48, 72, 0.7);
+  background-color: rgba(51, 122, 183, 0.7);
 }
 
 .waves-effect input[type="button"], .waves-effect input[type="reset"], .waves-effect input[type="submit"] {
@@ -7246,7 +7246,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .side-nav .collapsible-body > ul:not(.collapsible) > li.active,
 .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
-  background-color: #ee6e73;
+  background-color: #337ab7;
 }
 
 .side-nav .collapsible-body > ul:not(.collapsible) > li.active a,
