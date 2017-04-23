@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConditionTypesTable extends Migration
+class CreateItemListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,18 @@ class CreateConditionTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('condition_types', function (Blueprint $table) {
+        Schema::create('item_lists', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('material_id')->unsigned();
             $table->timestamps();
         });
 
-        Schema::enableForeignKeyConstraints();
+
+        Schema::table('item_lists', function (Blueprint $table) {
+            $table->foreign('material_id')
+                ->references('id')->on('materials')
+                ->onDelete('cascade');
+        });
     }
 
     /**
@@ -29,6 +34,6 @@ class CreateConditionTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('condition_types');
+        Schema::dropIfExists('item_lists');
     }
 }

@@ -14,12 +14,10 @@ class CreateDocumentTypesTable extends Migration
     public function up()
     {
         Schema::create('document_types', function (Blueprint $table) {
-            $table->increments('id')->unsigned();;
+            $table->increments('id');
             $table->string('name');
             $table->timestamps();
         });
-
-        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -31,6 +29,4 @@ class CreateDocumentTypesTable extends Migration
     {
         Schema::dropIfExists('document_types');
     }
-
-
 }
