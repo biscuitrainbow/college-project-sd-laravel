@@ -74,3 +74,6 @@ Route::post('/register', 'RegisterController@create');
 
 Auth::routes();
 Route::get('/home', 'MaterialController@displayMaterials');
+
+/* DashBoard */
+Route::get('/dashboard/overall','DashBoardController@overall')->name('overallDashboard');
