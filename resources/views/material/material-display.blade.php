@@ -8,6 +8,7 @@
         <li><a href="{{route('logout')}}">Logout</a></li>
     </ul>
 @endsection
+
 @section('content')
     <div id="mainApp">
         <h4 style="margin-bottom: 50px">Display Material</h4>

@@ -1,5 +1,15 @@
 @extends('default.layout')
-@section('title',"Display-Result Inquiry")
+
+@section('breadcrumb')
+    <a href="dashboard-overall.phpp" class="breadcrumb">Sale and Distribution</a>
+    <a href="#!" class="breadcrumb">Presale Process</a>
+    <a href="{{route('displayMaterials')}}" class=" breadcrumb">Inquiry</a>
+    <a href="{{route('displayMaterials')}}" class=" breadcrumb">Display</a>
+    <a href="{{route('displayMaterials')}}" class=" breadcrumb">Display</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{{route('logout')}}">Logout</a></li>
+    </ul>
+@endsection
 
 @section('content')
 <form action="">
