@@ -1,68 +1,48 @@
 @extends('default.layout')
-
 @section('content')
-    <div class="card" style="margin-bottom:75px">
-        <div class="card-content">
-            @section('title',"Display Customer")
-            <form action="">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">search</i>
-                        <input id="icon_prefix" type="text" class="validate">
-                        <label for="icon_prefix">Search by product name or id</label>
-                    </div>
-                </div>
-            </form>
-            @endsection
+    <h4 style="margin-bottom: 50px">Display Customer</h4>
+    <form action="">
+        <div class="row">
+            <div class="input-field col s12 search-box">
+                <i class="material-icons prefix">search</i>
+                <input id="icon_prefix" type="text" class="validate autocomplete">
+                <label for="icon_prefix">Search by product name or id</label>
+            </div>
+        </div>
+    </form>
 
-            @section('list')
-                <div class="row">
-                    <div class="col s12">
-                        <h4 style="margin-bottom: 50px">All Customer</h4>
+    <div class="row">
+        <div class="col s12">
 
-                        <!-- Table -->
-                        <table class="highlight">
-                            <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Name</th>
-                                <th>Street</th>
-                                <th>Postal Code/City</th>
-                                <th>Country</th>
-                                <th>Region</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($data as $datas)
-                                <tr>
-                                    <td>{{$datas['title']}}</td>
-                                    <td>{{$datas['name']}}</td>
-                                    <td>{{$datas['street']}}</td>
-                                    <td>{{$datas['postal']}}</td>
-                                    <td>{{$datas['country']}}</td>
-                                    <td>{{$datas['region']}}</td>
+            <!-- Table -->
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Name</th>
+                    <th>Street</th>
+                    <th>Postal Code/City</th>
+                    <th>Country</th>
+                    <th>Region</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($data as $datas)
+                    <tr>
+                        <td>{{$datas['title']}}</td>
+                        <td>{{$datas['name']}}</td>
+                        <td>{{$datas['street']}}</td>
+                        <td>{{$datas['postal']}}</td>
+                        <td>{{$datas['country']}}</td>
+                        <td>{{$datas['region']}}</td>
 
-                                    <td><a href="{{url('/customer/display/'.$datas['id'])}}')}}"
-                                           class="waves-effect waves-light btn">Details</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-
-                        <!-- Pagination -->
-                        <ul class="pagination">
-                            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                            <li class="active"><a href="#!">1</a></li>
-                            <li class="waves-effect"><a href="#!">2</a></li>
-                            <li class="waves-effect"><a href="#!">3</a></li>
-                            <li class="waves-effect"><a href="#!">4</a></li>
-                            <li class="waves-effect"><a href="#!">5</a></li>
-                            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-                        </ul>
-
-                    </div>
-                </div>
+                        <td><a href="{{url('/customer/display/'.$datas['id'])}}')}}"
+                               class="waves-effect waves-light btn">Details</a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 @endsection

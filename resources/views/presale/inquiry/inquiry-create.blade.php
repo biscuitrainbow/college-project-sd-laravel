@@ -1,11 +1,10 @@
 @extends('default.layout')
-@section('title',"Create Inquiry")
-
 @section('content')
+    <h4 class="main-title">Create Inquiry</h4>
     <form action="/inquiry/create" method="POST">
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
         <div class="row">
-            <div class="col s12 margin-top-50">
+            <div class="col s12 ">
                 <span class="form-title">General Infomation</span>
             </div>
         </div>
@@ -62,7 +61,8 @@
                             <td><input type="checkbox" id="{{$i}}" name="{{'material'.$materials['id']}}"
                                        value="{{$materials['id']}}"/>
                                 <label for="{{$i}}"></label></td>
-                            <td><input type="text" name="{{'quantity'.$materials['id']}}" style="width: 50px" class="center"></td>
+                            <td><input type="text" name="{{'quantity'.$materials['id']}}" style="width: 50px"
+                                       class="center"></td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -81,7 +81,6 @@
 
             </div>
         </div>
-
 
 
         <!-- Submit Button -->
