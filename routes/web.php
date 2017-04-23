@@ -72,3 +72,7 @@ Route::post('/register', 'RegisterController@create');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'MaterialController@displayMaterials');
