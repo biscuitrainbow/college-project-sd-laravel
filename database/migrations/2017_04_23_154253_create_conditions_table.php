@@ -18,16 +18,20 @@ class CreateConditionsTable extends Migration
             $table->string('name');
             $table->float('discount');
             $table->integer('min');
-            $table->integer('condition_type_id');
-            $table->integer('material_id');
+            $table->integer('condition_type_id')->unsigned();
+            $table->integer('material_id')->unsigned();
             $table->timestamps();
-
-            $table->foreign('material_id')
-                ->references('id')->on('material')
-                ->onDelete('cascade');
         });
 
-        Schema::enableForeignKeyConstraints();
+        Schema::table('conditions', function (Blueprint $table) {
+            $table->foreign('condition_type_id')
+                ->references('id')->on('document_types')
+                ->onDelete('cascade');
+
+            $table->foreign('material_id')
+                ->references('id')->on('materials')
+                ->onDelete('cascade');
+        });
     }
 
     /**
