@@ -11,7 +11,7 @@ class CreateMaterialsTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('materials', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code');
             $table->string('name');
