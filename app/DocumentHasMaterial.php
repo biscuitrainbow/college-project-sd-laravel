@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DocumentHasMaterial extends Model
-{
+class DocumentHasMaterial extends Model {
     //
 }
