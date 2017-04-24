@@ -66,9 +66,11 @@
                                             Condition</a>
                                         <div class="collapsible-body">
                                             <ul>
-                                                <li><a href="{{route('showCreateMaterial')}}">Create Material Condition</a>
+                                                <li><a href="{{route('showCreateMaterial')}}">Create Material
+                                                        Condition</a>
                                                 </li>
-                                                <li><a href="{{route('displayConditionMaterial')}}">Display Material Condition</a>
+                                                <li><a href="{{route('displayConditionMaterial')}}">Display Material
+                                                        Condition</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -77,9 +79,11 @@
                                             Condition</a>
                                         <div class="collapsible-body">
                                             <ul>
-                                                <li><a href="{{route('showCreateGeneral')}}">Create General Condition</a>
+                                                <li><a href="{{route('showCreateGeneral')}}">Create General
+                                                        Condition</a>
                                                 </li>
-                                                <li><a href="{{route('displayConditionGeneral')}}">Display General Condition</a>
+                                                <li><a href="{{route('displayConditionGeneral')}}">Display General
+                                                        Condition</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -201,6 +205,9 @@
         </li>
     </ul>
 </header>
+
+@section('document')
+@show
 
 <main>
     <div class="row">

@@ -41,10 +41,10 @@ class InquiryController extends Controller {
 
     public function displayInquiries() {
         $inquiries = Document::with('customer')->get();
-        return view('presale.inquiry.inquiry-display',compact('inquiries'));
+        return view('presale.inquiry.inquiry-display', compact('inquiries'));
     }
 
-    public function displayInquiry($id){
-
+    public function displayInquiry($id) {
+        return view('presale.inquiry.inquiry-document');
     }
 }
