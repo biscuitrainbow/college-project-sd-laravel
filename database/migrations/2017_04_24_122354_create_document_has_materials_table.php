@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDoumentHasMaterialsTable extends Migration
+class CreateDocumentHasMaterialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateDoumentHasMaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('doument_has_materials', function (Blueprint $table) {
+        Schema::create('document_has_materials', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('document_id')->unsigned();
             $table->integer('material_id')->unsigned();
             $table->timestamps();
         });
 
-        Schema::table('doument_has_materials', function (Blueprint $table) {
+
+        Schema::table('document_has_materials', function (Blueprint $table) {
             $table->foreign('material_id')
                 ->references('id')->on('materials')
                 ->onDelete('cascade');
@@ -38,6 +39,6 @@ class CreateDoumentHasMaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doument_has_materials');
+        Schema::dropIfExists('document_has_materials');
     }
 }
