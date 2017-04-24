@@ -368,7 +368,7 @@ class MaterialSeeder extends Seeder
                 'type'=> 'finish goods',
                 'category'=> 'women'
             ]
-            ) 
+            )
         );
     }
 }
