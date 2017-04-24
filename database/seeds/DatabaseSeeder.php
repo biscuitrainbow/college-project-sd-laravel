@@ -12,7 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call('MaterialSeeder');
+        $this->call('CustomerSeeder');
 
-        $this->command->info('User table seeded!');
+        $this->command->info('information seeded!');
     }
 }

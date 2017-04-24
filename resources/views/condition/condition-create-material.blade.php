@@ -37,7 +37,7 @@
                 <td>@{{material.code}}</td>
                 <td>@{{material.name}}</td>
                 <td>@{{material.price}}</td>
-                <td>@{{material.qunatity}}</td>
+                <td>@{{material.quantity}}</td>
                 <td>@{{material.type}}</td>
                 <td>@{{material.category}}</td>
                 <td>
