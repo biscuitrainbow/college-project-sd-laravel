@@ -19,15 +19,15 @@ class CreateItemListHasDocumentsTable extends Migration
             $table->integer('document_id')->unsigned();
         });
 
-        Schema::table('item_list_has_documents', function (Blueprint $table) {
-            $table->foreign('item_list_id')
-                ->references('id')->on('item_lists')
-                ->onDelete('cascade');
-
-            $table->foreign('document_id')
-                ->references('id')->on('documents')
-                ->onDelete('cascade');
-        });
+//        Schema::table('item_list_has_documents', function (Blueprint $table) {
+//            $table->foreign('item_list_id')
+//                ->references('id')->on('item_lists')
+//                ->onDelete('cascade');
+//
+//            $table->foreign('document_id')
+//                ->references('id')->on('documents')
+//                ->onDelete('cascade');
+//        });
     }
 
     /**
