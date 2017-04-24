@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Document;
 use App\Inquiry;
 use App\Material;
 use Illuminate\Http\Request;
@@ -14,25 +15,22 @@ class InquiryController extends Controller {
 
     public function create(Request $request) {
 
-          print_r($request->input('customers'));
+        foreach ($request->input('materials') as $material) {
+            $inquiry = new Document();
+            $inquiry->create_date = $request->input('create_date');
+            $inquiry->customer_name = $request->input('customer_name');
+            $inquiry->address = $request->input('address');
+            $inquiry->request_date = $request->input('request_date');
+        }
 
-//        $data = $request->all();
-//        $inquiry = new Inquiry();
-//        $inquiry['create_date'] = $data['create_date'];
-//        $inquiry['customer_name'] = $data['customer_name'];
-//        $inquiry['address'] = $data['address'];
-//        $inquiry['request_date'] = $data['request_date'];
-//        $inquiry['material'] = $data['material'];
-//        $inquiry['quantity'] = $data['quantity' . $data['material']];
-//        $inquiry['bill_method'] = $data['bill_method'];
-//        $inquiry['invoice_date'] = $data['invoice_date'];
+
 //        $inquiry->save();
 //
 //        $status = "Create Successfully";
-//        return view('material.material-status', compact('status'));
+//        return view('material . material - status', compact('status'));
     }
 
     public function displayInquiries() {
-        return view('presale.inquiry.inquiry-display');
+        return view('presale . inquiry . inquiry - display');
     }
 }

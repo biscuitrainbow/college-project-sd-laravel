@@ -4,15 +4,13 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateItemListHasDocumentsTable extends Migration
-{
+class CreateItemListHasDocumentsTable extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('item_list_has_documents', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('item_list_id')->unsigned();
@@ -35,8 +33,7 @@ class CreateItemListHasDocumentsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('item_list_has_documents');
     }
 }
