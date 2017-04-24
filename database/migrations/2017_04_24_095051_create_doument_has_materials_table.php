@@ -4,22 +4,25 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateItemListHasDocumentsTable extends Migration {
+class CreateDoumentHasMaterialsTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-        Schema::create('item_list_has_documents', function (Blueprint $table) {
+    public function up()
+    {
+        Schema::create('doument_has_materials', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('item_list_id')->unsigned();
             $table->integer('document_id')->unsigned();
+            $table->integer('material_id')->unsigned();
+            $table->timestamps();
         });
 
-        Schema::table('item_list_has_documents', function (Blueprint $table) {
-            $table->foreign('item_list_id')
-                ->references('id')->on('item_lists')
+        Schema::table('doument_has_materials', function (Blueprint $table) {
+            $table->foreign('material_id')
+                ->references('id')->on('materials')
                 ->onDelete('cascade');
 
             $table->foreign('document_id')
@@ -33,7 +36,8 @@ class CreateItemListHasDocumentsTable extends Migration {
      *
      * @return void
      */
-    public function down() {
-        Schema::dropIfExists('item_list_has_documents');
+    public function down()
+    {
+        Schema::dropIfExists('doument_has_materials');
     }
 }
