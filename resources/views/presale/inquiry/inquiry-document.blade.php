@@ -31,10 +31,10 @@
                                 <p><i class="material-icons tiny">phone</i>{{$customer->customer->tel}}</p>
                                 <p><i class="material-icons tiny">email</i>{{$customer->customer->email}}</p>
                                 @if($customer->customer->website)
-                                <p><i class="material-icons tiny">language</i>{{$customer->customer->website}}</p>
+                                    <p><i class="material-icons tiny">language</i>{{$customer->customer->website}}</p>
                                 @endif
                             </div>
-                            
+
                             <div class="col s8" style="min-height: 900px">
                                 <h5 class="bold">Inquiry</h5>
                                 <hr>
@@ -57,11 +57,11 @@
                                     </thead>
                                     <tbody>
                                     @foreach($items as $item)
-                                    <tr>
-                                        <td>{{$item->quantity}}</td>
-                                        <td>{{$item->material->name}}</td>
-                                        <td>{{$item->material->code}}</td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{$item->quantity}}</td>
+                                            <td>{{$item->material->name}}</td>
+                                            <td>{{$item->material->code}}</td>
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
