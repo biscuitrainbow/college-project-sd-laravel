@@ -45,6 +45,9 @@ class InquiryController extends Controller {
     }
 
     public function displayInquiry($id) {
-        return view('presale.inquiry.inquiry-document');
+        $items = DocumentHasMaterial::with('material')->where('document_id',$id)->get();
+        $customer = Document::with('customer')->where('id',$id)->first();
+        //return $customer;
+        return view('presale.inquiry.inquiry-document',compact('items'),compact('customer'));
     }
 }

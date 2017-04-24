@@ -70,6 +70,20 @@ class CustomerSeeder extends Seeder
                 'name'=>'Anya Sandee',
                 'position'=>'',
                 'department'=>''
+            ],
+            [
+                'company_name' =>'SaleD Ltd.' ,
+                'address' => '23 Phahon Yothin Rd. Bangkhen',
+                'region'=> 'Bangkok',
+                'country' => 'Thailand',
+                'postal_code' => '10200',
+                'email'=>'salesd@gmail.com',
+                'tel'=> '095-495-6677',
+                'website'=>'',
+                'title'=>'',
+                'name'=>'Wandee Srisuk',
+                'position'=>'',
+                'department'=>''
             ]
         ));
     }

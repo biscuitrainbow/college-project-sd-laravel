@@ -23,17 +23,22 @@
                             <div class="col s4">
                                 <h5 class="bold">Customer Address</h5>
                                 <hr>
-                                <p class="bold">Bill Address</p>
-                                <p>239 Suthep Rd, A.Muang, Chiang Mai 50200 Thailand</p>
+                                <p class="bold font18">{{$customer->customer->company_name}}</p>
                                 <br>
-                                <p><i class="material-icons tiny">phone</i> 088-8888888</p>
-                                <p><i class="material-icons tiny">email</i> customer@email.com</p>
-                                <p><i class="material-icons tiny">language</i> customer.com</p>
+                                <p class="bold">Bill Address</p>
+                                <p>{{$customer->customer->address.' '.$customer->customer->region.' '.$customer->customer->postal_code.' '.$customer->customer->country}}</p>
+                                <br>
+                                <p><i class="material-icons tiny">phone</i>{{$customer->customer->tel}}</p>
+                                <p><i class="material-icons tiny">email</i>{{$customer->customer->email}}</p>
+                                @if($customer->customer->website)
+                                <p><i class="material-icons tiny">language</i>{{$customer->customer->website}}</p>
+                                @endif
                             </div>
+                            
                             <div class="col s8" style="min-height: 900px">
                                 <h5 class="bold">Inquiry</h5>
                                 <hr>
-                                <p class="font18">Inquiry Date 2 March, 2017</p>
+                                <p class="font18">Inquiry Date {{$customer->created_at}}</p>
                                 <p class="font18">To whom it may concern,</p>
 
                                 <p class="font18 margintop50">(Description Text) Lorem Ipsum is simply dummy text of the
@@ -51,32 +56,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($items as $item)
                                     <tr>
-                                        <td>100</td>
-                                        <td>Metallic Hogh Heel Shoes</td>
-                                        <td>WA00010</td>
+                                        <td>{{$item->quantity}}</td>
+                                        <td>{{$item->material->name}}</td>
+                                        <td>{{$item->material->code}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>100</td>
-                                        <td>Metallic Hogh Heel Shoes</td>
-                                        <td>WA00010</td>
-                                    </tr>
-                                    <tr>
-                                        <td>100</td>
-                                        <td>Metallic Hogh Heel Shoes</td>
-                                        <td>WA00010</td>
-                                    </tr>
-                                    <tr>
-                                        <td>100</td>
-                                        <td>Metallic Hogh Heel Shoes</td>
-                                        <td>WA00010</td>
-                                    </tr>
-                                    <tr>
-                                        <td>100</td>
-                                        <td>Metallic Hogh Heel Shoes</td>
-                                        <td>WA00010</td>
-                                    </tr>
-                                    <tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

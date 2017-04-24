@@ -12,4 +12,9 @@ class Document extends Model
         return $this->belongsTo('App\Customer');
     }
 
+//    public function documentHasMaterial()
+//    {
+//        return $this->hasMany('App\DocumentHasMaterial');
+//    }
+
 }
