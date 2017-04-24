@@ -21,8 +21,8 @@ class CustomerSeeder extends Seeder
                 'email'=>'export@gmail.com',
                 'tel'=> '02-9966-998',
                 'website'=>'',
-                'title'=>'',
-                'name'=>'Mr.Pim Jaidee',
+                'title'=>'Mr.',
+                'name'=>'Pim Jaidee',
                 'position'=>'',
                 'department'=>''
             ] ,
@@ -36,8 +36,8 @@ class CustomerSeeder extends Seeder
                 'email'=>'Beuty1@hotmail.com',
                 'tel'=> '02-4857-7895',
                 'website'=>'',
-                'title'=>'',
-                'name'=>'Ms.Pramate Pungboon',
+                'title'=>'Ms.',
+                'name'=>'Pramate Pungboon',
                 'position'=>'',
                 'department'=>''
             ] ,
@@ -51,7 +51,7 @@ class CustomerSeeder extends Seeder
                 'email'=>'wandnshop@gmail.com',
                 'tel'=> '082-195-4896',
                 'website'=>'',
-                'title'=>'',
+                'title'=>'Mr.',
                 'name'=>'Puckdee Srisod',
                 'position'=>'',
                 'department'=>''
@@ -66,8 +66,8 @@ class CustomerSeeder extends Seeder
                 'email'=>'redapple@gmail.com',
                 'tel'=> '092-145-8899',
                 'website'=>'',
-                'title'=>'',
-                'name'=>'Ms.Anya Sandee',
+                'title'=>'Ms.',
+                'name'=>'Anya Sandee',
                 'position'=>'',
                 'department'=>''
             ]
