@@ -53,6 +53,7 @@
                             <th>Quantity</th>
                             <th>Product type</th>
                             <th>Product Categories</th>
+                            <th>Order Quantity</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -64,6 +65,7 @@
                             <td>@{{material.quantity}}</td>
                             <td>@{{material.type}}</td>
                             <td>@{{material.category    }}</td>
+                            <td><input style="width: 60%" type="text" name="quantity[]"></td>
                             <input type="hidden" name="materials[]" :value="material.id">
                             <td>
                                 <button @click.stop.prevent="remove(material)" class="waves-effect waves-light btn">
@@ -105,9 +107,9 @@
                             <td>@{{material.code}}</td>
                             <td>@{{material.name}}</td>
                             <td>@{{material.price}}</td>
-                            <td>@{{material.qunatity}}</td>
+                            <td>@{{material.quantity}}</td>
                             <td>@{{material.type}}</td>
-                            <td>@{{material.categories}}</td>
+                            <td>@{{material.category}}</td>
                             <td>
                                 <button :disabled="material.added" @click.stop.prevent="add(material)"
                                         class="waves-effect waves-light btn">Add
