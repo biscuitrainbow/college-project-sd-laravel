@@ -24,10 +24,11 @@ class InquiryController extends Controller {
         $inquiry->save();
         $inquiry->id;
 
-        foreach ($request->input('materials') as $material) {
+        for ($i = 0; $i < sizeof($request->input('materials')); $i++) {
             $document_has_material = new DocumentHasMaterial();
             $document_has_material->document_id = $inquiry->id;
-            $document_has_material->material_id = $material;
+            $document_has_material->material_id = $request->input('materials')[$i];
+            $document_has_material->quantity = $request->input('quantity')[$i];
             $document_has_material->save();
         }
 
