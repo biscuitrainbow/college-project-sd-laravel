@@ -20,18 +20,15 @@
             </div>
             <div class="row">
                 <div class="input-field col s4">
+                    <select name="customer_id">
+                        <option :value="customer.id" v-for="customer in customers">@{{ customer.company_name }}</option>
+                    </select>
+                    <label for="customer">Customer</label>
+                    <p>@{{selectedCustomer}}</p>
+                </div>
+                <div class="input-field col s4">
                     <input name="create_date" type="date" class="datepicker">
                     <label for="date">Create Date</label>
-                </div>
-                <div class="input-field col s8">
-                    <input name="customer_name" id="customer" type="text" class="validate">
-                    <label for="customer">Customer</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s8">
-                    <input name="address" id="soldparty" type="text" class="validate">
-                    <label for="soldparty">Sold to party/Ship to party</label>
                 </div>
                 <div class="input-field col s4">
                     <input name="request_date" type="date" class="datepicker">
@@ -67,7 +64,7 @@
                             <td>@{{material.quantity}}</td>
                             <td>@{{material.type}}</td>
                             <td>@{{material.category    }}</td>
-                            <input type="hidden" name="materials[]" :value="material.id ">
+                            <input type="hidden" name="materials[]" :value="material.id">
                             <td>
                                 <button @click.stop.prevent="remove(material)" class="waves-effect waves-light btn">
                                     Remove
@@ -135,6 +132,8 @@
             el: '#mainApp',
             data: {
                 query: '',
+                selectedCustomer: '',
+                customers: {!! $customers->toJson() !!},
                 materials: {!! $materials->toJson() !!},
                 inqMaterial: []
             },
