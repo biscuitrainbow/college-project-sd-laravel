@@ -23,11 +23,11 @@ class CreateConditionsTable extends Migration {
 
         Schema::table('conditions', function (Blueprint $table) {
             $table->foreign('condition_type_id')
-                ->references('id')->on('document_types')
+                ->references('id')->on('condition_types')
                 ->onDelete('cascade');
 
             $table->foreign('material_id')
-                ->references('id')->on('customers')
+                ->references('id')->on('materials')
                 ->onDelete('cascade');
         });
     }
