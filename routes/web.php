@@ -61,6 +61,7 @@ Route::get('/condition/display/material/', 'ConditionController@displayMaterials
 /* Inquiry */
 Route::get('/inquiry/create', 'InquiryController@showCreate')->name('createInquiry')->middleware('auth');
 Route::get('/inquiry/display', 'InquiryController@displayInquiries')->name('displayInquiries')->middleware('auth');
+Route::get('/inquiry/display/{id}', 'InquiryController@displayInquiry')->middleware('auth');
 Route::post('/inquiry/create', 'InquiryController@create')->name('postInquiry')->middleware('auth');
 
 /* Login */
