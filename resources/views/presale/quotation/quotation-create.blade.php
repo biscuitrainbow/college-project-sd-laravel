@@ -42,31 +42,13 @@
             </tr>
             </thead>
             <tbody>
+            @foreach($inquiries as $inquiry)
             <tr>
-                <td>572110164</td>
-                <td>Thichanont Payachom</td>
-                <td><a href="" class="waves-effect waves-light btn">Create</a></td>
+                <td>{{$inquiry->id}}</td>
+                <td>{{$inquiry->customer->company_name}}</td>
+                <td><a href='/quotation/create/form/{{$inquiry->id}}' class="waves-effect waves-light btn">Create</a></td>
             </tr>
-            <tr>
-                <td>572110164</td>
-                <td>Thichanont Payachom</td>
-                <td><a href="" class="waves-effect waves-light btn">Create</a></td>
-            </tr>
-            <tr>
-                <td>572110164</td>
-                <td>Thichanont Payachom</td>
-                <td><a href="" class="waves-effect waves-light btn">Create</a></td>
-            </tr>
-            <tr>
-                <td>572110164</td>
-                <td>Thichanont Payachom</td>
-                <td><a href="" class="waves-effect waves-light btn">Create</a></td>
-            </tr>
-            <tr>
-                <td>572110164</td>
-                <td>Thichanont Payachom</td>
-                <td><a href="" class="waves-effect waves-light btn">Create</a></td>
-            </tr>
+            @endforeach
             </tbody>
         </table>
 

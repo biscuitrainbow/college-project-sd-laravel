@@ -23,8 +23,16 @@ Route::post('/material/create', 'MaterialController@create')->name('postMaterial
 Route::get('/material/display', 'MaterialController@displayMaterials')->name('displayMaterials')->middleware('auth');
 Route::get('/material/display/{id}', 'MaterialController@displayMaterial')->middleware('auth');
 
+/* Inquiry */
+Route::get('/inquiry/create', 'InquiryController@showCreate')->name('createInquiry')->middleware('auth');
+Route::get('/inquiry/display', 'InquiryController@displayInquiries')->name('displayInquiries')->middleware('auth');
+Route::get('/inquiry/display/{id}', 'InquiryController@displayInquiry')->middleware('auth');
+Route::post('/inquiry/create', 'InquiryController@create')->name('postInquiry')->middleware('auth');
+
 /* Quotation */
 Route::get('/quotation/create', 'QuotationController@indexQuotation')->name('createQuotation')->middleware('auth');
+Route::get('/quotation/create/form/{id}', 'QuotationController@createQuotationForm')->name('createQuotationForm')->middleware('auth');
+Route::post('/quotation/create', 'InquiryController@create')->name('postQuotation')->middleware('auth');
 Route::get('/quotation/display', 'QuotationController@displayQuotation')->name('displayQuotation')->middleware('auth');
 
 /* Availability */
@@ -58,11 +66,7 @@ Route::post('/condition/create/material', 'ConditionController@createMaterial')-
 Route::get('/condition/display/general/', 'ConditionController@displayGenerals')->name('displayConditionGeneral')->middleware('auth');
 Route::get('/condition/display/material/', 'ConditionController@displayMaterials')->name('displayConditionMaterial')->middleware('auth');
 
-/* Inquiry */
-Route::get('/inquiry/create', 'InquiryController@showCreate')->name('createInquiry')->middleware('auth');
-Route::get('/inquiry/display', 'InquiryController@displayInquiries')->name('displayInquiries')->middleware('auth');
-Route::get('/inquiry/display/{id}', 'InquiryController@displayInquiry')->middleware('auth');
-Route::post('/inquiry/create', 'InquiryController@create')->name('postInquiry')->middleware('auth');
+
 
 /* Login */
 Route::get('/login', 'LoginController@index');
