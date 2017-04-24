@@ -39,6 +39,14 @@ class InquiryController extends Controller {
     }
 
     public function displayInquiries() {
-        return view('presale . inquiry . inquiry - display');
+
+        $inquiries = Document::where('document_type_id','1')->get();
+
+        $customer = Customer::find(1);
+        $name = $customer->company_name;
+        $doc  = $customer->document;
+        echo $inquiries;
+        //echo $name .' '.$doc;
+        //return view('presale.inquiry.inquiry-display',compact('inquiry'));
     }
 }
