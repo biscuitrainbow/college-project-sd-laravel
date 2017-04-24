@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call('MaterialSeeder');
         $this->call('CustomerSeeder');
+        $this->call('DocumentTypeSeeder');
+        $this->call('UserSeeder');
 
         $this->command->info('information seeded!');
     }
