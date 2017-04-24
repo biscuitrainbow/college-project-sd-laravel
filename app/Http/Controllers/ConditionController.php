@@ -41,9 +41,8 @@ class ConditionController extends Controller {
         $condition->material_id = $request->input('material_id');
 
         $condition->save();
-//
-//        $status = "Create Successfully";
-//        return view('material.material-status', compact('status'));
+        $status = "Create Successfully";
+        return view('material.material-status', compact('status'));
     }
 
     public function indexDisplay() {

@@ -39,7 +39,12 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div v-if="!isEmpty(inqMaterial)" class="row">
+                <div class="row">
+                    <div class="col s12 margin-top-50">
+                        <span class="form-title">Inquiry List</span>
+                    </div>
+                </div>
                 <div class="col s12">
                     <!-- Table -->
                     <table class="highlight">
@@ -59,10 +64,10 @@
                             <td>@{{material.code}}</td>
                             <td>@{{material.name}}</td>
                             <td>@{{material.price}}</td>
-                            <td>@{{material.qunatity}}</td>
+                            <td>@{{material.quantity}}</td>
                             <td>@{{material.type}}</td>
-                            <td>@{{material.categories}}</td>
-                            <input type="hidden" name="materials[]" :value="material.code ">
+                            <td>@{{material.category    }}</td>
+                            <input type="hidden" name="materials[]" :value="material.id ">
                             <td>
                                 <button @click.stop.prevent="remove(material)" class="waves-effect waves-light btn">
                                     Remove
@@ -107,7 +112,8 @@
                             <td>@{{material.type}}</td>
                             <td>@{{material.categories}}</td>
                             <td>
-                                <button @click.stop.prevent="add(material)" class="waves-effect waves-light btn">Add
+                                <button :disabled="material.added" @click.stop.prevent="add(material)"
+                                        class="waves-effect waves-light btn">Add
                                 </button>
                             </td>
                         </tr>
@@ -129,16 +135,16 @@
             el: '#mainApp',
             data: {
                 query: '',
-                customers: {!! $materials->toJson() !!},
+                materials: {!! $materials->toJson() !!},
                 inqMaterial: []
             },
             computed: {
                 search: function () {
                     var self = this;
                     if (this.query === '') {
-                        return this.customers;
+                        return this.materials;
                     }
-                    return this.customers.filter(function (material) {
+                    return this.materials.filter(function (material) {
                         return material.name.indexOf(self.query) >= 0
                             || material.code.indexOf(self.query) >= 0
                             || material.type.indexOf(self.query) >= 0;
@@ -148,15 +154,32 @@
             methods: {
                 add: function (material) {
                     if ((this.inqMaterial.indexOf(material) < 0)) {
+                        /* Add to inquiry list */
                         this.inqMaterial.push(material);
+
+                        /* remove from materials list */
+                        var index = this.materials.indexOf(material);
+                        this.materials.splice(index, 1);
+
                     }
                 },
                 remove: function (material) {
                     if ((this.inqMaterial.indexOf(material) >= 0)) {
+                        /* remove from inquiry list */
                         var index = this.inqMaterial.indexOf(material);
-                        console.log(index);
                         this.inqMaterial.splice(index, 1);
+
+                        /* add to material list */
+                        this.materials.push(material);
                     }
+                },
+                isEmpty: function (myObject) {
+                    for (var key in myObject) {
+                        if (myObject.hasOwnProperty(key)) {
+                            return false;
+                        }
+                    }
+                    return true;
                 }
             }
         });
