@@ -6,7 +6,12 @@
 }
 
 .sub-title {
+    padding: 20px 10px 20px 10px;
     font-size: 1.2em;
+}
+
+.my-table{
+    margin-bottom: 80px;
 }
 
 header, main, footer {

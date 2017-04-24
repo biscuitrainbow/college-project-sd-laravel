@@ -14,8 +14,8 @@ class ConditionController extends Controller {
 
 
     public function showCreateMaterial() {
-        $data = Material::all();
-        return view('condition.condition-create-material', compact('data'));
+        $materials = Material::all();
+        return view('condition.condition-create-material', compact('materials'));
     }
 
     public function createGeneral(Request $request) {
@@ -34,16 +34,16 @@ class ConditionController extends Controller {
 
     public function createMaterial(Request $request) {
         $condition = new Condition();
-        $condition['conditionname'] = $request['conditionname'];
-        $condition['discountprice'] = $request['discountprice'];
-        $condition['minprice'] = 0;
-        $condition['minquantity'] = $request['minquantity'];
-        $condition['material_id'] = $request['id'];
-        $condition['condition_type'] = 'material';
-        $condition->save();
+        $condition->name = $request->input('condition_name');
+        $condition->discount = $request->input('discount_price');
+        $condition->min = $request->input('min_quantity');
+        $condition->condition_type_id = $request->input('type_id');
+        $condition->material_id = $request->input('material_id');
 
-        $status = "Create Successfully";
-        return view('material.material-status', compact('status'));
+        $condition->save();
+//
+//        $status = "Create Successfully";
+//        return view('material.material-status', compact('status'));
     }
 
     public function indexDisplay() {

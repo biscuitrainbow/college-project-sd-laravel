@@ -33,7 +33,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach($data as $datas)
+                    @foreach($material as $datas)
                       <tr>
                         <td>{{$datas['title']}}</td>
                         <td>{{$datas['name']}}</td>

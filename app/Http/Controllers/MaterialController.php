@@ -13,12 +13,14 @@ class MaterialController extends Controller {
 
     public function create(Request $request) {
         $material = new Material();
-        $material['product_id'] = $request['product_id'];
-        $material['product_name'] = $request['product_name'];
-        $material['product_price'] = $request['product_price'];
-        $material['product_qty'] = $request['product_qty'];
-        $material['product_type'] = $request['product_type'];
-        $material['product_categories'] = $request['product_categories'];
+        $material['code'] = $request['product_id'];
+        $material['name'] = $request['product_name'];
+        $material['price'] = $request['product_price'];
+        $material['quantity'] = $request['product_qty'];
+        $material['type'] = $request['product_type'];
+        $material['category'] = $request['product_categories'];
+
+        echo $material->toJson();
         $material->save();
 
         $status = "Create Successfully";
@@ -26,13 +28,13 @@ class MaterialController extends Controller {
     }
 
     public function displayMaterials() {
-        $data = Material::get();
-        return view('material.material-display', compact('data'));
+        $materials = Material::get();
+        return view('material.material-display', compact('materials'));
     }
 
     public function displayMaterial($id) {
-        $data = Material::where('id', $id)->first();
-        return view('material.material-display-result', compact('data'));
+        $material = Material::where('id', $id)->first();
+        return view('material.material-display-result', compact('material'));
     }
 
     public function showDelete() {
