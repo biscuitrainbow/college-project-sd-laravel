@@ -68,6 +68,41 @@
             </table>
         </div>
 
+
+        <div class="row">
+            <div class="col s6 margin-top-50">
+                <span class="form-title">Discount Condition (Material)</span>
+                @foreach($conditions as $condition)
+                <blockquote>
+                            <strong>Condition Name : </strong>{{$condition->name}} <br>
+                            <strong>Discount (%) : </strong>{{$condition->discount}} <br>
+                            <strong>Min Quantity : </strong>{{$condition->min}}
+                </blockquote>
+                @endforeach
+            </div>
+        </div>
+        <div class="col s12">
+            <!-- Table -->
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th>Condition name</th>
+                    <th>Discount (%)</th>
+                    <th>Min Quantity</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($conditions as $condition)
+                    <tr>
+                        <td>{{$condition->name}}</td>
+                        <td>{{$condition->discount}}</td>
+                        <td>{{$condition->min}}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12 margin-top-50" style="text-align: right;">
