@@ -10,8 +10,15 @@
 @endsection
 @section('content')
     <h4 class="main-title">Create Quotation</h4>
-    <form action="{{url('/quotation/create')}}" method="get">
+    <form action="{{route('postQuotation')}}" method="post">
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+        <input type="hidden" name="customer_id" value="{{$inquiry->customer_id}}">
+        <input type="hidden" name="request_date" value="{{$inquiry->request_date}}">
+        <input type="hidden" name="description" value="{{$inquiry->description}}">
+
+
+
+
         <div class="row">
             <div class="col s12 ">
                 <span class="form-title">General Infomation</span>
@@ -19,7 +26,7 @@
         </div>
         <div class="row">
             <div class="input-field col s4">
-                <input name="compy_name" type="text" value="{{$inquiry->customer->company_name}}">
+                <input id="compy_name" type="text" value="{{$inquiry->customer->company_name}}">
                 <label>Customer</label>
             </div>
             <div class="input-field col s4">
@@ -27,7 +34,7 @@
                 <label>Create Date</label>
             </div>
             <div class="input-field col s4">
-                <input name="request_date" type="date" class="datepicker">
+                <input id="request_date" type="date" class="datepicker">
                 <label for="requestdelivery">Request delivery date</label>
             </div>
         </div>
@@ -55,6 +62,7 @@
                 <tbody>
                 @foreach($items as $item)
                     <tr>
+                        <input type="hidden" name="material_id[]" value="{{$item->material->id}}">
                         <td>{{$item->material->code}}</td>
                         <td>{{$item->material->name}}</td>
                         <td>{{$item->material->price}}</td>
