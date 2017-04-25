@@ -12,11 +12,11 @@
     <h4 class="main-title">Create Quotation</h4>
     <form action="{{route('postQuotation')}}" method="post">
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+        <input type="hidden" name="inquiry_id" value="{{$inquiry->id}}">
+
         <input type="hidden" name="customer_id" value="{{$inquiry->customer_id}}">
         <input type="hidden" name="request_date" value="{{$inquiry->request_date}}">
         <input type="hidden" name="description" value="{{$inquiry->description}}">
-
-
 
 
         <div class="row">
@@ -30,7 +30,7 @@
                 <label>Customer</label>
             </div>
             <div class="input-field col s4">
-                <input type="text"  value="{{$inquiry->customer->created_at}}">
+                <input type="text" value="{{$inquiry->customer->created_at}}">
                 <label>Create Date</label>
             </div>
             <div class="input-field col s4">
@@ -77,8 +77,12 @@
         </div>
 
 
-
-        <div class="col s12 margin-top-50">
+        <div class="row">
+            <div class="col s12 margin-top-50">
+                <span class="form-title">Material Condition</span>
+            </div>
+        </div>
+        <div class="col s12">
             <!-- Table -->
             <table class="highlight">
                 <thead>
@@ -101,10 +105,16 @@
         </div>
 
         <div class="row">
+            <div class="col s12 margin-top-50">
+                <span class="form-title">General Condition</span>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="input-field col s12">
-                <select name="customer_id">
-                    @foreach($conditions as $condition)
-                        <option>{{$condition->name}}</option>
+                <select name="condition_id">
+                    @foreach($generalCondition as $condition)
+                        <option value="{{$condition->id}}">{{$condition->name}}</option>
                     @endforeach
 
                 </select>
