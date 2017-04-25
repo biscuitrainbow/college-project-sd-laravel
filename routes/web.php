@@ -52,6 +52,8 @@ Route::get('/so/display/{id}', 'SaleOrderController@displaySaleOrderDocument')->
 
 /* Goods Issue */
 Route::get('/goodsissue/create', 'GoodsIssueController@create')->name('createGoodsIssue')->middleware('auth');
+Route::get('/goodsissue/create/{id}','GoodsIssueController@CreateForm')->name('createGoodsIssueForm')->middleware('auth');
+Route::post('/goodsissue/update','GoodsIssueController@update')->name('UpdateGoodsIssue')->middleware('auth');
 Route::get('/goodsissue/display', 'GoodsIssueController@display')->name('displayGoodsIssue')->middleware('auth');
 
 /*Invoice */

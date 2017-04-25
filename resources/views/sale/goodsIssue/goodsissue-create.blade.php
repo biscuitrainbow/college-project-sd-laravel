@@ -44,7 +44,7 @@
                 <td>{{$sale_order->company_name}}</td>
                 <td>{{$sale_order->created_at}}</td>
                 <td>{{$sale_order->request_date}}</td>
-                <td><a href="/goodsissue/display/{{$sale_order->id}}" class="waves-effect waves-light btn">Select</a>
+                <td><a href="/goodsissue/create/{{$sale_order->id}}" class="waves-effect waves-light btn">Select</a>
                 </td>
               </tr>
             @endforeach
