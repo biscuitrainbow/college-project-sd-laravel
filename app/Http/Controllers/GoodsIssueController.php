@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Document;
+use App\Material;
 use Illuminate\Http\Request;
 use DB;
 class GoodsIssueController extends Controller
@@ -45,7 +46,8 @@ class GoodsIssueController extends Controller
     }
 
     public function update(Request $request){
-        return $request->all();
+        $materials = $request->input('material_id');
+        //TODO::Update stock && Create document
     }
 
     public function display(){
