@@ -37,98 +37,98 @@
                 <div class="input-field col s12">
                     <textarea id="textarea1" name="description" class="materialize-textarea"></textarea>
                     <label for="textarea1">Description Text</label>
-            </div>
+                </div>
 
-            <div v-if="!isEmpty(inqMaterial)" class="row">
-                <div class="row">
-                    <div class="col s12 margin-top-50">
-                        <span class="form-title">Inquiry List</span>
+                <div v-if="!isEmpty(inqMaterial)" class="row">
+                    <div class="row">
+                        <div class="col s12 margin-top-50">
+                            <span class="form-title">Inquiry List</span>
+                        </div>
+                    </div>
+                    <div class="col s12">
+                        <!-- Table -->
+                        <table class="highlight">
+                            <thead>
+                            <tr>
+                                <th>Product id</th>
+                                <th>Product name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Product type</th>
+                                <th>Product Categories</th>
+                                <th>Order Quantity</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="material in inqMaterial">
+                                <td>@{{material.code}}</td>
+                                <td>@{{material.name}}</td>
+                                <td>@{{material.price}}</td>
+                                <td>@{{material.quantity}}</td>
+                                <td>@{{material.type}}</td>
+                                <td>@{{material.category    }}</td>
+                                <td><input style="width: 60%" type="text" name="quantity[]"></td>
+                                <input type="hidden" name="materials[]" :value="material.id">
+                                <td>
+                                    <button @click.stop.prevent="remove(material)" class="waves-effect waves-light btn">
+                                        Remove
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="col s12">
-                    <!-- Table -->
-                    <table class="highlight">
-                        <thead>
-                        <tr>
-                            <th>Product id</th>
-                            <th>Product name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Product type</th>
-                            <th>Product Categories</th>
-                            <th>Order Quantity</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="material in inqMaterial">
-                            <td>@{{material.code}}</td>
-                            <td>@{{material.name}}</td>
-                            <td>@{{material.price}}</td>
-                            <td>@{{material.quantity}}</td>
-                            <td>@{{material.type}}</td>
-                            <td>@{{material.category    }}</td>
-                            <td><input style="width: 60%" type="text" name="quantity[]"></td>
-                            <input type="hidden" name="materials[]" :value="material.id">
-                            <td>
-                                <button @click.stop.prevent="remove(material)" class="waves-effect waves-light btn">
-                                    Remove
-                                </button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div class="row">
+                    <div class="col s12 margin-top-50">
+                        <span class="form-title">Materials</span>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col s12 margin-top-50">
-                    <span class="form-title">Materials</span>
+                <div class="input-field col s12 search-box">
+                    <i class="material-icons prefix">search</i>
+                    <input v-model="query" id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Search by product name or id</label>
                 </div>
-            </div>
-            <div class="input-field col s12 search-box">
-                <i class="material-icons prefix">search</i>
-                <input v-model="query" id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">Search by product name or id</label>
-            </div>
-            <div class="row">
-                <div class="col s12 my-table">
-                    <!-- Table -->
-                    <table class="highlight">
-                        <thead>
-                        <tr>
-                            <th>Product id</th>
-                            <th>Product name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Product type</th>
-                            <th>Product Categories</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="material in search">
-                            <td>@{{material.code}}</td>
-                            <td>@{{material.name}}</td>
-                            <td>@{{material.price}}</td>
-                            <td>@{{material.quantity}}</td>
-                            <td>@{{material.type}}</td>
-                            <td>@{{material.category}}</td>
-                            <td>
-                                <button :disabled="material.added" @click.stop.prevent="add(material)"
-                                        class="waves-effect waves-light btn">Add
-                                </button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div class="row">
+                    <div class="col s12 my-table">
+                        <!-- Table -->
+                        <table class="highlight">
+                            <thead>
+                            <tr>
+                                <th>Product id</th>
+                                <th>Product name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Product type</th>
+                                <th>Product Categories</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="material in search">
+                                <td>@{{material.code}}</td>
+                                <td>@{{material.name}}</td>
+                                <td>@{{material.price}}</td>
+                                <td>@{{material.quantity}}</td>
+                                <td>@{{material.type}}</td>
+                                <td>@{{material.category}}</td>
+                                <td>
+                                    <button :disabled="material.added" @click.stop.prevent="add(material)"
+                                            class="waves-effect waves-light btn">Add
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <!-- Submit Button -->
-            <div class="row">
-                <div class="col s12" style="text-align: right;">
-                    <button type="submit" class="waves-effect waves-light btn">Create Inquiry Document</button>
+                <!-- Submit Button -->
+                <div class="row">
+                    <div class="col s12" style="text-align: right;">
+                        <button type="submit" class="waves-effect waves-light btn">Create Inquiry Document</button>
+                    </div>
                 </div>
-            </div>
         </form>
     </div>
     <script src="{{asset('js/vue.js')}}"></script>

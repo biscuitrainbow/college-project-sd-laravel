@@ -68,6 +68,19 @@
             </table>
         </div>
 
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="customer_id">
+                    @foreach($conditions as $condition)
+                        <option>{{$condition->name}}</option>
+                    @endforeach
+
+                </select>
+                <label for="customer">General Condition</label>
+            </div>
+        </div>
+
+
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12 margin-top-50" style="text-align: right;">
