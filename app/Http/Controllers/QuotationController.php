@@ -39,13 +39,13 @@ class QuotationController extends Controller
 
 
         return view('presale.quotation.quotation-create-form',
-            compact('conditions','inquiry','items'));
+            compact('conditions', 'inquiry', 'items'));
 
     }
 
 
-
-    public function create(Request $request){
+    public function create(Request $request)
+    {
 
         $quotation = new Document();
         $quotation->document_type_id = 2;
@@ -64,7 +64,7 @@ class QuotationController extends Controller
         }
 
 
-       return $request->all();
+        return $request->all();
     }
 
     public function displayQuotation()
@@ -79,10 +79,11 @@ class QuotationController extends Controller
         );
 
 //        return $quotations;
-        return view('presale.quotation.quotation-display',compact('quotations'));
+        return view('presale.quotation.quotation-display', compact('quotations'));
     }
 
-    public function displayQuotationDocument($id){
+    public function displayQuotationDocument($id)
+    {
 
         $customer = DB::select("
         select *
@@ -92,18 +93,33 @@ class QuotationController extends Controller
         where documents.id = '$id'
         ");
 
-        $quotation =  DB::select("
+        $quotation = DB::select("
         select documents.*,materials.*
-from document_has_materials
-join materials
-on (document_has_materials.material_id = materials.id)
-join documents
-on (document_has_materials.document_id = documents.id)
-where documents.id = '$id'
+        from document_has_materials
+        join materials
+        on (document_has_materials.material_id = materials.id)
+        join documents
+        on (document_has_materials.document_id = documents.id)
+        where documents.id = '$id'
         ");
 
-//        return $customer;
-         return $quotation;
+        $conditions = DB::select(
+            "select *
+             from condition_material
+             join conditions
+             on(conditions.id = condition_material.condition_id)
+             join materials
+             on (condition_material.material_id = materials.id)
+             join document_has_materials
+             on (document_has_materials.material_id = materials.id)
+             join documents
+             on (document_has_materials.document_id = documents.id)
+             where documents.id = '$id'
+            ");
+
+
+        return $conditions;
+//        return $quotation;
 //       return view('presale.quotation.quotationdocument');
     }
 }
