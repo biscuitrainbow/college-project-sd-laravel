@@ -127,15 +127,6 @@
                         <ul>
                             <li>
                                 <ul class="collapsible collapsible-accordion">
-                                    <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Customer
-                                            PO</a>
-                                        <div class="collapsible-body">
-                                            <ul>
-                                                <li><a href="{{route('createPurchaseOrder')}}">Create Customer PO</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
                                     <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Sale
                                             Order</a>
                                         <div class="collapsible-body">
