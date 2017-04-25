@@ -91,7 +91,7 @@ class QuotationController extends Controller
         ");
 
         $quotation = DB::select("
-        select document_has_materials.* ,materials.code,materials.name,materials.price
+        select document_has_materials.* ,materials.code,materials.name,materials.price,documents.request_date,documents.created_at
         from document_has_materials
          join materials
          on (document_has_materials.material_id = materials.id)
