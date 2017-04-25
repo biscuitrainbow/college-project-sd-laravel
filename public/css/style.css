@@ -28,3 +28,24 @@ header, main, footer {
 .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
     background-color: #009688;
 }
+
+.marginbottom50{
+    margin-bottom: 50px;
+}
+
+.margintop50{
+    margin-top: 50px;
+}
+
+.margintop100{
+    margin-top: 100px;
+}
+
+.marginbottom100{
+    margin-bottom: 100px;
+}
+
+.right-bold{
+    text-align: right;
+    font-weight: bold;
+}
