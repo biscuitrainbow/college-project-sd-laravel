@@ -10,7 +10,7 @@
 @endsection
 @section('content')
     <h4 class="main-title">Create Quotation</h4>
-    <form action="{{route('postQuotation')}}" method="post">
+    <form action="{{url('/quotation/create')}}" method="get">
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
         <div class="row">
             <div class="col s12 ">
@@ -69,19 +69,8 @@
         </div>
 
 
-        <div class="row">
-            <div class="col s6 margin-top-50">
-                <span class="form-title">Discount Condition (Material)</span>
-                @foreach($conditions as $condition)
-                <blockquote>
-                            <strong>Condition Name : </strong>{{$condition->name}} <br>
-                            <strong>Discount (%) : </strong>{{$condition->discount}} <br>
-                            <strong>Min Quantity : </strong>{{$condition->min}}
-                </blockquote>
-                @endforeach
-            </div>
-        </div>
-        <div class="col s12">
+
+        <div class="col s12 margin-top-50">
             <!-- Table -->
             <table class="highlight">
                 <thead>

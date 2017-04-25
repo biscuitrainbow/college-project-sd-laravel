@@ -32,7 +32,7 @@ Route::post('/inquiry/create', 'InquiryController@create')->name('postInquiry')-
 /* Quotation */
 Route::get('/quotation/create', 'QuotationController@indexQuotation')->name('createQuotation')->middleware('auth');
 Route::get('/quotation/create/form/{id}', 'QuotationController@createQuotationForm')->name('createQuotationForm')->middleware('auth');
-Route::post('/quotation/create', 'InquiryController@create')->name('postQuotation')->middleware('auth');
+Route::get('/quotation/create', 'InquiryController@create')->name('postQuotation')->middleware('auth');
 Route::get('/quotation/display', 'QuotationController@displayQuotation')->name('displayQuotation')->middleware('auth');
 
 /* Availability */
