@@ -1,6 +1,6 @@
 @extends('default.layout')
 @section('document')
-    <main>
+    <main style="background-color: #f2f2f2">
         <div class="row">
             <!-- Content -->
             <div class="col s10 offset-s1 margintop50" style="margin-bottom: 75px;">
