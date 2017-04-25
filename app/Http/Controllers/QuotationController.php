@@ -87,6 +87,8 @@ class QuotationController extends Controller {
         where documents.id = '$id'
         ");
 
+        print_r($customer);
+
         $quotation = DB::select("
         select documents.*,materials.*
         from document_has_materials
@@ -96,6 +98,8 @@ class QuotationController extends Controller {
         on (document_has_materials.document_id = documents.id)
         where documents.id = '$id'
         ");
+
+        print_r($quotation);
 
         $conditions = DB::select(
             "select *
@@ -110,6 +114,9 @@ class QuotationController extends Controller {
              on (document_has_materials.document_id = documents.id)
              where documents.id = '$id'
             ");
+
+        print_r($conditions);
+
 
 
         return $conditions;

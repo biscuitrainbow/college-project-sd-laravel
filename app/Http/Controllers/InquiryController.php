@@ -34,15 +34,12 @@ class InquiryController extends Controller {
             $document_has_material->save();
         }
 
-
-//        $inquiry->save();
-//
 //        $status = "Create Successfully";
 //        return view('material . material - status', compact('status'));
     }
 
     public function displayInquiries() {
-        $inquiries = Document::with('customer')->get();
+        $inquiries = Document::with('customer')->where('document_type_id', 1)->get();
         return view('presale.inquiry.inquiry-display', compact('inquiries'));
     }
 
