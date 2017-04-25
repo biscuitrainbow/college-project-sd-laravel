@@ -12,7 +12,7 @@
 
 @section('content')
     <div id="mainApp">
-        <h4 style="margin-bottom: 50px">Display Material</h4>
+        <h4 style="margin-bottom: 50px">Display General Condition</h4>
         <form action="">
             <div v-model="query" class="input-field col s12 search-box">
                 <i class="material-icons prefix">search</i>
@@ -41,11 +41,11 @@
                         </td>
                     </tr>-->
                     @foreach($general as $gen)
-                    <tr>
+                        <tr>
                             <td> {{ $gen->name }}</td>
                             <td> {{  $gen->discount }}</td>
                             <td> {{  $gen->min }}</td>
-                    </tr>
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>
@@ -53,25 +53,25 @@
         </div>
     </div>
     <script src="{{asset('js/vue.js')}}"></script>
-   <!-- <script>
-        var mainApp = new Vue({
-            el: '#mainApp',
-            data: {
-                query: '' ,
-                conditions: {//!! $conditions->toJson() !!}
-            },
-            computed: {
-                search: function () {
-                    var self = this;
-                    if (this.query === '') {
-                        return this.conditions;
-                    }
-                    return this.conditions.filter(function (item) {
-                        return item.name.toUpperCase().indexOf(self.query.toUpperCase()) >= 0
-                    });
-                }
-            }
-        });
+    <!-- <script>
+         var mainApp = new Vue({
+             el: '#mainApp',
+             data: {
+                 query: '' ,
+                 conditions: {//!! $conditions->toJson() !!}
+             },
+             computed: {
+                 search: function () {
+                     var self = this;
+                     if (this.query === '') {
+                         return this.conditions;
+                     }
+                     return this.conditions.filter(function (item) {
+                         return item.name.toUpperCase().indexOf(self.query.toUpperCase()) >= 0
+                     });
+                 }
+             }
+         });
 
-    </script> -->
+     </script> -->
 @endsection
