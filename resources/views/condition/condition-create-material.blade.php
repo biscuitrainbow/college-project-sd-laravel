@@ -51,8 +51,6 @@
             <h5 class="sub-title">Step 2 : Add detail</h5>
             <form action="{{route('postConditionMaterial')}}" method="post">
                 <input type="hidden" name="material_id" :value="selected.id">
-                <input type="hidden" name="type_id" :value="1">
-
                 <div class="row">
                     <div class="input-field col s6" style="">
                         <input disabled type="text" class="validate" :value="selected.name">

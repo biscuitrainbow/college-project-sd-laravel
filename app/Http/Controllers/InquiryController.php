@@ -21,6 +21,8 @@ class InquiryController extends Controller {
         $inquiry = new Document();
         $inquiry->document_type_id = 1;
         $inquiry->customer_id = $request->input('customer_id');
+        $inquiry->request_date = $request->input('request_date');
+        $inquiry->description = $request->input('description');
         $inquiry->save();
         $inquiry->id;
 
@@ -45,9 +47,9 @@ class InquiryController extends Controller {
     }
 
     public function displayInquiry($id) {
-        $items = DocumentHasMaterial::with('material')->where('document_id',$id)->get();
-        $customer = Document::with('customer')->where('id',$id)->first();
+        $items = DocumentHasMaterial::with('material')->where('document_id', $id)->get();
+        $customer = Document::with('customer')->where('id', $id)->first();
         //return $customer;
-        return view('presale.inquiry.inquiry-document',compact('items'),compact('customer'));
+        return view('presale.inquiry.inquiry-document', compact('items'), compact('customer'));
     }
 }

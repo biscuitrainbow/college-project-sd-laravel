@@ -37,7 +37,7 @@ class ConditionController extends Controller {
         $condition->name = $request->input('condition_name');
         $condition->discount = $request->input('discount_price');
         $condition->min = $request->input('min_quantity');
-        $condition->condition_type_id = $request->input('type_id');
+        $condition->condition_type_id = 2;
         $condition->material_id = $request->input('material_id');
 
         $condition->save();
@@ -62,8 +62,8 @@ class ConditionController extends Controller {
 
 
     public function displayMaterials() {
-        $data = Material::all();
-        return view('condition.condition-display-material', compact('condition'));
+        $conditions = Condition::where('condition_type_id', 2)->get();
+        return view('condition.condition-display-material', compact('conditions'));
     }
 
     public function displayMaterial($id) {

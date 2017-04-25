@@ -34,6 +34,9 @@
                     <input name="request_date" type="date" class="datepicker">
                     <label for="requestdelivery">Request delivery date</label>
                 </div>
+                <div class="input-field col s12">
+                    <textarea id="textarea1" name="description" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Description Text</label>
             </div>
 
             <div v-if="!isEmpty(inqMaterial)" class="row">

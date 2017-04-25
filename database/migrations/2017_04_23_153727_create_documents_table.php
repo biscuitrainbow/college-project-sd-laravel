@@ -13,6 +13,8 @@ class CreateDocumentsTable extends Migration {
     public function up() {
         Schema::create('documents', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('request_date');
+            $table->string('description');
             $table->integer('document_id')->unsigned()->nullable();
             $table->integer('document_type_id')->unsigned();
             $table->integer('customer_id')->unsigned();

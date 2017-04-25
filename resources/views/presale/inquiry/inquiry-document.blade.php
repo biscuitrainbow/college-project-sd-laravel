@@ -32,19 +32,17 @@
                                 <p><i class="material-icons tiny">email</i> {{$customer->customer->email}}</p>
                                 @if($customer->customer->website)
                                 <p><i class="material-icons tiny">language</i> {{$customer->customer->website}}</p>
+                                    <p><i class="material-icons tiny">language</i>{{$customer->customer->website}}</p>
                                 @endif
                             </div>
 
                             <div class="col s8" style="min-height: 900px">
                                 <h5 class="bold">Inquiry</h5>
                                 <hr>
-                                <p class="font18">Inquiry Date {{$customer->created_at}}</p>
-                                <p class="font18">To whom it may concern,</p>
-
-                                <p class="font18 margintop50">(Description Text) Lorem Ipsum is simply dummy text of the
-                                    printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                                    dummy text ever since the 1500s, when an unknown printer</p>
-
+                                <p class="font18">Inquiry Date <b>{{$customer->created_at}}</b></p>
+                                <p class="font18">Request Date <b>{{$customer->request_date}}</b></p>
+                                <p class="font18" style="margin-top: 5%">To whom it may concern,</p>
+                                <p class="font18 margintop50">{{$customer->description}}</p>
                                 <h5 class="bold margintop50">Goods Requests</h5>
                                 <hr>
                                 <table class="striped">
@@ -57,11 +55,11 @@
                                     </thead>
                                     <tbody>
                                     @foreach($items as $item)
-                                    <tr>
-                                        <td>{{$item->quantity}}</td>
-                                        <td>{{$item->material->name}}</td>
-                                        <td>{{$item->material->code}}</td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{$item->quantity}}</td>
+                                            <td>{{$item->material->name}}</td>
+                                            <td>{{$item->material->code}}</td>
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
