@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Document;
+use App\DocumentHasMaterial;
 use DB;
+use Illuminate\Http\Request;
 
 class SaleOrderController extends Controller {
     public function create() {
@@ -15,7 +17,7 @@ class SaleOrderController extends Controller {
     public function createSaleOrderForm($id) {
         //TODO : implement here
         $quotation = DB::select("
-        select customers.company_name,documents.request_date,documents.created_at
+        select documents.id as quotation_id,documents.request_date,documents.description,customers.*
         from documents
         join customers
         on (documents.customer_id = customers.id)
@@ -23,7 +25,7 @@ class SaleOrderController extends Controller {
         ");
 
         $materials = DB::select("
-        select materials.*
+        select document_has_materials.quantity as qty,materials.*
         from document_has_materials
         join materials
         on (document_has_materials.material_id = materials.id)
@@ -48,11 +50,33 @@ class SaleOrderController extends Controller {
 
 
 //        return $conditions;
+//        return $id;
 //        return $quotation;
-        return $materials;
-//        return view('sale.sale_order.saleorder-create-form',compact('quotation','materials','conditions'));
+//        return $materials;
+        return view('sale.sale_order.saleorder-create-form',compact('quotation','materials','conditions'));
     }
 
+    public function store(Request $request){
+
+        $so = new Document();
+        $so->document_type_id = 4;
+        $so->condition_id = $request->input('condition_id');
+        $so->document_id = $request->input('quotation_id');
+        $so->customer_id = $request->input('customer_id');
+        $so->request_date = $request->input('request_date');
+        $so->description = $request->input('description');
+        $so->save();
+        $so->id;
+
+        for ($i = 0; $i < sizeof($request->input('material_id')); $i++) {
+            $document_has_material = new DocumentHasMaterial();
+            $document_has_material->document_id = $so->id;
+            $document_has_material->material_id = $request->input('material_id')[$i];
+            $document_has_material->quantity = $request->input('quantity')[$i];
+            $document_has_material->save();
+        }
+        return $request->all();
+    }
 
     public function display() {
         return view('sale.sale_order.saleorder-display');

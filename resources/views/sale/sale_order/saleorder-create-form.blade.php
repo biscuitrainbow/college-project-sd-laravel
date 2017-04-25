@@ -10,13 +10,12 @@
 @endsection
 @section('content')
     <h4 class="main-title">Create Quotation</h4>
-    <form action="{{route('postQuotation')}}" method="post">
+    <form action="{{route('storeSaleOrder')}}" method="post">
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-        <input type="hidden" name="inquiry_id" value="{{$quotation->id}}">
-
-        <input type="hidden" name="customer_id" value="{{$quotation->customer_id}}">
-        <input type="hidden" name="request_date" value="{{$quotation->request_date}}">
-        <input type="hidden" name="description" value="{{$quotation->description}}">
+        <input type="hidden" name="quotation_id" value="{{$quotation[0]->quotation_id}}">
+        <input type="hidden" name="customer_id" value="{{$quotation[0]->id}}">
+        <input type="hidden" name="request_date" value="{{$quotation[0]->request_date}}">
+        <input type="hidden" name="description" value="{{$quotation[0]->description}}">
 
 
         <div class="row">
@@ -26,11 +25,11 @@
         </div>
         <div class="row">
             <div class="input-field col s4">
-                <input id="compy_name" type="text" value="{{$inquiry->customer->company_name}}">
+                <input id="compy_name" type="text" value="{{$quotation[0]->company_name}}">
                 <label>Customer</label>
             </div>
             <div class="input-field col s4">
-                <input type="text" value="{{$inquiry->customer->created_at}}">
+                <input type="text" value="{{$quotation[0]->created_at}}">
                 <label>Create Date</label>
             </div>
             <div class="input-field col s4">
@@ -60,16 +59,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($items as $item)
+                @foreach($materials as $material)
                     <tr>
-                        <input type="hidden" name="material_id[]" value="{{$item->material->id}}">
-                        <td>{{$item->material->code}}</td>
-                        <td>{{$item->material->name}}</td>
-                        <td>{{$item->material->price}}</td>
-                        <td>{{$item->material->quantity}}</td>
-                        <td>{{$item->material->type}}</td>
-                        <td>{{$item->material->category}}</td>
-                        <td>{{$item->quantity}}</td>
+                        <input type="hidden" name="material_id[]" value="{{$material->id}}">
+                        <input type="hidden" name="quantity[]" value="{{$material->qty}}">
+                        <td>{{$material->code}}</td>
+                        <td>{{$material->name}}</td>
+                        <td>{{$material->price}}</td>
+                        <td>{{$material->quantity}}</td>
+                        <td>{{$material->type}}</td>
+                        <td>{{$material->category}}</td>
+                        <td>{{$material->qty}}</td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -104,23 +104,6 @@
             </table>
         </div>
 
-        <div class="row">
-            <div class="col s12 margin-top-50">
-                <span class="form-title">General Condition</span>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="input-field col s12">
-                <select name="condition_id">
-                    @foreach($generalCondition as $condition)
-                        <option value="{{$condition->id}}">{{$condition->name}}</option>
-                    @endforeach
-
-                </select>
-                <label for="customer">General Condition</label>
-            </div>
-        </div>
 
 
         <!-- Submit Button -->

@@ -49,6 +49,7 @@ Route::get('/po/create', 'PurchaseOrderController@create')->name('createPurchase
 /* Sale Order */
 Route::get('/so/create', 'SaleOrderController@create')->name('createSaleOrder')->middleware('auth');
 Route::get('/so/create/form/{id}', 'SaleOrderController@createSaleOrderForm')->middleware('auth');
+Route::post('/so/create','SaleOrderController@store')->name('storeSaleOrder')->middleware('auth');
 Route::get('/so/display', 'SaleOrderController@display')->name('displaySaleOrder')->middleware('auth');
 
 /*Invoice */
