@@ -3,7 +3,7 @@
     <a href="dashboard-overall.phpp" class="breadcrumb">Sale and Distribution</a>
     <a href="#!" class="breadcrumb">Material</a>
     <a href="{{route('displayMaterials')}}" class=" breadcrumb">Display</a>
-    <a href="{{route('displayMaterials')}}" class=" breadcrumb">{{$material->category}}</a>
+    <a href="{{route('displayMaterials')}}" class=" breadcrumb">{{$material->name}}</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="{{route('logout')}}">Logout</a></li>
     </ul>

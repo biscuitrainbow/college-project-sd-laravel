@@ -11,7 +11,7 @@
                                 <img src="{{asset('img/logo-teal.png')}}" alt="" style="width: 80%;">
                             </div>
                             <div class="col s7">
-                                <h5 class="bold">WHAT TO WARE CO., LTD.</h5>
+                                <h5 class="bold">WHAT TO WEAR CO., LTD.</h5>
                                 <p class="bold">239 Suthep Rd, A.Muang, Chiang Mai 50200 Thailand</p>
                                 <p class="bold">
                                     <i class="material-icons tiny">phone</i> 099-9999999 -
