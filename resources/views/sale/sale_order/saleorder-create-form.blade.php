@@ -12,11 +12,11 @@
     <h4 class="main-title">Create Quotation</h4>
     <form action="{{route('postQuotation')}}" method="post">
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-        <input type="hidden" name="inquiry_id" value="{{$inquiry->id}}">
+        <input type="hidden" name="inquiry_id" value="{{$quotation->id}}">
 
-        <input type="hidden" name="customer_id" value="{{$inquiry->customer_id}}">
-        <input type="hidden" name="request_date" value="{{$inquiry->request_date}}">
-        <input type="hidden" name="description" value="{{$inquiry->description}}">
+        <input type="hidden" name="customer_id" value="{{$quotation->customer_id}}">
+        <input type="hidden" name="request_date" value="{{$quotation->request_date}}">
+        <input type="hidden" name="description" value="{{$quotation->description}}">
 
 
         <div class="row">

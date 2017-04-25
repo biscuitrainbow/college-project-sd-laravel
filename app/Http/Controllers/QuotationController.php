@@ -90,13 +90,11 @@ class QuotationController extends Controller {
         print_r($customer);
 
         $quotation = DB::select("
-        select documents.*,materials.*
+        select * 
         from document_has_materials
-        join materials
-        on (document_has_materials.material_id = materials.id)
-        join documents
-        on (document_has_materials.document_id = documents.id)
-        where documents.id = '$id'
+         join materials
+         on (document_has_materials.material_id = materials.id)
+        where document_has_materials.document_id = '$id'
         ");
 
         print_r($quotation);
