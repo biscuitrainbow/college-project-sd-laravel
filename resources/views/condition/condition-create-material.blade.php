@@ -12,8 +12,11 @@
 
 @section('content')
     <div id="mainApp">
+        <div class="card">
+        <div class="card-content">
+        
         <h4 style="margin-bottom: 50px">Create Material Condition</h4>
-        <h5 class="sub-title">Step 1 : Search and choose material </h5>
+        <h5 class="bold margintop50 marginbottom50">Step 1 : Search and choose material </h5>
         <div class="input-field col s12 search-box">
             <i class="material-icons prefix">search</i>
             <input v-model="query" id="icon_prefix" type="text" class="validate">
@@ -47,8 +50,14 @@
             </tbody>
         </table>
 
+        </div>
+        </div>
+
         <div v-if="!isEmpty(selected)">
-            <h5 class="sub-title">Step 2 : Add detail</h5>
+        <div class="card margintop50">
+        <div class="card-content">
+        
+            <h5 class="bold marginbottom50 margintop50">Step 2 : Add detail</h5>
             <form action="{{route('postConditionMaterial')}}" method="post">
                 <input type="hidden" name="material_id" :value="selected.id">
                 <div class="row">
@@ -86,6 +95,9 @@
                     </div>
                 </div>
             </form>
+
+        </div>
+        </div>
         </div>
     </div>
 
