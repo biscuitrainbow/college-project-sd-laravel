@@ -24,7 +24,7 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input type="date" class="datepicker">
+                <input type="date" type="text" disabled>
                 <label for="goodsissuedate">Payment Date</label>
             </div>
         </div>
