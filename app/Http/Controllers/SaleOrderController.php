@@ -7,14 +7,17 @@ use App\DocumentHasMaterial;
 use DB;
 use Illuminate\Http\Request;
 
-class SaleOrderController extends Controller {
-    public function create() {
+class SaleOrderController extends Controller
+{
+    public function create()
+    {
         $quotations = Document::where('document_type_id', 2)->get();
         return view('sale.sale_order.saleorder-create', compact('quotations'));
     }
 
 
-    public function createSaleOrderForm($id) {
+    public function createSaleOrderForm($id)
+    {
         //TODO : implement here
         $quotation = DB::select("
         select documents.id as quotation_id,documents.request_date,documents.description,customers.*
@@ -53,10 +56,11 @@ class SaleOrderController extends Controller {
 //        return $id;
 //        return $quotation;
 //        return $materials;
-        return view('sale.sale_order.saleorder-create-form',compact('quotation','materials','conditions'));
+        return view('sale.sale_order.saleorder-create-form', compact('quotation', 'materials', 'conditions'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         $so = new Document();
         $so->document_type_id = 4;
@@ -78,7 +82,8 @@ class SaleOrderController extends Controller {
         return $request->all();
     }
 
-    public function display() {
+    public function display()
+    {
         $sale_orders = DB::select("
         select documents.id,customers.company_name,documents.created_at,documents.request_date
         from documents
@@ -87,10 +92,11 @@ class SaleOrderController extends Controller {
         where document_type_id = 4;"
         );
 //        return $sale_orders;
-        return view('sale.sale_order.saleorder-display',compact('sale_orders'));
+        return view('sale.sale_order.saleorder-display', compact('sale_orders'));
     }
 
-    public function displaySaleOrderDocument($id){
+    public function displaySaleOrderDocument($id)
+    {
         $customer = DB::select("
         select *
         from documents
@@ -99,16 +105,18 @@ class SaleOrderController extends Controller {
         where documents.id = '$id'
         ");
 
-        print_r($customer);
+        // print_r($customer);
         $quotation = DB::select("
-        select * 
+        select document_has_materials.* ,materials.code,materials.name,materials.price,documents.request_date,documents.created_at
         from document_has_materials
          join materials
          on (document_has_materials.material_id = materials.id)
+         join documents
+         on (document_has_materials.document_id = documents.id)
         where document_has_materials.document_id = '$id'
         ");
 
-        print_r($quotation);
+        // print_r($quotation);
         $conditions = DB::select(
             "select *
              from condition_material
@@ -122,6 +130,39 @@ class SaleOrderController extends Controller {
              on (document_has_materials.document_id = documents.id)
              where documents.id = '$id'
             ");
-        print_r($conditions);
+
+
+        $total = 0;
+        foreach ($quotation as $product) { // find total
+            $unitPrice = $product->quantity * $product->price;
+            $total += $unitPrice;
+        }// end total
+
+        $discount = 0;
+        $unitDiscount = [];
+
+        foreach ($conditions as $condition) { // find unit discount
+            if ($condition->quantity >= $condition->min) {
+                $unitDiscount[] = ($condition->quantity * $condition->price) * ($condition->discount / 100);
+            }
+        }// end find unit discount
+
+
+        for ($i = 0; $i < sizeof($unitDiscount); $i++) { // find discount
+            $discount += $unitDiscount[$i];
+        }
+
+        $netPrice = $total - $discount;
+       // return $quotation;
+ // /*
+        return view('sale.sale_order.saleorder-document', [
+            'customer' => $customer,
+            'quotation' => $quotation,
+            'total' => $total,
+            'discount' => $discount,
+            'netprice' => $netPrice
+        ]);
+// */
+
     }
 }
