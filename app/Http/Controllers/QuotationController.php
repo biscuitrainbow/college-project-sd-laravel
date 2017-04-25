@@ -42,4 +42,26 @@ class QuotationController extends Controller {
     public function displayQuotation() {
         return view('presale.quotation.quotation-display');
     }
+
+    public function create(Request $request){
+
+        $quotation = new Document();
+        $quotation->document_type_id = 2;
+        $quotation->customer_id = $request->input('customer_id');
+        $quotation->request_date = $request->input('request_date');
+        $quotation->description = $request->input('description');
+        $quotation->save();
+        $quotation->id;
+
+        for ($i = 0; $i < sizeof($request->input('materials')); $i++) {
+            $document_has_material = new DocumentHasMaterial();
+            $document_has_material->document_id = $quotation->id;
+            $document_has_material->material_id = $request->input('materials')[$i];
+            $document_has_material->quantity = $request->input('quantity')[$i];
+            $document_has_material->save();
+        }
+
+
+       return $request->all();
+    }
 }
