@@ -13,4 +13,9 @@ class SaleOrderController extends Controller {
     public function display() {
         return view('sale.sale_order.saleorder-display');
     }
+
+    public function createSaleOrderForm($id) {
+        //TODO : implement here
+        return view('sale.sale_order.saleorder-create-form');
+    }
 }
