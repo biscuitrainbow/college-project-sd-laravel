@@ -64,6 +64,8 @@
                                     <th>Product Description</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
+                                    <th>Discount (Percent)</th>
+                                    <th>Unit Discount</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -73,21 +75,28 @@
                                         <td>{{ $quo->name  }}</td>
                                         <td>{{ $quo->quantity }}</td>
                                         <td>{{ $quo->price }}</td>
+                                        <td>{{ $quo->discount }} %</td>
+                                        @if( $quo->quantity >= $quo->min)
+                                            <td>{{ ($quo->quantity * $quo->price) * ($quo->discount / 100 ) }}</td>
+                                        @endif
+                                        @if( $quo->quantity< $quo->min)
+                                            <td> 0 </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                             <div class="row margintop50">
                                 <div class="col s10 right-bold">Subtotal</div>
-                                <div class="col s2">5,000.00</div>
+                                <div class="col s2">{{ $total }}</div>
                             </div>
                             <div class="row">
-                                <div class="col s10 right-bold">Discount (10%)</div>
-                                <div class="col s2">500.00</div>
+                                <div class="col s10 right-bold">Discount (Baht)</div>
+                                <div class="col s2">{{ $discount }}</div>
                             </div>
                             <div class="row">
                                 <div class="col s10 right-bold">Order Total</div>
-                                <div class="col s2">4,500.00</div>
+                                <div class="col s2"> {{ $netprice }}</div>
                             </div>
                         </div>
                     </div>

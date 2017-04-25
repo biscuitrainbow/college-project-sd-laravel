@@ -107,12 +107,16 @@ class SaleOrderController extends Controller
 
         // print_r($customer);
         $quotation = DB::select("
-        select document_has_materials.* ,materials.code,materials.name,materials.price,documents.request_date,documents.created_at
+         select document_has_materials.* ,materials.code,materials.name,materials.price,documents.request_date,documents.created_at,conditions.discount,conditions.min
         from document_has_materials
          join materials
          on (document_has_materials.material_id = materials.id)
          join documents
          on (document_has_materials.document_id = documents.id)
+         join condition_material
+         on (materials.id = condition_material.material_id)
+         join conditions
+         on (condition_material.condition_id = conditions.id)
         where document_has_materials.document_id = '$id'
         ");
 
@@ -153,16 +157,19 @@ class SaleOrderController extends Controller
         }
 
         $netPrice = $total - $discount;
-       // return $quotation;
- // /*
-        return view('sale.sale_order.saleorder-document', [
+         // return $unitDiscount;
+
+       return view('sale.sale_order.saleorder-document', [
             'customer' => $customer,
             'quotation' => $quotation,
             'total' => $total,
+            'unitdiscount' => $unitDiscount,
             'discount' => $discount,
             'netprice' => $netPrice
         ]);
-// */
+
+
+
 
     }
 }
