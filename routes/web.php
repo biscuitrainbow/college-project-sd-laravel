@@ -39,9 +39,6 @@ Route::get('/quotation/display/{id}', 'QuotationController@displayQuotationDocum
 /* Availability */
 Route::get('/availability/display', 'AvailabilityController@display')->name('displayAvailability')->middleware('auth');
 
-/* Goods Issue */
-Route::get('/goodsissue/create', 'GoodsIssueController@create')->name('createGoodsIssue')->middleware('auth');
-Route::get('/goodsissue/display', 'GoodsIssueController@display')->name('displayGoodsIssue')->middleware('auth');
 
 /* Purchase Order */
 Route::get('/po/create', 'PurchaseOrderController@create')->name('createPurchaseOrder')->middleware('auth');
@@ -52,6 +49,10 @@ Route::get('/so/create/form/{id}', 'SaleOrderController@createSaleOrderForm')->m
 Route::post('/so/create','SaleOrderController@store')->name('storeSaleOrder')->middleware('auth');
 Route::get('/so/display', 'SaleOrderController@display')->name('displaySaleOrder')->middleware('auth');
 Route::get('/so/display/{id}', 'SaleOrderController@displaySaleOrderDocument')->name('displaySaleOrderDocument')->middleware('auth');
+
+/* Goods Issue */
+Route::get('/goodsissue/create', 'GoodsIssueController@create')->name('createGoodsIssue')->middleware('auth');
+Route::get('/goodsissue/display', 'GoodsIssueController@display')->name('displayGoodsIssue')->middleware('auth');
 
 /*Invoice */
 Route::get('/invoice/create', 'InvoiceController@create')->name('createInvoice')->middleware('auth');
