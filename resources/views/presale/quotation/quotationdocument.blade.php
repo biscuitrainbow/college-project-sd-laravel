@@ -35,14 +35,14 @@
                                     <div class="col s12">
                                         <h5 class="bold">Customer Address</h5>
                                         <hr>
-                                        <p class="bold font18">Customer Name</p>
+                                        <p class="bold font18">{{ $customer[0]->company_name  }}</p>
                                         <br>
                                         <p class="bold">Bill Address</p>
-                                        <p>239 Suthep Rd, A.Muang, Chiang Mai 50200 Thailand</p>
+                                        <p>{{ $customer[0]->address  }} {{ $customer[0]->region  }} {{ $customer[0]->postal_code  }} {{ $customer[0]->country }}</p>
                                         <br>
-                                        <p><i class="material-icons tiny">phone</i> 088-8888888</p>
-                                        <p><i class="material-icons tiny">email</i> customer@email.com</p>
-                                        <p><i class="material-icons tiny">language</i> customer.com</p>
+                                        <p><i class="material-icons tiny">phone</i> {{ $customer[0]->tel }}</p>
+                                        <p><i class="material-icons tiny">email</i> {{ $customer[0]->email}}</p>
+                                        <p><i class="material-icons tiny">language</i> {{ $customer[0]->website  }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -66,50 +66,31 @@
                                             <div class="col s2"><strong>Price</strong></div>
                                             <hr>
                                         </div>
+
+                                        @foreach( $quotation as $quo)
                                         <div class="row">
-                                            <div class="col s2">WA00010</div>
-                                            <div class="col s6">High Heels</div>
-                                            <div class="col s2">100</div>
-                                            <div class="col s2">1,000.00</div>
+                                            <div class="col s2">{{ $quo->material_id  }}</div>
+                                            <div class="col s6">{{ $quo->name  }}</div>
+                                            <div class="col s2">{{ $quo->quantity }}</div>
+                                            <div class="col s2">{{ $quo->price }}</div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col s2">WA00010</div>
-                                            <div class="col s6">High Heels</div>
-                                            <div class="col s2">100</div>
-                                            <div class="col s2">1,000.00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s2">WA00010</div>
-                                            <div class="col s6">High Heels</div>
-                                            <div class="col s2">100</div>
-                                            <div class="col s2">1,000.00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s2">WA00010</div>
-                                            <div class="col s6">High Heels</div>
-                                            <div class="col s2">100</div>
-                                            <div class="col s2">1,000.00</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s2">WA00010</div>
-                                            <div class="col s6">High Heels</div>
-                                            <div class="col s2">100</div>
-                                            <div class="col s2">1,000.00</div>
-                                        </div>
+                                        @endforeach
+
+
                                         <hr>
                                         <hr>
                                         <br>
                                         <div class="row">
                                             <div class="col s10 right-bold">Subtotal</div>
-                                            <div class="col s2">5,000.00</div>
+                                            <div class="col s2">{{  $total }}</div>
                                         </div>
                                         <div class="row">
-                                            <div class="col s10 right-bold">Discount (10%)</div>
-                                            <div class="col s2">500.00</div>
+                                            <div class="col s10 right-bold">Discount (Baht)</div>
+                                            <div class="col s2">{{ $discount }} </div>
                                         </div>
                                         <div class="row">
                                             <div class="col s10 right-bold">Order Total</div>
-                                            <div class="col s2">4,500.00</div>
+                                            <div class="col s2">{{  $netprice }} </div>
                                         </div>
                                     </div>
                                 </div>

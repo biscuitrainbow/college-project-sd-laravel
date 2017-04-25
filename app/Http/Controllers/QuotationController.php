@@ -9,13 +9,16 @@ use DB;
 use Illuminate\Http\Request;
 
 
-class QuotationController extends Controller {
-    public function indexQuotation() {
+class QuotationController extends Controller
+{
+    public function indexQuotation()
+    {
         $inquiries = Document::with('customer')->where('document_type_id', '1')->get();
         return view('presale.quotation.quotation-create', compact('inquiries'));
     }
 
-    public function createQuotationForm($id) {
+    public function createQuotationForm($id)
+    {
         $items = DocumentHasMaterial::with('material')->where('document_id', $id)->get();
         $inquiry = Document::with('customer')->where('id', $id)->where('document_type_id', '1')->first();
         $generalCondition = Condition::where('condition_type_id', 1)->get();
@@ -39,7 +42,8 @@ class QuotationController extends Controller {
 
     }
 
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
 
         $quotation = new Document();
         $quotation->document_type_id = 2;
@@ -56,12 +60,13 @@ class QuotationController extends Controller {
             $document_has_material->document_id = $quotation->id;
             $document_has_material->material_id = $request->input('material_id')[$i];
             $document_has_material->quantity = $request->input('quantity')[$i];
-             $document_has_material->save();
+            $document_has_material->save();
         }
 
     }
 
-    public function displayQuotation() {
+    public function displayQuotation()
+    {
 
         $quotations = DB::select("
         select documents.id,customers.company_name,documents.created_at,documents.request_date
@@ -71,11 +76,11 @@ class QuotationController extends Controller {
         where document_type_id = 2;"
         );
 
-//        return $quotations;
         return view('presale.quotation.quotation-display', compact('quotations'));
     }
 
-    public function displayQuotationDocument($id) {
+    public function displayQuotationDocument($id)
+    {
 
         $customer = DB::select("
         select *
@@ -85,16 +90,16 @@ class QuotationController extends Controller {
         where documents.id = '$id'
         ");
 
-        print_r($customer);
         $quotation = DB::select("
-        select * 
+        select document_has_materials.* ,materials.code,materials.name,materials.price
         from document_has_materials
          join materials
          on (document_has_materials.material_id = materials.id)
+         join documents
+         on (document_has_materials.document_id = documents.id)
         where document_has_materials.document_id = '$id'
         ");
 
-        print_r($quotation);
         $conditions = DB::select(
             "select *
              from condition_material
@@ -108,11 +113,38 @@ class QuotationController extends Controller {
              on (document_has_materials.document_id = documents.id)
              where documents.id = '$id'
             ");
-        print_r($conditions);
+
+        $total = 0;
+        foreach ($quotation as $product) { // find total
+            $unitPrice = $product->quantity * $product->price;
+            $total += $unitPrice;
+        }// end total
+
+        $discount = 0;
+        $unitDiscount = [];
+
+        foreach ($conditions as $condition) { // find unit discount
+                    if( $condition->quantity >= $condition->min) {
+                        $unitDiscount[] = ($condition->quantity * $condition->price) * ($condition->discount / 100);
+                    }
+        }// end find unit discount
 
 
-        return $quotation;
-//        return $quotation;
-//       return view('presale.quotation.quotationdocument');
+        for ($i =0 ; $i < sizeof($unitDiscount) ; $i++) { // find discount
+            $discount += $unitDiscount[$i];
+        }
+
+        $netPrice = $total - $discount;
+
+       return view('presale.quotation.quotationdocument', [
+            'customer' => $customer,
+            'quotation' => $quotation,
+            'total' => $total ,
+            'discount' => $discount,
+            'netprice' => $netPrice
+        ]);
+
+
+
     }
 }
