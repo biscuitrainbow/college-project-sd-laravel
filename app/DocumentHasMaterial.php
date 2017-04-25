@@ -11,8 +11,5 @@ class DocumentHasMaterial extends Model {
         return $this->belongsTo('App\Material');
     }
 
-//    public function document()
-//    {
-//        return $this->belongsTo('App\DocumentHasMaterial');
-//    }
+
 }
