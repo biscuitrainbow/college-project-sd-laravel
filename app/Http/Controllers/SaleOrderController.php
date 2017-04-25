@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Document;
 
-class SaleOrderController extends Controller
-{
-    public function create(){
-        return view('sale.sale_order.saleorder-create');
+class SaleOrderController extends Controller {
+    public function create() {
+        $quotations = Document::where('document_type_id', 2)->get();
+        return view('sale.sale_order.saleorder-create', compact('quotations'));
     }
 
-    public function display(){
+    public function display() {
         return view('sale.sale_order.saleorder-display');
     }
 }

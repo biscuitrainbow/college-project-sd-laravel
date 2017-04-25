@@ -39,10 +39,6 @@ class QuotationController extends Controller {
 
     }
 
-    public function displayQuotation() {
-        return view('presale.quotation.quotation-display');
-    }
-
     public function create(Request $request) {
 
         $quotation = new Document();
@@ -67,8 +63,7 @@ class QuotationController extends Controller {
         return $request->all();
     }
 
-    public function displayQuotation()
-    {
+    public function displayQuotation() {
 
         $quotations = DB::select("
         select documents.id,customers.company_name,documents.created_at,documents.request_date
@@ -82,8 +77,7 @@ class QuotationController extends Controller {
         return view('presale.quotation.quotation-display', compact('quotations'));
     }
 
-    public function displayQuotationDocument($id)
-    {
+    public function displayQuotationDocument($id) {
 
         $customer = DB::select("
         select *

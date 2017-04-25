@@ -48,6 +48,7 @@ Route::get('/po/create', 'PurchaseOrderController@create')->name('createPurchase
 
 /* Sale Order */
 Route::get('/so/create', 'SaleOrderController@create')->name('createSaleOrder')->middleware('auth');
+Route::get('/so/create/form/{id}', 'SaleOrderController@createSaleOrderForm')->middleware('auth');
 Route::get('/so/display', 'SaleOrderController@display')->name('displaySaleOrder')->middleware('auth');
 
 /*Invoice */
@@ -66,7 +67,6 @@ Route::post('/condition/create/material', 'ConditionController@createMaterial')-
 
 Route::get('/condition/display/general/', 'ConditionController@displayGenerals')->name('displayConditionGeneral')->middleware('auth');
 Route::get('/condition/display/material/', 'ConditionController@displayMaterials')->name('displayConditionMaterial')->middleware('auth');
-
 
 
 /* Login */
