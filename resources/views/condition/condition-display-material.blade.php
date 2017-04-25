@@ -3,7 +3,7 @@
 @section('breadcrumb')
     <a href="dashboard-overall.phpp" class="breadcrumb">Sale and Distribution</a>
     <a href="#!" class="breadcrumb">Condition</a>
-    <a href="{{route('displayMaterials')}}" class=" breadcrumb">Material</a>
+    <a href="{{route('displayMaterials')}}" class=" breadcrumb">Material Condition</a>
     <a href="{{route('displayMaterials')}}" class=" breadcrumb">Display</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="{{route('logout')}}">Logout</a></li>
@@ -12,7 +12,7 @@
 
 @section('content')
     <div id="mainApp">
-        <h4 style="margin-bottom: 50px">Display Material</h4>
+        <h4 style="margin-bottom: 50px">Display Material Condition</h4>
         <form action="">
             <div v-model="query" class="input-field col s12 search-box">
                 <i class="material-icons prefix">search</i>
@@ -36,7 +36,7 @@
                         <td>@{{condition.name}}</td>
                         <td>@{{condition.discount}}</td>
                         <td>@{{condition.min}}</td>
-                        <td><a :href="'{{url('/material/display')}}/' + condition.id"
+                        <td><a :href="'{{route('displayConditionMaterial')}}/' + condition.id"
                                class="waves-effect waves-light btn">View</a>
                         </td>
                     </tr>
