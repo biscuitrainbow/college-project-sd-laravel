@@ -40,7 +40,7 @@
                             <br>
                             <p><i class="material-icons tiny">phone</i> {{ $customer[0]->tel }}</p>
                             <p><i class="material-icons tiny">email</i> {{ $customer[0]->email}}</p>
-                                <p><i class="material-icons tiny">language</i> {{ $customer[0]->website  }}</p>
+                            <p><i class="material-icons tiny">language</i> {{ $customer[0]->website  }}</p>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                         <div class="col s12">
                             <h5 class="bold">Quotation</h5>
                             <hr>
-                            <p class="font18">Inquiry Date 2 March, 2017</p>
+                            <p class="font18">Inquiry Date {{$quotation[0]->created_at}}</p>
                             <p class="font18">To whom it may concern,</p>
                         </div>
                     </div>
