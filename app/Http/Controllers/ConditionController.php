@@ -51,12 +51,13 @@ class ConditionController extends Controller {
     public function indexDisplay() {
         $general = Condition::where('condition_type', 'general')->get();
         $material = Condition::where('condition_type', 'material')->get();
-
         return view('condition.condition-display', compact('general'), compact('material'));
     }
 
     public function displayGenerals() {
-        return view('condition.condition-display-general', compact('condition'));
+        $general = Condition::all();
+        return view('condition.condition-display-general', compact('general'));
+        //return $general;
     }
 
     public function displayGeneral($id) {
