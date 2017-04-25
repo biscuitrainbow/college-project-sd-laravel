@@ -63,6 +63,7 @@
                 @foreach($items as $item)
                     <tr>
                         <input type="hidden" name="material_id[]" value="{{$item->material->id}}">
+                        <input type="hidden" name="quantity[]" value="{{$item->quantity}}">
                         <td>{{$item->material->code}}</td>
                         <td>{{$item->material->name}}</td>
                         <td>{{$item->material->price}}</td>
