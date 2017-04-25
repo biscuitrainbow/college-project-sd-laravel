@@ -51,16 +51,14 @@ class QuotationController extends Controller {
         $quotation->save();
         $quotation->id;
 
-
-        for ($i = 0; $i < sizeof($request->input('materials')); $i++) {
+        for ($i = 0; $i < sizeof($request->input('material_id')); $i++) {
             $document_has_material = new DocumentHasMaterial();
             $document_has_material->document_id = $quotation->id;
-            $document_has_material->material_id = $request->input('materials')[$i];
+            $document_has_material->material_id = $request->input('material_id')[$i];
             $document_has_material->quantity = $request->input('quantity')[$i];
-            $document_has_material->save();
+             $document_has_material->save();
         }
 
-        return $request->all();
     }
 
     public function displayQuotation() {
@@ -88,7 +86,6 @@ class QuotationController extends Controller {
         ");
 
         print_r($customer);
-
         $quotation = DB::select("
         select documents.*,materials.*
         from document_has_materials
@@ -100,7 +97,6 @@ class QuotationController extends Controller {
         ");
 
         print_r($quotation);
-
         $conditions = DB::select(
             "select *
              from condition_material
@@ -114,12 +110,10 @@ class QuotationController extends Controller {
              on (document_has_materials.document_id = documents.id)
              where documents.id = '$id'
             ");
-
         print_r($conditions);
 
 
-
-        return $conditions;
+        return $quotation;
 //        return $quotation;
 //       return view('presale.quotation.quotationdocument');
     }
