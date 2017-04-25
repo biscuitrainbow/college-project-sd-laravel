@@ -26,7 +26,7 @@ class ConditionController extends Controller {
         $condition->min = $request->input('min_price');
         $condition->condition_type_id = 1;
         $condition->save();
-        
+
 //        $status = "Create Successfully";
 //        return view('material.material-status', compact('status'));
     }
@@ -55,7 +55,7 @@ class ConditionController extends Controller {
     }
 
     public function displayGenerals() {
-        $general = Condition::all();
+        $general = Condition::where('condition_type_id', 1)->get();
         return view('condition.condition-display-general', compact('general'));
         //return $general;
     }

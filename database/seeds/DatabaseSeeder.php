@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder {
         $this->call('DocumentTypeSeeder');
         $this->call('UserSeeder');
         $this->call('ConditionTypeSeeder');
+        $this->call('ConditionSeeder');
+        $this->call('ConditionMaterialSeeder');
 
         $this->command->info('information seeded!');
     }

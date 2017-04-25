@@ -12,7 +12,7 @@
 
 @section('content')
     <div id="mainApp">
-        <h4 style="margin-bottom: 50px">Display Material</h4>
+        <h4 style="margin-bottom: 50px">Display General Condition</h4>
         <form action="">
             <div v-model="query" class="input-field col s12 search-box">
                 <i class="material-icons prefix">search</i>
