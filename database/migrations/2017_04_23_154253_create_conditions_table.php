@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateConditionsTable extends Migration {
     /**
@@ -17,17 +17,12 @@ class CreateConditionsTable extends Migration {
             $table->float('discount');
             $table->integer('min');
             $table->integer('condition_type_id')->unsigned();
-            $table->integer('material_id')->unsigned();
             $table->timestamps();
         });
 
         Schema::table('conditions', function (Blueprint $table) {
             $table->foreign('condition_type_id')
                 ->references('id')->on('condition_types')
-                ->onDelete('cascade');
-
-            $table->foreign('material_id')
-                ->references('id')->on('materials')
                 ->onDelete('cascade');
         });
     }

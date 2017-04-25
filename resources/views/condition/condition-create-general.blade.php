@@ -15,18 +15,18 @@
     <form method="POST" action="/condition/create/general">
         <div class="row">
             <div class="input-field col s12">
-                <input name="conditionname" type="text" class="validate">
-                <label for="conditionname">Condition Name</label>
+                <input name="condition_name" type="text" class="validate">
+                <label for="condition_name">Condition Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input name="discountprice" type="text" class="validate">
-                <label for="discountprice">Discount (%)</label>
+                <input name="discount_price" type="text" class="validate">
+                <label for="discount_price">Discount (%)</label>
             </div>
             <div class="input-field col s6">
-                <input name="minprice" type="text" class="validate">
-                <label for="minprice">Min Price (ex. over 200,000 THB)</label>
+                <input name="min_price" type="text" class="validate">
+                <label for="min_price">Min Price (ex. over 200,000 THB)</label>
             </div>
         </div>
         <!-- Submit Button -->

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use app;
 use App\Condition;
+use App\ConditionMaterial;
 use App\Material;
 use Illuminate\Http\Request;
-use app;
 
 class ConditionController extends Controller {
     public function showCreateGeneral() {
@@ -20,16 +21,14 @@ class ConditionController extends Controller {
 
     public function createGeneral(Request $request) {
         $condition = new Condition();
-        $condition['conditionname'] = $request['conditionname'];
-        $condition['discountprice'] = $request['discountprice'];
-        $condition['minprice'] = $request['minprice'];
-        $condition['material_id'] = 0;
-        $condition['minquantity'] = 0;
-        $condition['condition_type'] = 'general';
+        $condition->name = $request->input('condition_name');
+        $condition->discount = $request->input('discount_price');
+        $condition->min = $request->input('min_price');
+        $condition->condition_type_id = 1;
         $condition->save();
-
-        $status = "Create Successfully";
-        return view('material.material-status', compact('status'));
+        
+//        $status = "Create Successfully";
+//        return view('material.material-status', compact('status'));
     }
 
     public function createMaterial(Request $request) {
@@ -38,11 +37,15 @@ class ConditionController extends Controller {
         $condition->discount = $request->input('discount_price');
         $condition->min = $request->input('min_quantity');
         $condition->condition_type_id = 2;
-        $condition->material_id = $request->input('material_id');
-
         $condition->save();
-        $status = "Create Successfully";
-        return view('material.material-status', compact('status'));
+
+        $conditionMaterial = new ConditionMaterial();
+        $conditionMaterial->condition_id = $condition->id;
+        $conditionMaterial->material_id = $request->input('material_id');
+        $conditionMaterial->save();
+
+//        $status = "Create Successfully";
+//        return view('material.material-status', compact('status'));
     }
 
     public function indexDisplay() {
