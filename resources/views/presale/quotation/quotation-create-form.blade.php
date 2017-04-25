@@ -34,7 +34,7 @@
                 <label>Create Date</label>
             </div>
             <div class="input-field col s4">
-                <input id="request_date" type="date" class="datepicker">
+                <input id="request_date" type="text" disabled>
                 <label for="requestdelivery">Request delivery date</label>
             </div>
         </div>
