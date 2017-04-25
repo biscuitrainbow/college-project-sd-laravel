@@ -18,7 +18,7 @@
                     <div class="card-content">
                         <div class="row valign-wrapper margintop50">
                             <div class="col s1 offset-s4 valign-wrapper">
-                                <img src="img/logo-teal.png" alt="" style="width: 80%;">
+                                <img src="{{asset('img/logo-teal.png')}}" alt="" style="width: 80%;">
                             </div>
                             <div class="col s7">
                                 <h5 class="bold">WHAT TO WEAR CO., LTD.</h5>
@@ -46,12 +46,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col s8" style="min-height: 900px">
+                            <div class="col s8" style="min-height: 800px">
                                 <div class="row">
                                     <div class="col s12">
-                                        <h5 class="bold">Quotation</h5>
+                                        <h5 class="bold">Sale Order</h5>
                                         <hr>
-                                        <p class="font18">Inquiry Date {{ $quotation[0]->created_at  }}</p>
+                                        <p class="font18">Sale Order Date {{ $quotation[0]->created_at  }}</p>
                                         <p class="font18">To whom it may concern,</p>
                                     </div>
                                 </div>
@@ -59,28 +59,39 @@
                                     <div class="col s12">
                                         <h5 class="bold">Goods Requests</h5>
                                         <hr>
-                                        <div class="row">
-                                            <div class="col s2"><strong>Product ID</strong></div>
-                                            <div class="col s6"><strong>Product Description</strong></div>
-                                            <div class="col s2"><strong>Quantity</strong></div>
-                                            <div class="col s2"><strong>Price</strong></div>
-                                            <hr>
-                                        </div>
 
-                                        @foreach( $quotation as $quo)
-                                        <div class="row">
-                                            <div class="col s2">{{ $quo->material_id  }}</div>
-                                            <div class="col s6">{{ $quo->name  }}</div>
-                                            <div class="col s2">{{ $quo->quantity }}</div>
-                                            <div class="col s2">{{ $quo->price }}</div>
-                                        </div>
-                                        @endforeach
+                                        <table class="striped">
+                                            <thead>
+                                            <tr>
+                                                <th>Product ID</th>
+                                                <th>Product Description</th>
+                                                <th>Quantity</th>
+                                                <th>Price</th>
+                                                <th>Discount (Percent)</th>
+                                                <th>Unit Discount</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach( $quotation as $quo)
+                                                <tr>
+                                                    <td>{{ $quo->material_id  }}</td>
+                                                    <td>{{ $quo->name  }}</td>
+                                                    <td>{{ $quo->quantity }}</td>
+                                                    <td>{{ $quo->price }}</td>
+                                                    <td>{{ $quo->discount }} %</td>
+                                                    @if( $quo->quantity >= $quo->min)
+                                                    <td>{{ ($quo->quantity * $quo->price) * ($quo->discount / 100 ) }}</td>
+                                                    @endif
+                                                    @if( $quo->quantity< $quo->min)
+                                                        <td> 0 </td>
+                                                    @endif
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
 
 
-                                        <hr>
-                                        <hr>
-                                        <br>
-                                        <div class="row">
+                                        <div class="row margin-top-50" >
                                             <div class="col s10 right-bold">Subtotal</div>
                                             <div class="col s2">{{  $total }}</div>
                                         </div>
@@ -94,7 +105,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row margintop100 marginbottom100">
+                                <!-- <div class="row margintop100 marginbottom100">
                                     <div class="col">
                                         <p class="font18"><strong>Note : </strong>Lorem Ipsum is simply dummy text of
                                             the
@@ -102,7 +113,7 @@
                                             standard
                                             dummy text ever since the 1500s, when an unknown printer</p>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="row">

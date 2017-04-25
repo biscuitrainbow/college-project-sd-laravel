@@ -53,16 +53,4 @@
             <label for="name">Name</label>
         </div>
     </div>
-    <div class="row">
-        <div class="input-field col s6">
-            <input disabled id="position" value="{{$customer['position']}}" name="position" type="text"
-                   class="validate">
-            <label for="position">Position</label>
-        </div>
-        <div class="input-field col s6">
-            <input disabled id="department" value="{{$customer['departmentl']}}" name="department" type="text"
-                   class="validate">
-            <label for="department">Department</label>
-        </div>
-    </div>
 @endsection
