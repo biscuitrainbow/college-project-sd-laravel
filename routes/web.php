@@ -34,6 +34,7 @@ Route::get('/quotation/create', 'QuotationController@indexQuotation')->name('cre
 Route::get('/quotation/create/form/{id}', 'QuotationController@createQuotationForm')->name('createQuotationForm')->middleware('auth');
 Route::POST('/quotation/create', 'QuotationController@create')->name('postQuotation')->middleware('auth');
 Route::get('/quotation/display', 'QuotationController@displayQuotation')->name('displayQuotation')->middleware('auth');
+Route::get('/quotation/display/{id}', 'QuotationController@displayQuotationDocument')->name('displayQuotationDocument')->middleware('auth');
 
 /* Availability */
 Route::get('/availability/display', 'AvailabilityController@display')->name('displayAvailability')->middleware('auth');

@@ -66,4 +66,60 @@ class QuotationController extends Controller {
 
         return $request->all();
     }
+
+    public function displayQuotation()
+    {
+
+        $quotations = DB::select("
+        select documents.id,customers.company_name,documents.created_at,documents.request_date
+        from documents
+        join customers
+        on (documents.customer_id = customers.id)
+        where document_type_id = 2;"
+        );
+
+//        return $quotations;
+        return view('presale.quotation.quotation-display', compact('quotations'));
+    }
+
+    public function displayQuotationDocument($id)
+    {
+
+        $customer = DB::select("
+        select *
+        from documents
+        join customers
+        on (documents.customer_id = customers.id)
+        where documents.id = '$id'
+        ");
+
+        $quotation = DB::select("
+        select documents.*,materials.*
+        from document_has_materials
+        join materials
+        on (document_has_materials.material_id = materials.id)
+        join documents
+        on (document_has_materials.document_id = documents.id)
+        where documents.id = '$id'
+        ");
+
+        $conditions = DB::select(
+            "select *
+             from condition_material
+             join conditions
+             on(conditions.id = condition_material.condition_id)
+             join materials
+             on (condition_material.material_id = materials.id)
+             join document_has_materials
+             on (document_has_materials.material_id = materials.id)
+             join documents
+             on (document_has_materials.document_id = documents.id)
+             where documents.id = '$id'
+            ");
+
+
+        return $conditions;
+//        return $quotation;
+//       return view('presale.quotation.quotationdocument');
+    }
 }
