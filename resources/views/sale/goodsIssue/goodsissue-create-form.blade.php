@@ -9,7 +9,7 @@
     </ul>
 @endsection
 @section('content')
-    <h4 class="main-title">Create Quotation</h4>
+    <h4 class="main-title">Goods issue</h4>
     <form action="{{route('UpdateGoodsIssue')}}" method="post">
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
         <input type="hidden" name="saleorder_id" value="{{$sale_order[0]->id}}">
