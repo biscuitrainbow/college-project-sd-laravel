@@ -79,6 +79,49 @@ class SaleOrderController extends Controller {
     }
 
     public function display() {
-        return view('sale.sale_order.saleorder-display');
+        $sale_orders = DB::select("
+        select documents.id,customers.company_name,documents.created_at,documents.request_date
+        from documents
+        join customers
+        on (documents.customer_id = customers.id)
+        where document_type_id = 4;"
+        );
+//        return $sale_orders;
+        return view('sale.sale_order.saleorder-display',compact('sale_orders'));
+    }
+
+    public function displaySaleOrderDocument($id){
+        $customer = DB::select("
+        select *
+        from documents
+        join customers
+        on (documents.customer_id = customers.id)
+        where documents.id = '$id'
+        ");
+
+        print_r($customer);
+        $quotation = DB::select("
+        select * 
+        from document_has_materials
+         join materials
+         on (document_has_materials.material_id = materials.id)
+        where document_has_materials.document_id = '$id'
+        ");
+
+        print_r($quotation);
+        $conditions = DB::select(
+            "select *
+             from condition_material
+             join conditions
+             on(conditions.id = condition_material.condition_id)
+             join materials
+             on (condition_material.material_id = materials.id)
+             join document_has_materials
+             on (document_has_materials.material_id = materials.id)
+             join documents
+             on (document_has_materials.document_id = documents.id)
+             where documents.id = '$id'
+            ");
+        print_r($conditions);
     }
 }

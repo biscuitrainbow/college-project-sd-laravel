@@ -30,88 +30,29 @@
                   <table class="highlight">
                     <thead>
                       <tr>
-                        <th>Name</th>
-                        <th>Postal Code/City</th>
-                        <th>Country</th>
-                        <th>Region</th>
+                        <th>Document ID</th>
+                        <th>Customer</th>
+                        <th>Create Date</th>
+                        <th>Request Delivery Date</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach($sale_orders as $sale_order)
                       <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="saleorder-display-result.blade.php" class="waves-effect waves-light btn">Details</a></td>
+                        <td>{{$sale_order->id}}</td>
+                        <td>{{$sale_order->company_name}}</td>
+                        <td>{{$sale_order->created_at}}</td>
+                        <td>{{$sale_order->request_date}}</td>
+                        <td><a href="/so/display/{{$sale_order->id}}" class="waves-effect waves-light btn">Details</a></td>
                       </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="saleorder-display-result.blade.php" class="waves-effect waves-light btn">Details</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="saleorder-display-result.blade.php" class="waves-effect waves-light btn">Details</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="saleorder-display-result.blade.php" class="waves-effect waves-light btn">Details</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="saleorder-display-result.blade.php" class="waves-effect waves-light btn">Details</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="saleorder-display-result.blade.php" class="waves-effect waves-light btn">Details</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="saleorder-display-result.blade.php" class="waves-effect waves-light btn">Details</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="saleorder-display-result.blade.php" class="waves-effect waves-light btn">Details</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="saleorder-display-result.blade.php" class="waves-effect waves-light btn">Details</a></td>
-                      </tr>
-                      <tr>
-                        <td>College of arts media and technology,inc</td>
-                        <td>Chiangmai</td>
-                        <td>Thailand</td>
-                        <td>CNX00</td>
-                        <td><a href="saleorder-display-result.blade.php" class="waves-effect waves-light btn">Details</a></td>
-                      </tr>
+                      @endforeach
+
                     </tbody>
                   </table>
 
                   <!-- Pagination -->
-                s
+
                 </div>
               </div>
             </div>

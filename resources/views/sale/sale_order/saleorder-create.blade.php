@@ -33,7 +33,7 @@
             <table class="highlight">
                 <thead>
                 <tr>
-                    <th>Quotation No.</th>
+                    <th>Customer No.</th>
                     <th>Inquiry Ref.</th>
                     <th>Description</th>
                     <th>Action</th>
