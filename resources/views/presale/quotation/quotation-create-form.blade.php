@@ -30,11 +30,12 @@
                 <label>Customer</label>
             </div>
             <div class="input-field col s4">
-                <input type="text" value="{{$inquiry->customer->created_at}}">
+                <input type="text" disabled value="{{\Carbon\Carbon::today()->toDateString()}}">
                 <label>Create Date</label>
             </div>
             <div class="input-field col s4">
-                <input id="request_date" type="date" class="datepicker">
+                <input id="request_date" type="text" disabled
+                       value="{{\Carbon\Carbon::parse($inquiry->request_date)->toDateString()}}">
                 <label for="requestdelivery">Request delivery date</label>
             </div>
         </div>
