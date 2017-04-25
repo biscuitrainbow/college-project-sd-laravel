@@ -46,9 +46,8 @@ class GoodsIssueController extends Controller {
 
     public function update(Request $request) {
         for ($i = 0; $i < sizeof($request->input('sale_order_id')); $i++) {
-
+            //TODO:: ได้ sale order id มาแล้ว เหลือเอาไปเช้ค availability ถ้าไม่ทันก็เชคแค่ qunaity พอ
         }
-        //TODO::Update stock && Create document
     }
 
     public function display() {
