@@ -16,19 +16,19 @@
                         <div class="col s4">
                             <div class="card-panel red lighten-1">
                                 <h6 class="white-text">Monthly Inquiry</h6>
-                                <h3 class="white-text">30</h3>
+                                <h3 class="white-text">{{$number_of_inq}}</h3>
                             </div>
                         </div>
                         <div class="col s4">
                             <div class="card-panel blue lighten-1">
                                 <h6 class="white-text">Monthly Quotation</h6>
-                                <h3 class="white-text">12</h3>
+                                <h3 class="white-text">{{$number_of_quo}}</h3>
                             </div>
                         </div>
                         <div class="col s4">
                             <div class="card-panel green lighten-1">
                                 <h6 class="white-text">Monthly Sales Order</h6>
-                                <h3 class="white-text">24</h3>
+                                <h3 class="white-text">{{$number_of_quo}}</h3>
                             </div>
                         </div>
                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\DocumentHasMaterial;
 use App\Material;
 use DB;
@@ -51,15 +52,14 @@ class GoodsIssueController extends Controller {
         $materialFromSaleOrder = array();
 
         for ($i = 0; $i < sizeof($request->input('sale_order_id')); $i++) {
-            //TODO:: ได้ sale order id มาแล้ว เหลือเอาไปเช้ค availability ถ้าไม่ทันก็เชคแค่ qunaity พอ
             $documentHasMaaterial = DocumentHasMaterial::with('material')->where('document_id', $request->input('sale_order_id')[$i])->get();
             $materialFromSaleOrder[$i] = $documentHasMaaterial;
         }
 
+        echo Customer::with('document')->where('document.id')->get();
 
-        return view('sale.goodsissue.goodsissuecreate-form-confirm', compact('materialFromSaleOrder'));
 
-
+//        return view('sale.goodsissue.goodsissuecreate-form-confirm', compact('materialFromSaleOrder'));
     }
 
     public function issue(Request $request) {
