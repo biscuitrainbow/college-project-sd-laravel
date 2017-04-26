@@ -49,7 +49,7 @@
                             <div class="col s8" style="min-height: 800px">
                                 <div class="row">
                                     <div class="col s12">
-                                        <h5 class="bold">Sale Order</h5>
+                                        <h5 class="bold">Invoice</h5>
                                         <hr>
                                         <p class="font18">Invoice Date {{ $quotation[0]->created_at  }}</p>
                                         <p class="font18">To whom it may concern,</p>

@@ -176,14 +176,6 @@
                         </ul>
                     </div>
                 </li>
-                <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i
-                                class="material-icons">work</i>Company Profile</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="">Edit</a></li>
-                        </ul>
-                    </div>
-                </li>
             </ul>
         </li>
     </ul>

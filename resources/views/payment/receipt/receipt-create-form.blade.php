@@ -13,6 +13,7 @@
     <form action="{{route('storeReceipt')}}" method="post">
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
         <input type="hidden" name="saleorder_id" value="{{$invoice[0]->id}}">
+        <input type="hidden" name="condition_id" value="{{$invoice[0]->condition_id}}">
         <input type="hidden" name="customer_id" value="{{$invoice[0]->customer_id}}">
         <input type="hidden" name="request_date" value="{{$invoice[0]->request_date}}">
         <input type="hidden" name="description" value="{{$invoice[0]->description}}">

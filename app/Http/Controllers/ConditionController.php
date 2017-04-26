@@ -27,6 +27,9 @@ class ConditionController extends Controller {
         $condition->condition_type_id = 1;
         $condition->save();
 
+        return redirect(route('displayConditionGeneral'));
+
+
 //        $status = "Create Successfully";
 //        return view('material.material-status', compact('status'));
     }
@@ -43,6 +46,8 @@ class ConditionController extends Controller {
         $conditionMaterial->condition_id = $condition->id;
         $conditionMaterial->material_id = $request->input('material_id');
         $conditionMaterial->save();
+
+        return redirect(route('displayConditionMaterial'));
 
 //        $status = "Create Successfully";
 //        return view('material.material-status', compact('status'));

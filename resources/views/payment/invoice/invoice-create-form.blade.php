@@ -13,6 +13,7 @@
     <form action="{{route('storeInvoice')}}" method="post">
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
         <input type="hidden" name="saleorder_id" value="{{$goods_issue[0]->id}}">
+        <input type="hidden" name="condition_id" value="{{$goods_issue[0]->condition_id}}">
         <input type="hidden" name="customer_id" value="{{$goods_issue[0]->customer_id}}">
         <input type="hidden" name="request_date" value="{{$goods_issue[0]->request_date}}">
         <input type="hidden" name="description" value="{{$goods_issue[0]->description}}">
@@ -59,7 +60,7 @@
                 <tbody>
                 @foreach($materials as $material)
                     <tr>
-                        <input type="hidden" name="material_id[]" value="{{$material->id}}">
+                        <input type="hidden" name="material_id[]" value="{{$material->material_id}}">
                         <input type="hidden" name="quantity[]" value="{{$material->quantity}}">
                         <td>{{$material->code}}</td>
                         <td>{{$material->name}}</td>

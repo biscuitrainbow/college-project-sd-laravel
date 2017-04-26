@@ -13,91 +13,91 @@
 @section('content')
     <div id="mainApp">
         <div class="card">
-        <div class="card-content">
-        
-        <h4 style="margin-bottom: 50px">Create Material Condition</h4>
-        <h5 class="bold margintop50 marginbottom50">Step 1 : Search and choose material </h5>
-        <div class="input-field col s12 search-box">
-            <i class="material-icons prefix">search</i>
-            <input v-model="query" id="icon_prefix" type="text" class="validate">
-            <label for="icon_prefix">Search by product name or id</label>
-        </div>
+            <div class="card-content">
 
-        <!-- Table -->
-        <table style="margin-bottom: 50px" class="highlight">
-            <thead>
-            <tr>
-                <th>Product id</th>
-                <th>Product name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Product type</th>
-                <th>Product Categories</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="material in search">
-                <td>@{{material.code}}</td>
-                <td>@{{material.name}}</td>
-                <td>@{{material.price}}</td>
-                <td>@{{material.quantity}}</td>
-                <td>@{{material.type}}</td>
-                <td>@{{material.category}}</td>
-                <td>
-                    <button @click="add(material)" class="waves-effect waves-light btn">Select</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                <h4 style="margin-bottom: 50px">Create Material Condition</h4>
+                <h5 class="bold margintop50 marginbottom50">Step 1 : Search and choose material </h5>
+                <div class="input-field col s12 search-box">
+                    <i class="material-icons prefix">search</i>
+                    <input v-model="query" id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Search by product name or id</label>
+                </div>
 
-        </div>
+                <!-- Table -->
+                <table style="margin-bottom: 50px" class="highlight">
+                    <thead>
+                    <tr>
+                        <th>Product id</th>
+                        <th>Product name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Product type</th>
+                        <th>Product Categories</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="material in search">
+                        <td>@{{material.code}}</td>
+                        <td>@{{material.name}}</td>
+                        <td>@{{material.price}}</td>
+                        <td>@{{material.quantity}}</td>
+                        <td>@{{material.type}}</td>
+                        <td>@{{material.category}}</td>
+                        <td>
+                            <button @click="add(material)" class="waves-effect waves-light btn">Select</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
 
         <div v-if="!isEmpty(selected)">
-        <div class="card margintop50">
-        <div class="card-content">
-        
-            <h5 class="bold marginbottom50 margintop50">Step 2 : Add detail</h5>
-            <form action="{{route('postConditionMaterial')}}" method="post">
-                <input type="hidden" name="material_id" :value="selected.id">
-                <div class="row">
-                    <div class="input-field col s6" style="">
-                        <input disabled type="text" class="validate" :value="selected.name">
-                        <label class="active" for="material_code">Material Code</label>
-                    </div>
-                    <div class="input-field col s6" style="">
-                        <input disabled type="text" class="validate" :value="selected.name">
-                        <label class="active" for="material_name">Material Name</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12" style="">
-                        <input name="condition_name" type="text" class="validate">
-                        <label for="condition_name">Condition Name</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input name="discount_price" type="text" class="validate">
-                        <label for="discount_price">Discount (%)</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input name="min_quantity" type="text" class="validate">
-                        <label for="min_quantity">Min Quantity</label>
-                    </div>
-                </div>
-                <!-- Submit Button -->
-                <div class="row">
-                    <div class="col s12" style="text-align: right;">
-                        <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-                        <button type="submit" class="waves-effect waves-light btn">Create Condition
-                        </button>
-                    </div>
-                </div>
-            </form>
+            <div class="card margintop50">
+                <div class="card-content">
 
-        </div>
-        </div>
+                    <h5 class="bold marginbottom50 margintop50">Step 2 : Add detail</h5>
+                    <form action="{{route('postConditionMaterial')}}" method="post">
+                        <input type="hidden" name="material_id" :value="selected.id">
+                        <div class="row">
+                            <div class="input-field col s6" style="">
+                                <input disabled type="text" class="validate" :value="selected.name">
+                                <label class="active" for="material_code">Material Code</label>
+                            </div>
+                            <div class="input-field col s6" style="">
+                                <input disabled type="text" class="validate" :value="selected.name">
+                                <label class="active" for="material_name">Material Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12" style="">
+                                <input name="condition_name" type="text" class="validate">
+                                <label for="condition_name">Condition Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="discount_price" type="text" class="validate">
+                                <label for="discount_price">Discount (%)</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input name="min_quantity" type="text" class="validate">
+                                <label for="min_quantity">Min Quantity</label>
+                            </div>
+                        </div>
+                        <!-- Submit Button -->
+                        <div class="row">
+                            <div class="col s12" style="text-align: right;">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                                <button type="submit" class="waves-effect waves-light btn">Create Condition
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
         </div>
     </div>
 

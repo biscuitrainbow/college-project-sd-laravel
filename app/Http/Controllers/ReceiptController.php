@@ -20,7 +20,7 @@ class ReceiptController extends Controller {
 
     public function CreateForm($id) {
         $invoice = DB::select("
-        select documents.id,customers.id as customer_id,documents.description,customers.company_name,documents.created_at,documents.request_date
+        select documents.id,customers.id as customer_id,documents.condition_id,documents.description,customers.company_name,documents.created_at,documents.request_date
         from documents
         join customers
         on (documents.customer_id = customers.id)
@@ -74,8 +74,8 @@ class ReceiptController extends Controller {
         where document_type_id = 7;"
         );
 
-        return $receipts;
-//        return view('payment.receipt.receipt-display', compact('receipts'));
+//        return $receipts;
+        return view('payment.receipt.receipt-display', compact('receipts'));
     }
 
     public function displayReceiptDocument($id) {

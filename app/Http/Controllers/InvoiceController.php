@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\DocumentHasMaterial;
-use Illuminate\Http\Request;
-use DB;
 use App\Document;
+use App\DocumentHasMaterial;
+use DB;
+use Illuminate\Http\Request;
 
-class InvoiceController extends Controller
-{
-    public function create()
-    {
+class InvoiceController extends Controller {
+    public function create() {
         $good_issues = DB::select("
         select documents.id,customers.company_name,documents.created_at,documents.request_date
         from documents
@@ -22,10 +20,9 @@ class InvoiceController extends Controller
         return view('payment.invoice.invoice-create', compact('good_issues'));
     }
 
-    public function CreateForm($id)
-    {
+    public function CreateForm($id) {
         $goods_issue = DB::select("
-        select documents.id,customers.id as customer_id,documents.description,customers.company_name,documents.created_at,documents.request_date
+        select documents.id,customers.id as customer_id,documents.condition_id,documents.description,customers.company_name,documents.created_at,documents.request_date
         from documents
         join customers
         on (documents.customer_id = customers.id)
@@ -45,8 +42,7 @@ class InvoiceController extends Controller
         return view('payment.invoice.invoice-create-form', compact('goods_issue', 'materials'));
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $invoice = new Document();
         $invoice->document_type_id = 6;
         $invoice->condition_id = $request->input('condition_id');
@@ -66,11 +62,10 @@ class InvoiceController extends Controller
         }
 
 
-        return redirect('/invoice/display/' . $invoice->id);
+       return redirect('/invoice/display/' . $invoice->id);
     }
 
-    public function display()
-    {
+    public function display() {
         $invoices = DB::select("
         select documents.id,customers.company_name,documents.created_at,documents.request_date
         from documents
@@ -81,8 +76,7 @@ class InvoiceController extends Controller
         return view('payment.invoice.invoice-display', compact('invoices'));
     }
 
-    public function displayInvoiceDocument($id)
-    {
+    public function displayInvoiceDocument($id) {
         $customer = DB::select("
         select *
         from documents
@@ -147,20 +141,17 @@ class InvoiceController extends Controller
         }
 
         $cal = $total - $discount;
-            if (isset($generalCondition[0])) {
-                $generalDiscount = ($generalCondition[0]->discount / 100) * $cal;
+        if (isset($generalCondition[0])) {
+            $generalDiscount = ($generalCondition[0]->discount / 100) * $cal;
 
-                $netPrice = $total - ($discount + $generalDiscount);
-            } else {
-                $generalDiscount = 0;
-                $netPrice = $total - ($discount + $generalDiscount);
-            }
-
-
+            $netPrice = $total - ($discount + $generalDiscount);
+        } else {
+            $generalDiscount = 0;
+            $netPrice = $total - ($discount + $generalDiscount);
+        }
 
 
-
-        return view('presale.quotation.quotationdocument', [
+        return view('payment.invoice.invoice-document', [
             'customer' => $customer,
             'quotation' => $quotation,
             'total' => $total,
