@@ -10,51 +10,37 @@
 @endsection
 @section('content')
 
-    <form action="">
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">search</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">Search by product name or id</label>
-            </div>
-        </div>
-    </form>
 
     <div class="card" style="margin-bottom:75px">
-        <div class="card-content">
-            <div class="row">
-                <div class="col s12">
-                    <h4 style="margin-bottom: 50px">All Goods Issue</h4>
+        <div class="col s12">
+            <h4 style="margin-bottom: 50px">Goods Issue Transaction</h4>
 
-                    <!-- Table -->
-                    <table class="highlight">
-                        <thead>
-                        <tr>
-                            <th>Document ID</th>
-                            <th>Customer</th>
-                            <th>Create Date</th>
-                            <th>Request Delivery Date</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($invoices as $invoice)
-                            <tr>
-                                <td>{{$invoice->id}}</td>
-                                <td>{{$invoice->company_name}}</td>
-                                <td>{{$invoice->created_at}}</td>
-                                <td>{{$invoice->request_date}}</td>
-                                <td><a href="/invoice/display/{{$invoice->id}}" class="waves-effect waves-light btn">Details</a></td>
-                            </tr>
-                        @endforeach
+            <!-- Table -->
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th>Document ID</th>
+                    <th>Customer</th>
+                    <th>Create Date</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($invoices as $invoice)
+                    <tr>
+                        <td>{{$invoice->id}}</td>
+                        <td>{{$invoice->company_name}}</td>
+                        <td>{{$invoice->created_at}}</td>
+                        <td><a href="/invoice/display/{{$invoice->id}}" class="waves-effect waves-light btn">Details</a>
+                        </td>
+                    </tr>
+                @endforeach
 
-                        </tbody>
-                    </table>
+                </tbody>
+            </table>
 
-                    <!-- Pagination -->
+            <!-- Pagination -->
 
-                </div>
-            </div>
         </div>
     </div>
 @endsection

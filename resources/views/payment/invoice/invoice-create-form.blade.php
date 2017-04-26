@@ -54,7 +54,6 @@
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Order Quantity</th>
-                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -67,11 +66,6 @@
                         <td>{{$material->price}}</td>
                         <td>{{$material->stock}}</td>
                         <td>{{$material->quantity}}</td>
-                        @if ($material->quantity >$material->stock )
-                            <td><span class="fail-badge">FAIL</span></td>
-                        @else
-                            <td><span class="pass-badge">PASS</span></td>
-                        @endif
                     </tr>
                 @endforeach
                 </tbody>
