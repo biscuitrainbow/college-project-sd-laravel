@@ -109,7 +109,7 @@
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12 margin-top-50" style="text-align: right;">
-                <button type="submit" class="waves-effect waves-light btn">Create Quotation Document</button>
+                <button type="submit" class="waves-effect waves-light btn">Create Sale Order</button>
             </div>
         </div>
     </form>

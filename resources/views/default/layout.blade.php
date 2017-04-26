@@ -142,19 +142,11 @@
                     </div>
                 </li>
                 <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i
-                                class="material-icons">today</i>Check Availability</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="{{route('displayAvailability')}}">Display</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i
                                 class="material-icons">room</i>Goods Issue</a>
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="{{route('createGoodsIssue')}}">Create Goods Issue</a></li>
-                            <li><a href="{{route('displayGoodsIssue')}}">Display Goods Issue</a></li>
+                            {{--<li><a href="{{route('displayGoodsIssue')}}">Display Goods Issue</a></li>--}}
                         </ul>
                     </div>
                 </li>

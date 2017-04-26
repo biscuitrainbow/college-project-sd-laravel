@@ -70,7 +70,7 @@ class SaleOrderController extends Controller {
             $document_has_material->quantity = $request->input('quantity')[$i];
             $document_has_material->save();
         }
-        return $request->all();
+        return redirect(url('/so/display') . '/' . $so->id);
     }
 
     public function display() {

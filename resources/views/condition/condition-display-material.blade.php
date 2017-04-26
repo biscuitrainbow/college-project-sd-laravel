@@ -12,7 +12,7 @@
 
 @section('content')
     <div id="mainApp">
-        <h4 style="margin-bottom: 50px">Display Material</h4>
+        <h4 style="margin-bottom: 50px">Material Conditions</h4>
         <form action="">
             <div v-model="query" class="input-field col s12 search-box">
                 <i class="material-icons prefix">search</i>
@@ -36,9 +36,9 @@
                         <td>@{{condition.name}}</td>
                         <td>@{{condition.discount}}</td>
                         <td>@{{condition.min}}</td>
-                        <td><a :href="'{{url('/material/display')}}/' + condition.id"
-                               class="waves-effect waves-light btn">View</a>
-                        </td>
+                        {{--<td><a :href="'{{url('/material/display')}}/' + condition.id"--}}
+                               {{--class="waves-effect waves-light btn">View</a>--}}
+                        {{--</td>--}}
                     </tr>
                     </tbody>
                 </table>
