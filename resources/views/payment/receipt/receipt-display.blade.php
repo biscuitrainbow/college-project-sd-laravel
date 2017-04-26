@@ -22,6 +22,7 @@
                     <th>Receipt ID</th>
                     <th>Customer</th>
                     <th>Create Date</th>
+                    <th>Invoice Date</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -31,6 +32,7 @@
                         <td>{{$receipts->id}}</td>
                         <td>{{$receipts->company_name}}</td>
                         <td>{{$receipts->created_at}}</td>
+                        <td>{{$receipts->request_date}}</td>
                         <td><a href="/receipt/display/{{$receipts->id}}"
                                class="waves-effect waves-light btn">Details</a></td>
                     </tr>

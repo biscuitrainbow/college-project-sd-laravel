@@ -19,9 +19,10 @@
             <table class="highlight">
                 <thead>
                 <tr>
-                    <th>Sale Order ID</th>
+                    <th>Invoice ID</th>
                     <th>Customer</th>
                     <th>Create Date</th>
+                    <th>Invoice Date</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -31,6 +32,7 @@
                         <td>{{$invoice->id}}</td>
                         <td>{{$invoice->company_name}}</td>
                         <td>{{$invoice->created_at}}</td>
+                        <td>{{$invoice->request_date}}</td>
                         <td><a href="/receipt/create/{{$invoice->id}}"
                                class="waves-effect waves-light btn">Select</a>
                         </td>
