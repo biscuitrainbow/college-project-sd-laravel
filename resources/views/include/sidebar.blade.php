@@ -6,14 +6,8 @@
     </li>
     <li class="no-padding action">
         <ul class="collapsible collapsible-accordion">
-            <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i
+            <li class="bold"><a href="{{route('overallDashboard')}}" class="collapsible-header  waves-effect waves-teal"><i
                             class="material-icons">assessment</i>Dashboard</a>
-                <div class="collapsible-body" style="display: block;">
-                    <ul>
-                        <li class="active"><a href="">Overall</a></li>
-                        <li><a href="">Material</a></li>
-                    </ul>
-                </div>
             </li>
             <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i class="material-icons">view_agenda</i>Material</a>
                 <div class="collapsible-body">

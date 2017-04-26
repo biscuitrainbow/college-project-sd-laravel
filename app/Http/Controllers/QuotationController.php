@@ -9,16 +9,13 @@ use DB;
 use Illuminate\Http\Request;
 
 
-class QuotationController extends Controller
-{
-    public function indexQuotation()
-    {
+class QuotationController extends Controller {
+    public function indexQuotation() {
         $inquiries = Document::with('customer')->where('document_type_id', '1')->get();
         return view('presale.quotation.quotation-create', compact('inquiries'));
     }
 
-    public function createQuotationForm($id)
-    {
+    public function createQuotationForm($id) {
         $items = DocumentHasMaterial::with('material')->where('document_id', $id)->get();
         $inquiry = Document::with('customer')->where('id', $id)->where('document_type_id', '1')->first();
         $generalCondition = Condition::where('condition_type_id', 1)->get();
@@ -42,8 +39,7 @@ class QuotationController extends Controller
 
     }
 
-    public function create(Request $request)
-    {
+    public function create(Request $request) {
 
         $quotation = new Document();
         $quotation->document_type_id = 2;
@@ -63,10 +59,11 @@ class QuotationController extends Controller
             $document_has_material->save();
         }
 
+        return redirect(url('/quotation/display/' . $quotation->id));
+
     }
 
-    public function displayQuotation()
-    {
+    public function displayQuotation() {
 
         $quotations = DB::select("
         select documents.id,customers.company_name,documents.created_at,documents.request_date
@@ -79,8 +76,7 @@ class QuotationController extends Controller
         return view('presale.quotation.quotation-display', compact('quotations'));
     }
 
-    public function displayQuotationDocument($id)
-    {
+    public function displayQuotationDocument($id) {
 
         $customer = DB::select("
         select *
@@ -128,26 +124,25 @@ class QuotationController extends Controller
         $unitDiscount = [];
 
         foreach ($conditions as $condition) { // find unit discount
-                    if( $condition->quantity >= $condition->min) {
-                        $unitDiscount[] = ($condition->quantity * $condition->price) * ($condition->discount / 100);
-                    }
+            if ($condition->quantity >= $condition->min) {
+                $unitDiscount[] = ($condition->quantity * $condition->price) * ($condition->discount / 100);
+            }
         }// end find unit discount
 
 
-        for ($i =0 ; $i < sizeof($unitDiscount) ; $i++) { // find discount
+        for ($i = 0; $i < sizeof($unitDiscount); $i++) { // find discount
             $discount += $unitDiscount[$i];
         }
 
         $netPrice = $total - $discount;
 
-       return view('presale.quotation.quotationdocument', [
+        return view('presale.quotation.quotationdocument', [
             'customer' => $customer,
             'quotation' => $quotation,
-            'total' => $total ,
+            'total' => $total,
             'discount' => $discount,
             'netprice' => $netPrice
         ]);
-
 
 
     }

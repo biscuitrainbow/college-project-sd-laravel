@@ -115,6 +115,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select name="condition_id">
+                    <option value=""></option>
                     @foreach($generalCondition as $condition)
                         <option value="{{$condition->id}}">{{$condition->name}}</option>
                     @endforeach

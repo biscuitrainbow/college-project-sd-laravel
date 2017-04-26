@@ -29,11 +29,11 @@
                 <label>Customer</label>
             </div>
             <div class="input-field col s4">
-                <input type="text" value="{{$quotation[0]->created_at}}">
+                <input type="text" disabled value="{{\Carbon\Carbon::today()->toDateString()}}">
                 <label>Create Date</label>
             </div>
             <div class="input-field col s4">
-                <input id="request_date" type="text"  disabled>
+                <input id="request_date" type="text" value="{{\Carbon\Carbon::parse($quotation[0]->request_date)->toDateString()}}"  disabled>
                 <label for="requestdelivery">Request delivery date</label>
             </div>
         </div>
@@ -109,7 +109,7 @@
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12 margin-top-50" style="text-align: right;">
-                <button type="submit" class="waves-effect waves-light btn">Create Quotation Document</button>
+                <button type="submit" class="waves-effect waves-light btn">Create Sale Order</button>
             </div>
         </div>
     </form>

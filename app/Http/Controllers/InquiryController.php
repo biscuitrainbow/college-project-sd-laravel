@@ -22,7 +22,7 @@ class InquiryController extends Controller {
         $inquiry->document_type_id = 1;
         $inquiry->customer_id = $request->input('customer_id');
         $inquiry->request_date = $request->input('request_date');
-        $inquiry->description = $request->input('description');
+        $inquiry->description = " ";
         $inquiry->save();
         $inquiry->id;
 
@@ -34,8 +34,7 @@ class InquiryController extends Controller {
             $document_has_material->save();
         }
 
-//        $status = "Create Successfully";
-//        return view('material . material - status', compact('status'));
+        return redirect(url('/inquiry/display/' . $inquiry->id));
     }
 
     public function displayInquiries() {
