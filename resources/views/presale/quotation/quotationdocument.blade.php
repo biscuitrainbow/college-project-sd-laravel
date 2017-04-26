@@ -49,7 +49,7 @@
                         <div class="col s12">
                             <h5 class="bold">Quotation</h5>
                             <hr>
-                            <p class="font18">Inquiry Date {{$quotation[0]->created_at}}</p>
+                            <p class="font18">Quotation Date {{$quotation[0]->created_at}}</p>
                             <p class="font18">To whom it may concern,</p>
                         </div>
                     </div>
