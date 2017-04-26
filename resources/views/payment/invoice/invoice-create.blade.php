@@ -13,47 +13,34 @@
 @section('content')
     <h4 style="margin-bottom: 50px">Create Invoice</h4>
     <form action="">
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">search</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">Search by product name or id</label>
-            </div>
-        </div>
     </form>
-    <div class="card" style="margin-bottom:75px">
-        <div class="card-content">
-            <div class="row">
-                <div class="col s12">
+    <div class="row">
+        <div class="col s12">
 
-                    <!-- Table -->
-                    <table class="highlight">
-                        <thead>
-                        <tr>
-                            <th>Sale Order ID</th>
-                            <th>Customer</th>
-                            <th>Create Date</th>
-                            <th>Request Delivery Date</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($good_issues as $good_issue)
-                            <tr>
-                                <td>{{$good_issue->id}}</td>
-                                <td>{{$good_issue->company_name}}</td>
-                                <td>{{$good_issue->created_at}}</td>
-                                <td>{{$good_issue->request_date}}</td>
-                                <td><a href="/invoice/create/{{$good_issue->id}}"
-                                       class="waves-effect waves-light btn">Select</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+            <!-- Table -->
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th>Sale Order ID</th>
+                    <th>Customer</th>
+                    <th>Create Date</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($good_issues as $good_issue)
+                    <tr>
+                        <td>{{$good_issue->id}}</td>
+                        <td>{{$good_issue->company_name}}</td>
+                        <td>{{$good_issue->created_at}}</td>
+                        <td><a href="/invoice/create/{{$good_issue->id}}"
+                               class="waves-effect waves-light btn">Select</a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
 
-                </div>
-            </div>
         </div>
     </div>
 @endsection()
