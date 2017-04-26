@@ -31,6 +31,12 @@
                 <h3 class="green-text">{{$number_of_quo}}</h3>
             </div>
         </div>
+        <div class="col s12">
+            <div class="card-panel ">
+                <h6 class="green-text">Total Profit</h6>
+                <h3 class="green-text">{{$profit}}</h3>
+            </div>
+        </div>
     </div>
 @endsection
 

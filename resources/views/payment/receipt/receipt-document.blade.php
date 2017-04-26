@@ -49,7 +49,7 @@
                             <div class="col s8" style="min-height: 800px">
                                 <div class="row">
                                     <div class="col s12">
-                                        <h5 class="bold">Sale Order</h5>
+                                        <h5 class="bold">Receipt Document</h5>
                                         <hr>
                                         <p class="font18">Receipt Date {{ $quotation[0]->created_at  }}</p>
                                         <p class="font18">To whom it may concern,</p>
@@ -87,11 +87,11 @@
                                             <div class="col s2">{{  $total }}</div>
                                         </div>
                                         <div class="row">
-                                            <div class="col s10 right-bold">Discount (Baht)</div>
+                                            <div class="col s10 right-bold">Material Discount (Baht)</div>
                                             <div class="col s2">{{ $discount }} </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col s10 right-bold">Discount (Baht)</div>
+                                            <div class="col s10 right-bold">General Discount (Baht)</div>
                                             <div class="col s2">{{ $generaldiscount}}</div>
                                         </div>
                                         <div class="row">

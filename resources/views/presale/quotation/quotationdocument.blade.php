@@ -83,11 +83,11 @@
                                 <div class="col s2">{{ $total }}</div>
                             </div>
                             <div class="row">
-                                <div class="col s10 right-bold">Materail Discount (Baht)</div>
+                                <div class="col s10 right-bold">Material Discount (Baht)</div>
                                 <div class="col s2">{{ $discount }}</div>
                             </div>
                             <div class="row">
-                                <div class="col s10 right-bold">Discount (Baht)</div>
+                                <div class="col s10 right-bold">General Discount (Baht)</div>
                                 <div class="col s2">{{ $generaldiscount}}</div>
                             </div>
                             <div class="row">

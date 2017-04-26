@@ -7,6 +7,7 @@ use App\Customer;
 use App\Document;
 use App\DocumentHasMaterial;
 use App\Material;
+use App\Profit;
 use DB;
 use Illuminate\Http\Request;
 
@@ -73,6 +74,9 @@ class GoodsIssueController extends Controller {
     public function issue(Request $request) {
         $material_id = $request->input('material_id');
         $order_quantity = $request->input('order_quantity');
+
+
+
         for ($i = 0; $i < sizeof($material_id); $i++) {
             $material = Material::find($material_id[$i]);
             $material->quantity = $material->quantity - $order_quantity[$i];
@@ -85,6 +89,8 @@ class GoodsIssueController extends Controller {
         $goodsIssue->customer_id = $request->input('customer_id');
         $goodsIssue->description = " ";
         $goodsIssue->save();
+
+
 
         for ($i = 0; $i < sizeof($material_id); $i++) {
             $document_has_material = new DocumentHasMaterial();

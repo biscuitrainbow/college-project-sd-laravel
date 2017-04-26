@@ -55,24 +55,19 @@
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Order Quantity</th>
-                    <th>Status</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($materials as $material)
                     <tr>
-                        <input type="hidden" name="material_id[]" value="{{$material->id}}">
+                        <input type="hidden" name="material_id[]" value="{{$material->material_id}}">
                         <input type="hidden" name="quantity[]" value="{{$material->quantity}}">
                         <td>{{$material->code}}</td>
                         <td>{{$material->name}}</td>
                         <td>{{$material->price}}</td>
                         <td>{{$material->stock}}</td>
                         <td>{{$material->quantity}}</td>
-                        @if ($material->quantity >$material->stock )
-                            <td><span class="fail-badge">FAIL</span></td>
-                        @else
-                            <td><span class="pass-badge">PASS</span></td>
-                        @endif
                     </tr>
                 @endforeach
                 </tbody>

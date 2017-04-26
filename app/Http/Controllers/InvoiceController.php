@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Document;
 use App\DocumentHasMaterial;
+use App\Profit;
 use DB;
 use Illuminate\Http\Request;
 
@@ -150,6 +151,11 @@ class InvoiceController extends Controller {
             $netPrice = $total - ($discount + $generalDiscount);
         }
 
+
+        $profit = new Profit();
+        $profit->document_id = $id;
+        $profit->price = $netPrice;
+        $profit->save();
 
         return view('payment.invoice.invoice-document', [
             'customer' => $customer,

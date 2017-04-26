@@ -37,6 +37,7 @@ class ReceiptController extends Controller {
         where document_has_materials.document_id = '$id'
         ");
 
+//        return $materials;
         return view('payment.receipt.receipt-create-form', compact('invoice', 'materials'));
     }
 
@@ -62,7 +63,8 @@ class ReceiptController extends Controller {
             $document_has_material->quantity = $request->input('quantity')[$i];
             $document_has_material->save();
         }
-        return $request->all();
+//        return $request->all();
+        return redirect('/receipt/display/' . $receipt->id);
     }
 
     public function display() {
@@ -153,7 +155,7 @@ class ReceiptController extends Controller {
 
 
 
-        return view('presale.quotation.quotationdocument', [
+        return view('payment.receipt.receipt-document', [
             'customer' => $customer,
             'quotation' => $quotation,
             'total' => $total,
