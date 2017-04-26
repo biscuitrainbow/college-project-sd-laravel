@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Document;
 use App\DocumentHasMaterial;
 use App\Material;
 use DB;
@@ -21,6 +22,7 @@ class GoodsIssueController extends Controller {
         $sale_orders = array_map(function ($value) {
             return (array)$value;
         }, $sale_orders);
+
 
         return view('sale.goodsIssue.goodsissue-create', compact('sale_orders'));
     }
@@ -44,22 +46,23 @@ class GoodsIssueController extends Controller {
         where document_has_materials.document_id = '$id'
         ");
 
+
         return view('sale.goodsIssue.goodsissue-create-form', compact('sale_order', 'materials'));
     }
 
     public function update(Request $request) {
 
+        $customers = Customer::all();
+
         $materialFromSaleOrder = array();
+
 
         for ($i = 0; $i < sizeof($request->input('sale_order_id')); $i++) {
             $documentHasMaaterial = DocumentHasMaterial::with('material')->where('document_id', $request->input('sale_order_id')[$i])->get();
             $materialFromSaleOrder[$i] = $documentHasMaaterial;
         }
 
-        //echo Customer::with('document')->where('document.id')->get();
-
-
-       return view('sale.goodsissue.goodsissuecreate-form-confirm', compact('materialFromSaleOrder'));
+        return view('sale.goodsissue.goodsissuecreate-form-confirm', compact('materialFromSaleOrder', 'customers'));
     }
 
     public function issue(Request $request) {
@@ -70,6 +73,22 @@ class GoodsIssueController extends Controller {
             $material->quantity = $material->quantity - $order_quantity[$i];
             $material->save();
         }
+
+        $goodsIssue = new Document();
+        $goodsIssue->document_type_id = 5;
+        $goodsIssue->customer_id = $request->input('customer_id');
+        $goodsIssue->description = " ";
+        $goodsIssue->save();
+
+        for ($i = 0; $i < sizeof($material_id); $i++) {
+            $document_has_material = new DocumentHasMaterial();
+            $document_has_material->document_id = $goodsIssue->id;
+            $document_has_material->material_id = $material_id[$i];
+            $document_has_material->quantity = $order_quantity[$i];
+            $document_has_material->save();
+        }
+
+
     }
 
     public function display() {

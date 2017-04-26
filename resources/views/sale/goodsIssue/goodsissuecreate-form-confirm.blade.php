@@ -33,6 +33,14 @@
         {{--</div>--}}
 
         <form action="{{route('IssueGoods')}}" method="post">
+            <div class="input-field col s4">
+                <select name="customer_id" id="">
+                    @foreach($customers as $customer)
+                        <option value="{{$customer->id}}">{{$customer->company_name}}</option>
+                    @endforeach
+                </select>
+                <label for="customer">Customer</label>
+            </div>
             <div class="row">
                 <div class="col s12 margin-top-50">
                     <span class="form-title">Materials</span>

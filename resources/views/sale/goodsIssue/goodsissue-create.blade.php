@@ -12,20 +12,13 @@
 
 @section('content')
     <div id="mainApp">
-        <h4 style="margin-bottom: 50px">Goods Issue</h4>
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">search</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">Search by product name or id</label>
-            </div>
-        </div>
-        <div v-if="!isEmpty(selected)" class="row">
-            <div class="col s12 margin-top-50">
-                <span class="form-title">Sale Order Collection</span>
-            </div>
-        </div>
         <form method="post" action="{{route('UpdateGoodsIssue')}}">
+            <h4 style="margin-bottom: 50px">Goods Issue</h4>
+            <div v-if="!isEmpty(selected)" class="row">
+                <div class="col s12 margin-top-50">
+                    <span class="form-title">Sale Order Collection</span>
+                </div>
+            </div>
             <div v-if="!isEmpty(selected)" class="row">
                 <div class="col s12">
                     <table class="highlight">

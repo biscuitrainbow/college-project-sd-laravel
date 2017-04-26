@@ -6,7 +6,7 @@
     </li>
     <li class="no-padding action">
         <ul class="collapsible collapsible-accordion">
-            <li class="bold"><a href="{{route('overallDashboard')}}" class="collapsible-header  waves-effect waves-teal"><i
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i
                             class="material-icons">assessment</i>Dashboard</a>
             </li>
             <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i class="material-icons">view_agenda</i>Material</a>
