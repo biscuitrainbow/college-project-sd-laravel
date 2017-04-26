@@ -14,7 +14,7 @@ class CreateDocumentsTable extends Migration {
         Schema::create('documents', function (Blueprint $table) {
             $table->increments('id');
             $table->string('request_date')->nullable();
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->integer('condition_id')->unsigned()->nullable();
             $table->integer('document_id')->unsigned()->nullable();
             $table->integer('document_type_id')->unsigned();
