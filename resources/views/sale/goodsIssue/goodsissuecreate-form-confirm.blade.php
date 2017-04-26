@@ -42,6 +42,17 @@
                 <label for="customer">Customer</label>
             </div>
             <div class="row">
+                <div class="input-field col s12">
+                    <select name="condition_id">
+                        <option value=""></option>
+                        @foreach($conditions as $condition)
+                            <option value="{{$condition->id}}">{{$condition->name}}</option>
+                        @endforeach
+                    </select>
+                    <label for="customer">General Condition</label>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col s12 margin-top-50">
                     <span class="form-title">Materials</span>
                 </div>
@@ -81,12 +92,12 @@
             </div>
 
 
-        <!-- Submit Button -->
-        <div class="row">
-            <div class="col s12 margin-top-50" style="text-align: right;">
-                <button type="submit" class="waves-effect waves-light btn">Issue Goods</button>
+            <!-- Submit Button -->
+            <div class="row">
+                <div class="col s12 margin-top-50" style="text-align: right;">
+                    <button type="submit" class="waves-effect waves-light btn">Issue Goods</button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
 @endsection()
 

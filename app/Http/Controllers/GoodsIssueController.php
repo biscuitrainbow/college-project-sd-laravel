@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Condition;
 use App\Customer;
 use App\Document;
 use App\DocumentHasMaterial;
@@ -63,7 +64,10 @@ class GoodsIssueController extends Controller {
             $materialFromSaleOrder[$i] = $documentHasMaaterial;
         }
 
-        return view('sale.goodsissue.goodsissuecreate-form-confirm', compact('materialFromSaleOrder', 'customers'));
+        $conditions = Condition::where('condition_type_id', 1)->get();
+
+
+        return view('sale.goodsissue.goodsissuecreate-form-confirm', compact('materialFromSaleOrder', 'customers', 'conditions'));
     }
 
     public function issue(Request $request) {
