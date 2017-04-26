@@ -13,7 +13,7 @@
 
     <div class="card" style="margin-bottom:75px">
         <div class="col s12">
-            <h4 style="margin-bottom: 50px">Goods Issue Transaction</h4>
+            <h4 style="margin-bottom: 50px">Invoice Transactions</h4>
 
             <!-- Table -->
             <table class="highlight">
