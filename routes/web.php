@@ -59,11 +59,17 @@ Route::get('/goodsissue/display', 'GoodsIssueController@display')->name('display
 
 /*Invoice */
 Route::get('/invoice/create', 'InvoiceController@create')->name('createInvoice')->middleware('auth');
+Route::get('/invoice/create/{id}','InvoiceController@CreateForm')->name('createInvoiceIssueForm')->middleware('auth');
+Route::post('/invoice/create','InvoiceController@store')->name('storeInvoice')->middleware('auth');
 Route::get('/invoice/display', 'InvoiceController@display')->name('displayInvoice')->middleware('auth');
+Route::get('/invoice/display/{id}', 'InvoiceController@displayInvoiceDocument')->name('displayInvoiceDocument')->middleware('auth');
 
 /*Receipt */
 Route::get('/receipt/create', 'ReceiptController@create')->name('createReceipt')->middleware('auth');
+Route::get('/receipt/create/{id}','ReceiptController@CreateForm')->name('createReceiptIssueForm')->middleware('auth');
+Route::post('/receipt/create','ReceiptController@store')->name('storeReceipt')->middleware('auth');
 Route::get('/receipt/display', 'ReceiptController@display')->name('displayReceipt')->middleware('auth');
+Route::get('/receipt/display/{id}', 'ReceiptController@displayReceiptDocument')->name('displayReceiptDocument')->middleware('auth');
 
 /* Condition */
 Route::get('/condition/create/material', 'ConditionController@showCreateMaterial')->name('showCreateMaterial')->middleware('auth');
