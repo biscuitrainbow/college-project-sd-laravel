@@ -51,7 +51,7 @@
                                     <div class="col s12">
                                         <h5 class="bold">Sale Order</h5>
                                         <hr>
-                                        <p class="font18">Sale Order Date {{ $quotation[0]->created_at  }}</p>
+                                        <p class="font18">Receipt Date {{ $quotation[0]->created_at  }}</p>
                                         <p class="font18">To whom it may concern,</p>
                                     </div>
                                 </div>
@@ -67,8 +67,6 @@
                                                 <th>Product Description</th>
                                                 <th>Quantity</th>
                                                 <th>Price</th>
-                                                <th>Discount (Percent)</th>
-                                                <th>Unit Discount</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -78,13 +76,6 @@
                                                     <td>{{ $quo->name  }}</td>
                                                     <td>{{ $quo->quantity }}</td>
                                                     <td>{{ $quo->price }}</td>
-                                                    <td>{{ $quo->discount }} %</td>
-                                                    @if( $quo->quantity >= $quo->min)
-                                                    <td>{{ ($quo->quantity * $quo->price) * ($quo->discount / 100 ) }}</td>
-                                                    @endif
-                                                    @if( $quo->quantity< $quo->min)
-                                                        <td> 0 </td>
-                                                    @endif
                                                 </tr>
                                             @endforeach
                                             </tbody>

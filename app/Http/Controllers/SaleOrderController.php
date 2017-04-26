@@ -71,6 +71,7 @@ class SaleOrderController extends Controller {
             $document_has_material->save();
         }
         return redirect(url('/so/display') . '/' . $so->id);
+
     }
 
     public function display() {
@@ -141,8 +142,9 @@ class SaleOrderController extends Controller {
             $discount += $unitDiscount[$i];
         }
 
+
         $netPrice = $total - $discount;
-         // return $quotation;
+
 
         return view('sale.sale_order.saleorder-document', [
             'customer' => $customer,
@@ -152,6 +154,7 @@ class SaleOrderController extends Controller {
             'discount' => $discount,
             'netprice' => $netPrice
         ]);
+
 
 
 

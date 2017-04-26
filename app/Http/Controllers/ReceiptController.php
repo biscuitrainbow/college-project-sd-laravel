@@ -73,7 +73,9 @@ class ReceiptController extends Controller {
         on (documents.customer_id = customers.id)
         where document_type_id = 7;"
         );
-        return view('payment.receipt.receipt-display', compact('receipts'));
+
+        return $receipts;
+//        return view('payment.receipt.receipt-display', compact('receipts'));
     }
 
     public function displayReceiptDocument($id) {
@@ -86,17 +88,13 @@ class ReceiptController extends Controller {
         ");
 
         // print_r($customer);
-        $quotation = DB::select("
-         select document_has_materials.* ,materials.code,materials.name,materials.price,documents.request_date,documents.created_at,conditions.discount,conditions.min
+        $quotation = DB::select(" 
+        select document_has_materials.* ,materials.code,materials.name,materials.price,documents.request_date,documents.created_at
         from document_has_materials
          join materials
          on (document_has_materials.material_id = materials.id)
          join documents
          on (document_has_materials.document_id = documents.id)
-         join condition_material
-         on (materials.id = condition_material.material_id)
-         join conditions
-         on (condition_material.condition_id = conditions.id)
         where document_has_materials.document_id = '$id'
         ");
 
@@ -115,6 +113,35 @@ class ReceiptController extends Controller {
              where documents.id = '$id'
             ");
 
-        return view('payment.receipt.receipt-document');
+        $total = 0;
+        foreach ($quotation as $product) { // find total
+            $unitPrice = $product->quantity * $product->price;
+            $total += $unitPrice;
+        }// end total
+
+        $discount = 0;
+        $unitDiscount = [];
+
+        foreach ($conditions as $condition) { // find unit discount
+            if ($condition->quantity >= $condition->min) {
+                $unitDiscount[] = ($condition->quantity * $condition->price) * ($condition->discount / 100);
+            }
+        }// end find unit discount
+
+
+        for ($i = 0; $i < sizeof($unitDiscount); $i++) { // find discount
+            $discount += $unitDiscount[$i];
+        }
+
+        $netPrice = $total - $discount;
+
+        return view('payment.receipt.receipt-document', [
+            'customer' => $customer,
+            'quotation' => $quotation,
+            'total' => $total,
+            'unitdiscount' => $unitDiscount,
+            'discount' => $discount,
+            'netprice' => $netPrice
+        ]);
     }
 }
