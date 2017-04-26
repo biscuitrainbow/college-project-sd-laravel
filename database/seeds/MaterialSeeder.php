@@ -364,7 +364,367 @@ class MaterialSeeder extends Seeder {
                     'quantity' => 200,
                     'type' => 'finish goods',
                     'category' => 'women'
-                ]
+                ],
+                [
+                    'code' => 'MT00011',
+                    'name' => 'Linen T-Shirt S',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MT00111',
+                    'name' => 'Linen T-Shirt M',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MT00211',
+                    'name' => 'Linen T-Shirt L',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MT00012',
+                    'name' => 'Painted T-Shirt S',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MT00112',
+                    'name' => 'Painted T-Shirt M',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MT00212',
+                    'name' => 'Painted T-Shirt L',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MT00013',
+                    'name' => 'Blue Panels T-Shirt S',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MT00113',
+                    'name' => 'Blue Panels T-Shirt M',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MT00213',
+                    'name' => 'Blue Panels T-Shirt L',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MT00014',
+                    'name' => 'Gray Panels T-Shirt S',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MT00114',
+                    'name' => 'Blue Panels T-Shirt M',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MT00214',
+                    'name' => 'Blue Panels T-Shirt L',
+                    'price' => 250,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MB00010',
+                    'name' => 'Navy Blue Striped Blazer',
+                    'price' => 1000,
+                    'quantity' => 250,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MB00020',
+                    'name' => 'Black & White Striped Blazer',
+                    'price' => 1000,
+                    'quantity' => 250,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MB00030',
+                    'name' => 'Basic Black Blazer',
+                    'price' => 900,
+                    'quantity' => 250,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MB00040',
+                    'name' => 'Basic Gray Blazer',
+                    'price' => 900,
+                    'quantity' => 250,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MB00050',
+                    'name' => 'Basic Sky Blue Blazer',
+                    'price' => 900,
+                    'quantity' => 250,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00015',
+                    'name' => 'Jogging Trousers M',
+                    'price' => 800,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00115',
+                    'name' => 'Jogging Trousers L',
+                    'price' => 800,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00016',
+                    'name' => 'Soft Cargo Trousers M',
+                    'price' => 800,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00116',
+                    'name' => 'Soft Cargo Trousers L',
+                    'price' => 800,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00017',
+                    'name' => 'Ink Blue Comfort Trousers M',
+                    'price' => 800,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00117',
+                    'name' => 'Ink Blue Comfort Trousers L',
+                    'price' => 800,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00018',
+                    'name' => 'Gray Basic Linen Trousers M',
+                    'price' => 800,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00118',
+                    'name' => 'Gray Basic Linen Trousers L',
+                    'price' => 800,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00019',
+                    'name' => 'Beige Basic Linen Trousers M',
+                    'price' => 800,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00119',
+                    'name' => 'Beige Basic Linen Trousers L',
+                    'price' => 800,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00020',
+                    'name' => 'Khaki Cotton Short M',
+                    'price' => 500,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00120',
+                    'name' => 'Khaki Cotton Short L',
+                    'price' => 500,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00021',
+                    'name' => 'Tan Cotton Short M',
+                    'price' => 500,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00121',
+                    'name' => 'Tan Cotton Short L',
+                    'price' => 500,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00022',
+                    'name' => 'Black Cotton Short M',
+                    'price' => 500,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MU00122',
+                    'name' => 'Black Cotton Short L',
+                    'price' => 500,
+                    'quantity' => 500,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MM00011',
+                    'name' => 'Two-Tone Wool Suit',
+                    'price' => 1800,
+                    'quantity' => 200,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MM00022',
+                    'name' => 'Ink Blue Suit',
+                    'price' => 1500,
+                    'quantity' => 200,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MM00033',
+                    'name' => 'Black Cotton Suit',
+                    'price' => 1500,
+                    'quantity' => 200,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MS00014',
+                    'name' => 'Brown Leather Shoes 40',
+                    'price' => 1200,
+                    'quantity' => 250,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MS00114',
+                    'name' => 'Brown Leather Shoes 42',
+                    'price' => 1200,
+                    'quantity' => 250,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MS00214',
+                    'name' => 'Brown Leather Shoes 44',
+                    'price' => 1200,
+                    'quantity' => 250,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MS00015',
+                    'name' => 'Black Leather Shoes 40',
+                    'price' => 1200,
+                    'quantity' => 250,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MS00115',
+                    'name' => 'Black Leather Shoes 42',
+                    'price' => 1200,
+                    'quantity' => 250,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MS00215',
+                    'name' => 'Black Leather Shoes 44',
+                    'price' => 1200,
+                    'quantity' => 250,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MS00016',
+                    'name' => 'Navy Sneakers 40',
+                    'price' => 1000,
+                    'quantity' => 300,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MS00116',
+                    'name' => 'Navy Sneakers 42',
+                    'price' => 1000,
+                    'quantity' => 300,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
+                [
+                    'code' => 'MS00216',
+                    'name' => 'Navy Sneakers 44',
+                    'price' => 1000,
+                    'quantity' => 300,
+                    'type' => 'finish goods',
+                    'category' => 'men'
+                ],
             )
         );
     }
