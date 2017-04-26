@@ -94,9 +94,9 @@ class GoodsIssueController extends Controller {
             $document_has_material->save();
         }
 
-//        return redirect(route('createInvoice'));
+        return redirect(route('createInvoice'));
 
-        return $request->all();
+//        return $request->all();
     }
 
     public function display() {
