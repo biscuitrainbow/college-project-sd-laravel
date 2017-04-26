@@ -88,6 +88,8 @@ class GoodsIssueController extends Controller {
             $document_has_material->save();
         }
 
+        return redirect(route('displayInvoice'));
+
 
     }
 

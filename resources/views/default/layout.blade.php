@@ -150,40 +150,40 @@
                         </ul>
                     </div>
                 </li>
-                {{--<li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i class="material-icons">credit_card</i>Payment</a>--}}
-                    {{--<div class="collapsible-body">--}}
-                        {{--<ul>--}}
-                            {{--<li>--}}
-                                {{--<ul class="collapsible collapsible-accordion">--}}
-                                    {{--<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Invoice</a>--}}
-                                        {{--<div class="collapsible-body">--}}
-                                            {{--<ul>--}}
-                                                {{--<li><a href="{{route('createInvoice')}}">Create Invoice</a></li>--}}
-                                                {{--<li><a href="{{route('displayInvoice')}}">Display Invoice</a></li>--}}
-                                            {{--</ul>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Receipt</a>--}}
-                                        {{--<div class="collapsible-body">--}}
-                                            {{--<ul>--}}
-                                                {{--<li><a href="{{route('createReceipt')}}">Create Receipt</a></li>--}}
-                                                {{--<li><a href="{{route('displayReceipt')}}">Display Receipt</a></li>--}}
-                                            {{--</ul>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
-                            {{--</li>--}}
-                        {{--</ul>--}}
-                    {{--</div>--}}
-                {{--</li>--}}
-                {{--<li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i--}}
-                                {{--class="material-icons">work</i>Company Profile</a>--}}
-                    {{--<div class="collapsible-body">--}}
-                        {{--<ul>--}}
-                            {{--<li><a href="">Edit</a></li>--}}
-                        {{--</ul>--}}
-                    {{--</div>--}}
-                {{--</li>--}}
+                <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i class="material-icons">credit_card</i>Payment</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <ul class="collapsible collapsible-accordion">
+                                    <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Invoice</a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li><a href="{{route('createInvoice')}}">Create Invoice</a></li>
+                                                <li><a href="{{route('displayInvoice')}}">Display Invoice</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Receipt</a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li><a href="{{route('createReceipt')}}">Create Receipt</a></li>
+                                                <li><a href="{{route('displayReceipt')}}">Display Receipt</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><i
+                                class="material-icons">work</i>Company Profile</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="">Edit</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </li>
     </ul>

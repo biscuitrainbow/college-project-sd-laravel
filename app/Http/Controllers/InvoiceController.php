@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\DocumentHasMaterial;
 use Illuminate\Http\Request;
-
+use DB;
+use App\Document;
 class InvoiceController extends Controller
 {
     public function create(){
@@ -47,7 +49,7 @@ class InvoiceController extends Controller
         $invoice->document_id = $request->input('quotation_id');
         $invoice->customer_id = $request->input('customer_id');
         $invoice->request_date = $request->input('request_date');
-        $invoice->description = $request->input('description');
+        $invoice->description = 'ss';
         $invoice->save();
         $invoice->id;
 

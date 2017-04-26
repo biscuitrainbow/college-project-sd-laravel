@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Document;
+use App\DocumentHasMaterial;
+use DB;
 use Illuminate\Http\Request;
 
-class ReceiptController extends Controller
-{
-    public function create(){
+class ReceiptController extends Controller {
+    public function create() {
         $invoices = DB::select("
         select documents.id,customers.company_name,documents.created_at,documents.request_date
         from documents
         join customers
         on (documents.customer_id = customers.id)
         where document_type_id = 6");
-        return view('payment.receipt.receipt-create',compact('invoices'));
+        return view('payment.receipt.receipt-create', compact('invoices'));
     }
 
-    public function CreateForm($id){
+    public function CreateForm($id) {
         $invoice = DB::select("
         select documents.id,customers.id as customer_id,documents.description,customers.company_name,documents.created_at,documents.request_date
         from documents
@@ -35,10 +37,14 @@ class ReceiptController extends Controller
         where document_has_materials.document_id = '$id'
         ");
 
-        return view('payment.receipt.receipt-create-form',compact('invoice','materials'));
+        return view('payment.receipt.receipt-create-form', compact('invoice', 'materials'));
     }
 
-    public function store(Request $request){
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function store(Request $request) {
         $receipt = new Document();
         $receipt->document_type_id = 7;
         $receipt->condition_id = $request->input('condition_id');
@@ -52,13 +58,14 @@ class ReceiptController extends Controller
         for ($i = 0; $i < sizeof($request->input('material_id')); $i++) {
             $document_has_material = new DocumentHasMaterial();
             $document_has_material->document_id = $receipt->id;
-            $document_has_material->material_id = $receipt->input('material_id')[$i];
+            $document_has_material->material_id = $request->input('material_id')[$i];
             $document_has_material->quantity = $request->input('quantity')[$i];
             $document_has_material->save();
         }
         return $request->all();
     }
-    public function display(){
+
+    public function display() {
         $receipts = DB::select("
         select documents.id,customers.company_name,documents.created_at,documents.request_date
         from documents
@@ -66,10 +73,10 @@ class ReceiptController extends Controller
         on (documents.customer_id = customers.id)
         where document_type_id = 7;"
         );
-        return view('payment.receipt.receipt-display',compact('receipts'));
+        return view('payment.receipt.receipt-display', compact('receipts'));
     }
 
-    public function displayReceiptDocument($id){
+    public function displayReceiptDocument($id) {
         $customer = DB::select("
         select *
         from documents
