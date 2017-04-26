@@ -37,7 +37,7 @@
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="{{route('overallDashboard')}}">Overall</a></li>
-                            <li><a href="">Material</a></li>
+                            {{--<li><a href="">Material</a></li>--}}
                         </ul>
                     </div>
                 </li>
