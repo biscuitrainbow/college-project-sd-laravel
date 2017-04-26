@@ -6,9 +6,11 @@ use App\DocumentHasMaterial;
 use Illuminate\Http\Request;
 use DB;
 use App\Document;
+
 class InvoiceController extends Controller
 {
-    public function create(){
+    public function create()
+    {
         $good_issues = DB::select("
         select documents.id,customers.company_name,documents.created_at,documents.request_date
         from documents
@@ -17,10 +19,11 @@ class InvoiceController extends Controller
         where document_type_id = 5"
         );
 
-        return view('payment.invoice.invoice-create',compact('good_issues'));
+        return view('payment.invoice.invoice-create', compact('good_issues'));
     }
 
-    public function CreateForm($id){
+    public function CreateForm($id)
+    {
         $goods_issue = DB::select("
         select documents.id,customers.id as customer_id,documents.description,customers.company_name,documents.created_at,documents.request_date
         from documents
@@ -39,10 +42,11 @@ class InvoiceController extends Controller
         where document_has_materials.document_id = '$id'
         ");
 
-        return view('payment.invoice.invoice-create-form',compact('goods_issue','materials'));
+        return view('payment.invoice.invoice-create-form', compact('goods_issue', 'materials'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $invoice = new Document();
         $invoice->document_type_id = 6;
         $invoice->condition_id = $request->input('condition_id');
@@ -51,7 +55,7 @@ class InvoiceController extends Controller
         $invoice->request_date = $request->input('request_date');
         $invoice->description = 'ss';
         $invoice->save();
-        $invoice->id;
+//        echo $invoice->id;
 
         for ($i = 0; $i < sizeof($request->input('material_id')); $i++) {
             $document_has_material = new DocumentHasMaterial();
@@ -60,10 +64,13 @@ class InvoiceController extends Controller
             $document_has_material->quantity = $request->input('quantity')[$i];
             $document_has_material->save();
         }
-        return $request->all();
+
+
+        return redirect('/invoice/display/' . $invoice->id);
     }
 
-    public function display(){
+    public function display()
+    {
         $invoices = DB::select("
         select documents.id,customers.company_name,documents.created_at,documents.request_date
         from documents
@@ -71,10 +78,11 @@ class InvoiceController extends Controller
         on (documents.customer_id = customers.id)
         where document_type_id = 6;"
         );
-        return view('payment.invoice.invoice-display',compact('invoices'));
+        return view('payment.invoice.invoice-display', compact('invoices'));
     }
 
-    public function displayInvoiceDocument($id){
+    public function displayInvoiceDocument($id)
+    {
         $customer = DB::select("
         select *
         from documents
@@ -109,6 +117,14 @@ class InvoiceController extends Controller
              where documents.id = '$id'
             ");
 
+        $generalCondition = DB::select(
+            "select conditions.*
+            from documents
+            join conditions
+            on (documents.condition_id = conditions.id)
+            where documents.id = '$id'"
+        );
+
 
         $total = 0;
         foreach ($quotation as $product) { // find total
@@ -130,13 +146,25 @@ class InvoiceController extends Controller
             $discount += $unitDiscount[$i];
         }
 
-        $netPrice = $total - $discount;
+        $cal = $total - $discount;
+            if (isset($generalCondition[0])) {
+                $generalDiscount = ($generalCondition[0]->discount / 100) * $cal;
 
-        return view('payment.invoice.invoice-document', [
+                $netPrice = $total - ($discount + $generalDiscount);
+            } else {
+                $generalDiscount = 0;
+                $netPrice = $total - ($discount + $generalDiscount);
+            }
+
+
+
+
+
+        return view('presale.quotation.quotationdocument', [
             'customer' => $customer,
             'quotation' => $quotation,
             'total' => $total,
-            'unitdiscount' => $unitDiscount,
+            'generaldiscount' => $generalDiscount,
             'discount' => $discount,
             'netprice' => $netPrice
         ]);

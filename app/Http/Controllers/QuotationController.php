@@ -59,7 +59,7 @@ class QuotationController extends Controller {
             $document_has_material->save();
         }
 
-        return redirect(url('/quotation/display/' . $quotation->id));
+      return redirect(url('/quotation/display/' . $quotation->id));
 
     }
 
@@ -110,6 +110,14 @@ class QuotationController extends Controller {
              where documents.id = '$id'
             ");
 
+        $generalCondition = DB::select(
+            "select conditions.*
+            from documents
+            join conditions
+            on (documents.condition_id = conditions.id)
+            where documents.id = '$id'"
+        );
+
         $total = 0;
         foreach ($quotation as $product) { // find total
             $unitPrice = $product->quantity * $product->price;
@@ -130,16 +138,29 @@ class QuotationController extends Controller {
             $discount += $unitDiscount[$i];
         }
 
-        $netPrice = $total - $discount;
+        $cal = $total - $discount;
+        if (isset($generalCondition[0])) {
+            $generalDiscount = ($generalCondition[0]->discount / 100) * $cal;
+            $netPrice = $total - ($discount + $generalDiscount);
+        } else {
+            $generalDiscount = 0;
+            $netPrice = $total - ($discount + $generalDiscount);
+        }
+
+
+
 
         return view('presale.quotation.quotationdocument', [
             'customer' => $customer,
             'quotation' => $quotation,
             'total' => $total,
+            'generaldiscount' => $generalDiscount,
             'discount' => $discount,
             'netprice' => $netPrice
         ]);
 
 
+
+//            return $generalCondition;
     }
 }

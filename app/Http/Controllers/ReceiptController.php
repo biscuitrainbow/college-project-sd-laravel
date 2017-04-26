@@ -113,6 +113,14 @@ class ReceiptController extends Controller {
              where documents.id = '$id'
             ");
 
+        $generalCondition = DB::select(
+            "select conditions.*
+            from documents
+            join conditions
+            on (documents.condition_id = conditions.id)
+            where documents.id = '$id'"
+        );
+
         $total = 0;
         foreach ($quotation as $product) { // find total
             $unitPrice = $product->quantity * $product->price;
@@ -133,15 +141,26 @@ class ReceiptController extends Controller {
             $discount += $unitDiscount[$i];
         }
 
-        $netPrice = $total - $discount;
+        $cal = $total - $discount;
+        if (isset($generalCondition[0])) {
+            $generalDiscount = ($generalCondition[0]->discount / 100) * $cal;
+            $netPrice = $total - ($discount + $generalDiscount);
+        } else {
+            $generalDiscount = 0;
+            $netPrice = $total - ($discount + $generalDiscount);
+        }
 
-        return view('payment.receipt.receipt-document', [
+
+
+
+        return view('presale.quotation.quotationdocument', [
             'customer' => $customer,
             'quotation' => $quotation,
             'total' => $total,
-            'unitdiscount' => $unitDiscount,
+            'generaldiscount' => $generalDiscount,
             'discount' => $discount,
             'netprice' => $netPrice
         ]);
+
     }
 }

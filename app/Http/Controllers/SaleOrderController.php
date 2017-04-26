@@ -121,6 +121,14 @@ class SaleOrderController extends Controller {
              where documents.id = '$id'
             ");
 
+        $generalCondition = DB::select(
+            "select conditions.*
+            from documents
+            join conditions
+            on (documents.condition_id = conditions.id)
+            where documents.id = '$id'"
+        );
+
 
         $total = 0;
         foreach ($quotation as $product) { // find total
@@ -143,14 +151,23 @@ class SaleOrderController extends Controller {
         }
 
 
-        $netPrice = $total - $discount;
+        $cal = $total - $discount;
+        if (isset($generalCondition[0])) {
+            $generalDiscount = ($generalCondition[0]->discount / 100) * $cal;
+
+            $netPrice = $total - ($discount + $generalDiscount);
+        } else {
+            $generalDiscount = 0;
+            $netPrice = $total - ($discount + $generalDiscount);
+        }
 
 
-        return view('sale.sale_order.saleorder-document', [
+
+        return view('presale.quotation.quotationdocument', [
             'customer' => $customer,
             'quotation' => $quotation,
             'total' => $total,
-            'unitdiscount' => $unitDiscount,
+            'generaldiscount' => $generalDiscount,
             'discount' => $discount,
             'netprice' => $netPrice
         ]);
