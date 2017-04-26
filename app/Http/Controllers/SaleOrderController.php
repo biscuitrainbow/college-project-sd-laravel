@@ -7,17 +7,22 @@ use App\DocumentHasMaterial;
 use DB;
 use Illuminate\Http\Request;
 
-class SaleOrderController extends Controller {
-    public function create() {
+class SaleOrderController extends Controller
+{
+    public function create()
+    {
         $quotations = Document::where('document_type_id', 2)->get();
         return view('sale.sale_order.saleorder-create', compact('quotations'));
     }
 
 
-    public function createSaleOrderForm($id) {
+    public function createSaleOrderForm($id)
+    {
         //TODO : implement here
+
+
         $quotation = DB::select("
-        select documents.id as quotation_id,documents.request_date,documents.description,customers.*
+        select documents.id as quotation_id,documents.request_date,documents.condition_id,documents.description,customers.*
         from documents
         join customers
         on (documents.customer_id = customers.id)
@@ -48,10 +53,12 @@ class SaleOrderController extends Controller {
              where documents.id = '$id'
             ");
 
+//        return $quotation;
         return view('sale.sale_order.saleorder-create-form', compact('quotation', 'materials', 'conditions'));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
         $so = new Document();
         $so->document_type_id = 4;
@@ -74,7 +81,8 @@ class SaleOrderController extends Controller {
 
     }
 
-    public function display() {
+    public function display()
+    {
         $sale_orders = DB::select("
         select documents.id,customers.company_name,documents.created_at,documents.request_date
         from documents
@@ -86,7 +94,8 @@ class SaleOrderController extends Controller {
         return view('sale.sale_order.saleorder-display', compact('sale_orders'));
     }
 
-    public function displaySaleOrderDocument($id) {
+    public function displaySaleOrderDocument($id)
+    {
         $customer = DB::select("
         select *
         from documents
@@ -161,6 +170,8 @@ class SaleOrderController extends Controller {
         }
 
 
+//        return $generalCondition;
+
 
         return view('presale.quotation.quotationdocument', [
             'customer' => $customer,
@@ -170,8 +181,6 @@ class SaleOrderController extends Controller {
             'discount' => $discount,
             'netprice' => $netPrice
         ]);
-
-
 
 
     }

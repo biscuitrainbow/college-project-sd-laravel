@@ -13,6 +13,7 @@
     <form action="{{route('UpdateGoodsIssue')}}" method="post">
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
         <input type="hidden" name="saleorder_id" value="{{$sale_order[0]->id}}">
+        <input type="hidden" name="condition_id" value="{{$sale_order[0]->condition_id}}">
         <input type="hidden" name="customer_id" value="{{$sale_order[0]->customer_id}}">
         <input type="hidden" name="request_date" value="{{$sale_order[0]->request_date}}">
         <input type="hidden" name="description" value="{{$sale_order[0]->description}}">

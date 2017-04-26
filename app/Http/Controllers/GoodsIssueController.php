@@ -29,7 +29,7 @@ class GoodsIssueController extends Controller {
 
     public function CreateForm($id) {
         $sale_order = DB::select("
-        select documents.id,customers.id as customer_id,documents.description,customers.company_name,documents.created_at,documents.request_date
+        select documents.id,customers.id as customer_id,documents.description,documents.condition_id,customers.company_name,documents.created_at,documents.request_date
         from documents
         join customers
         on (documents.customer_id = customers.id)
@@ -51,6 +51,7 @@ class GoodsIssueController extends Controller {
     }
 
     public function update(Request $request) {
+
 
         $customers = Customer::all();
 
@@ -76,6 +77,7 @@ class GoodsIssueController extends Controller {
 
         $goodsIssue = new Document();
         $goodsIssue->document_type_id = 5;
+        $goodsIssue->condition_id = $request->input('condition_id');
         $goodsIssue->customer_id = $request->input('customer_id');
         $goodsIssue->description = " ";
         $goodsIssue->save();
@@ -88,9 +90,9 @@ class GoodsIssueController extends Controller {
             $document_has_material->save();
         }
 
-        return redirect(route('createInvoice'));
+//        return redirect(route('createInvoice'));
 
-
+        return $request->all();
     }
 
     public function display() {

@@ -12,6 +12,7 @@
     <h4 class="main-title">Create Sale Order</h4>
     <form action="{{route('storeSaleOrder')}}" method="post">
         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+        <input type="hidden" name="condition_id" value="{{$quotation[0]->condition_id}}">
         <input type="hidden" name="quotation_id" value="{{$quotation[0]->quotation_id}}">
         <input type="hidden" name="customer_id" value="{{$quotation[0]->id}}">
         <input type="hidden" name="request_date" value="{{$quotation[0]->request_date}}">
