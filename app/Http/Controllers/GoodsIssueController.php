@@ -56,10 +56,10 @@ class GoodsIssueController extends Controller {
             $materialFromSaleOrder[$i] = $documentHasMaaterial;
         }
 
-        echo Customer::with('document')->where('document.id')->get();
+        //echo Customer::with('document')->where('document.id')->get();
 
 
-//        return view('sale.goodsissue.goodsissuecreate-form-confirm', compact('materialFromSaleOrder'));
+       return view('sale.goodsissue.goodsissuecreate-form-confirm', compact('materialFromSaleOrder'));
     }
 
     public function issue(Request $request) {
