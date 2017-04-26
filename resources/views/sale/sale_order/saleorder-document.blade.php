@@ -92,7 +92,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col s10 right-bold">Discount (Baht)</div>
-                                            <div class="col s2">{{ $generaldiscount}}</div>
+                                            <div class="col s2">{{ $generaldiscount }}</div>
                                         </div>
                                         <div class="row">
                                             <div class="col s10 right-bold">Order Total</div>

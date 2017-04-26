@@ -154,7 +154,6 @@ class SaleOrderController extends Controller {
         $cal = $total - $discount;
         if (isset($generalCondition[0])) {
             $generalDiscount = ($generalCondition[0]->discount / 100) * $cal;
-
             $netPrice = $total - ($discount + $generalDiscount);
         } else {
             $generalDiscount = 0;
