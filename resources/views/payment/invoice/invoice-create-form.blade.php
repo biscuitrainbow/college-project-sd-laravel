@@ -33,8 +33,8 @@
                 <label>Create Date</label>
             </div>
             <div class="input-field col s4">
-                <input disabled id="request_date" type="text" value="{{$goods_issue[0]->request_date}}">
-                <label for="requestdelivery">Request delivery date</label>
+                <input name="request_date" type="date" class="datepicker">
+                <label for="date">Invoice Date</label>
             </div>
         </div>
 

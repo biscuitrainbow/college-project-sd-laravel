@@ -19,10 +19,10 @@
             <table class="highlight">
                 <thead>
                 <tr>
-                    <th>Document ID</th>
+                    <th>Receipt ID</th>
                     <th>Customer</th>
                     <th>Create Date</th>
-                    <th>Request Delivery Date</th>
+                    <th>Invoice Date</th>
                     <th>Action</th>
                 </tr>
                 </thead>
