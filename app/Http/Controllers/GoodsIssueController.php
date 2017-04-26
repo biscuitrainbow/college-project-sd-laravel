@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DocumentHasMaterial;
+use App\Material;
 use DB;
 use Illuminate\Http\Request;
 
@@ -45,8 +47,28 @@ class GoodsIssueController extends Controller {
     }
 
     public function update(Request $request) {
+
+        $materialFromSaleOrder = array();
+
         for ($i = 0; $i < sizeof($request->input('sale_order_id')); $i++) {
             //TODO:: ได้ sale order id มาแล้ว เหลือเอาไปเช้ค availability ถ้าไม่ทันก็เชคแค่ qunaity พอ
+            $documentHasMaaterial = DocumentHasMaterial::with('material')->where('document_id', $request->input('sale_order_id')[$i])->get();
+            $materialFromSaleOrder[$i] = $documentHasMaaterial;
+        }
+
+
+        return view('sale.goodsissue.goodsissuecreate-form-confirm', compact('materialFromSaleOrder'));
+
+
+    }
+
+    public function issue(Request $request) {
+        $material_id = $request->input('material_id');
+        $order_quantity = $request->input('order_quantity');
+        for ($i = 0; $i < sizeof($material_id); $i++) {
+            $material = Material::find($material_id[$i]);
+            $material->quantity = $material->quantity - $order_quantity[$i];
+            $material->save();
         }
     }
 
