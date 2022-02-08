@@ -21,6 +21,11 @@ class UserSeeder extends Seeder
                 'name' => 'Natthapon',
                 'email' => 'natthaponsricort@gmail.com',
                 'password' => '$2y$10$EJwIRyawIFx5f84NQdH0X.KRcry.9iqb.Pw1PO7bcKoHkx4QmXgDy'
+            ],
+            [
+                'name' => 'Admin',
+                'email' => 'admin@email.com',
+                'password' => '$2a$12$nkbDxzFvLZf.vGzzlh5qN.qwHI1nflAmrrx3nwlR60XZsKfkplNEm'
             ]
         ));
     }
